@@ -13,7 +13,7 @@ export class ModalExample extends Component {
 
     render() {
         return (
-            <View style={{marginTop: 22, justifyContent: 'center', alignItems: 'center'}}>
+            <View>
                 <Modal
                     animationType="slide"
                     transparent={false}
@@ -21,15 +21,15 @@ export class ModalExample extends Component {
                     onRequestClose={() => {
                         Alert.alert('Modal has been closed.');
                     }}>
-                    <View style={{marginTop: 22, justifyContent: 'center', alignItems: 'center'}}>
+                    <View>
                         <View>
-                            <Text>Tässä vähä modaalia</Text>
-
+                            <Text style={styles.sectionTitle}>Drinksun Nimi</Text>
+                            <Text style={styles.tableContent}>nnaklsdhohgysfhvjdzhfilsghukshfk.jsjdgkshfjskjgufgjjfjsjgjfjsgjjkvn</Text>
                             <TouchableHighlight
                                 onPress={() => {
                                     this.setModalVisible(!this.state.modalVisible);
                                 }}>
-                                <Text style={styles.sectionDescription}>Piilota modaali</Text>
+                                <Text style={styles.footer}>Sulje Drinksu</Text>
                             </TouchableHighlight>
                         </View>
                     </View>
@@ -39,7 +39,7 @@ export class ModalExample extends Component {
                     onPress={() => {
                         this.setModalVisible(true);
                     }}>
-                    <Text style={styles.sectionDescription}>Näytä modaali</Text>
+                    <Text style={styles.sectionDescription}>Drinksun Nimi</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -55,20 +55,31 @@ const styles = StyleSheet.create({
         right: 0,
     },
     body: {
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.powderblue
+    },
+    tableContent: {
+        marginTop: 42,
+        paddingHorizontal: 24,
+        textAlign: 'center',
+        fontSize: 14,
+        backgroundColor: Colors.powderblue,
     },
     sectionContainer: {
-        marginTop: 32,
+        marginTop: 42,
         paddingHorizontal: 24,
+        textAlign: 'center',
+        fontSize: 14,
+        backgroundColor: Colors.powderblue,
     },
     sectionTitle: {
         fontSize: 24,
         fontWeight: '600',
         color: Colors.black,
+        textAlign: 'center',
     },
     sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
+        marginTop: 18,
+        fontSize: 28,
         fontWeight: '400',
         color: Colors.dark,
     },
@@ -81,7 +92,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         padding: 4,
         paddingRight: 12,
-        textAlign: 'right',
+        textAlign: 'center',
     },
 });
 
