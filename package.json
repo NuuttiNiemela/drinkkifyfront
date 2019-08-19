@@ -8,7 +8,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "algoliasearch": "^3.33.0",
     "react": "16.8.6",
+    "react-dom": "^16.9.0",
+    "react-instantsearch-dom": "^5.7.0",
     "react-native": "0.60.5",
     "react-native-firebase": "^5.5.6",
     "react-navigation": "^3.11.1"
