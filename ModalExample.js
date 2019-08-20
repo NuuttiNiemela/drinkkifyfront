@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} from 'react-native';
 import {Colors} from "react-native/Libraries/NewAppScreen";
-import * as Animatable from 'react-native-animatable'
+import * as Animatable from 'react-native-animatable';
 
 
 
@@ -38,7 +38,9 @@ export class ModalExample extends Component {
                             <Text style={styles.ingredientStyle}>2cl Aine</Text>
                             <View style = {styles.lineStyle} />
                             <Text>{"\n"}</Text>
-                            <Text style={styles.craftStyle}>Ohjeet ... </Text>
+                            <Text style={styles.craftStyle}>Ohjeet</Text>
+                            <Text>{"\n"}</Text>
+                            <Text style={styles.ingredientStyle}>If you want to improve the UX, you can allow the user to swipe the modal away. For example, if the modal comes from the top like a notification, it feels natural to close it by pulling it up ⬆️. If it comes from the bottom, the user will be surprised if they cannot swipe it down ⬇️. It’s even better to highlight the fact that they can swipe the modal with a little bar with some borderRadius. The best library for that use case would be the react-native-modal library. It is widely customisable and answers to criteria 1️⃣, 2️⃣ and 3️⃣.</Text>
                             <Text>{"\n"}</Text>
                             <TouchableHighlight
                                 onPress={() => {
