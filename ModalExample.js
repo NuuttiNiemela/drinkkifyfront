@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert} from 'react-native';
+import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} from 'react-native';
 import {Colors} from "react-native/Libraries/NewAppScreen";
+import * as Animatable from 'react-native-animatable'
+
+
 
 export class ModalExample extends Component {
     state = {
@@ -22,15 +25,28 @@ export class ModalExample extends Component {
                         Alert.alert('Modal has been closed.');
                     }}>
                     <View>
-                        <View>
+                        <View style={styles.sectionContainer}>
+                            <Text>{"\n"}</Text>
                             <Text style={styles.sectionTitle}>Drinksun Nimi</Text>
-                            <Text style={styles.tableContent}>nnaklsdhohgysfhvjdzhfilsghukshfk.jsjdgkshfjskjgufgjjfjsjgjfjsgjjkvn</Text>
+                            <Text>{"\n"}</Text>
+                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <View style = {styles.lineStyle} />
+                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <View style = {styles.lineStyle} />
+                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <View style = {styles.lineStyle} />
+                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <View style = {styles.lineStyle} />
+                            <Text>{"\n"}</Text>
+                            <Text style={styles.craftStyle}>Ohjeet ... </Text>
+                            <Text>{"\n"}</Text>
                             <TouchableHighlight
                                 onPress={() => {
                                     this.setModalVisible(!this.state.modalVisible);
                                 }}>
                                 <Text style={styles.footer}>Sulje Drinksu</Text>
                             </TouchableHighlight>
+                            <Text>{"\n"}</Text>
                         </View>
                     </View>
                 </Modal>
@@ -54,6 +70,21 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 0,
     },
+    craftStyle: {
+       fontSize: 20,
+       color: 'black',
+        textAlign : 'center',
+    },
+    ingredientStyle: {
+        fontSize: 18,
+        color: 'black',
+        margin: 10,
+    },
+    lineStyle: {
+        borderWidth: 0.5,
+        borderColor: 'black',
+        margin: 10,
+    },
     body: {
         backgroundColor: Colors.powderblue
     },
@@ -62,36 +93,37 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         textAlign: 'center',
         fontSize: 14,
-        backgroundColor: Colors.powderblue,
+        backgroundColor: 'black',
     },
     sectionContainer: {
         marginTop: 42,
         paddingHorizontal: 24,
         textAlign: 'center',
         fontSize: 14,
-        backgroundColor: Colors.powderblue,
+        backgroundColor: 'powderblue',
     },
     sectionTitle: {
+        marginTop: 10,
         fontSize: 24,
         fontWeight: '600',
-        color: Colors.black,
+        color: 'black',
         textAlign: 'center',
     },
     sectionDescription: {
         marginTop: 18,
-        fontSize: 28,
+        fontSize: 20,
         fontWeight: '400',
-        color: Colors.dark,
+        color: 'black',
+        marginLeft: 20
     },
     highlight: {
         fontWeight: '700',
     },
     footer: {
-        color: Colors.dark,
-        fontSize: 12,
+        color: 'black',
+        fontSize: 16,
         fontWeight: '600',
         padding: 4,
-        paddingRight: 12,
         textAlign: 'center',
     },
 });
