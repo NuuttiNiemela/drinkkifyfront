@@ -4,7 +4,7 @@ import {getAll} from "../Serviceclient";
 import {ActivityIndicator, View} from 'react-native';
 
 class Main extends Component {
-    state = {drinks: [], isLoading: true};
+    state = {drinks: [], isLoading: false};
 
     getDrinks = () => {
         getAll()
