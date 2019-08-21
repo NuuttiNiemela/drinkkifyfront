@@ -2,19 +2,23 @@ import React, {Component, Fragment, useRef} from 'react';
 import ModalExample from "../ModalExample";
 import {getAll} from "../Serviceclient";
 import {ActivityIndicator, View} from 'react-native';
+import Drinks from "./Drinks";
 
 
 class Main extends Component {
-    state = {drinks: [], isLoading: false};
+    state = {drinks: [], isLoading: true};
 
     getDrinks = () => {
         getAll()
             .then((response) => {
+                console.log(response)
                 this.setState({
+                    drinks: response,
                     isLoading: false,
-                    drinks: response
                 })
+                console.log(this.state)
             })
+            .catch((error) => console.log('TÄSSÄ:' + error.message))
     }
 
     componentDidMount = () => {
@@ -23,6 +27,7 @@ class Main extends Component {
 
 
     render() {
+
         if(this.state.isLoading) {
             return(
                 <View style={{flex: 1, paddingTop: 20}}>
@@ -32,7 +37,7 @@ class Main extends Component {
         }
         return (
             <Fragment>
-                <ModalExample/>
+                <Drinks drinks={this.state.drinks}/>
             </Fragment>
         );
     }
