@@ -6,7 +6,7 @@ import Drinks from "./Drinks";
 
 
 class Main extends Component {
-    state = {drinks: [], isLoading: true};
+    state = {drinks: [], isLoading: false};
 
     getDrinks = () => {
         getAll()
@@ -39,8 +39,8 @@ class Main extends Component {
             <Fragment>
                 <Drinks drinks={this.state.drinks}/>
                 <Button
-                title="Cabinet"
-                onPress={() => this.props.navigation.navigate('Cabinet')} />
+                title="Search"
+                onPress={() => this.props.navigation.navigate('Search')} />
             </Fragment>
         );
     }

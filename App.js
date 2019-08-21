@@ -21,25 +21,7 @@ const AppContainer = createAppContainer(AppNavigator);
 
 const App = () => {
   return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <AppContainer/>
-          </View>
-
-
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
+            <AppNavigator/>
   );
 };
 

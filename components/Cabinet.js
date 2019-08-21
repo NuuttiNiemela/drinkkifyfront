@@ -7,8 +7,8 @@ class Cabinet extends Component {
             <View style={{flex: 1, paddingTop: 20}} >
                 <Text>TÄSSÄ IKIOMA VIINAKAAPPI</Text>
                 <Button
-                title="Home"
-                onPress={() => this.props.navigation.navigate('Home')} />
+                title="Search"
+                onPress={() => this.props.navigation.navigate('Search')} />
             </View>
         );
     }
