@@ -1,6 +1,6 @@
 
 export function getAll() {
-    return fetch('http://IP:3000/api/drinks')
+    return fetch('http://10.100.104.68:3000/api/drinks')
         .then((response) => response.json())
 }
 
