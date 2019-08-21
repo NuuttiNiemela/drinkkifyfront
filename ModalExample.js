@@ -34,7 +34,7 @@ export class ModalExample extends Component {
                             <Text>{"\n"}</Text>
                             <Text style={material.display1}>Hello Typography!</Text>
                             <Text>{"\n"}</Text>
-                            <Text style={styles.sectionTitle}>Drinksun Nimi</Text>
+                            <Text style={styles.sectionTitle}>{this.props.name}</Text>
                             <Text>{"\n"}</Text>
                             <Text style={styles.ingredientStyle}>2cl Aine</Text>
                             <View style = {styles.lineStyle} />
@@ -47,7 +47,7 @@ export class ModalExample extends Component {
                             <Text>{"\n"}</Text>
                             <Text style={styles.craftStyle}>Ohjeet...</Text>
                             <Text>{"\n"}</Text>
-                            <Text style={styles.craftStyle}>tjkömöldmsklmsihirgjhvskjkajfjshvbcnmv skdgjghkbs,mvsölkskfklsfjndmvmighuidhgklosjgjkdfvnjukyigcfcfgdrgdhgghkklölkpiuiygghfddetssweqarstcguihioolpåiiouyjkmoåpoiyyfjhjöoioyyijbjvfhctreytuijkmjkjhvfuijkkskdj</Text>
+                            <Text style={styles.craftStyle}>{this.props.instructions}</Text>
                             <Text>{"\n"}</Text>
                             <TouchableHighlight
                                 onPress={() => {
@@ -65,7 +65,7 @@ export class ModalExample extends Component {
                     onPress={() => {
                         this.setModalVisible(true);
                     }}>
-                    <Text style={styles.sectionDescription}>Drinksun Nimi</Text>
+                    <Text style={styles.sectionDescription}>{this.props.name}</Text>
                 </TouchableHighlight>
             </View>
         );
