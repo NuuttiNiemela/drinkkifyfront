@@ -12,8 +12,12 @@ import {
   Header,
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import ModalExample from "./ModalExample";
+import AppNavigator from "./components/AppNavigator";
+import {createAppContainer} from "react-navigation";
 import Main from "./components/Main";
+import Login from "./components/Login";
+
+const AppContainer = createAppContainer(AppNavigator);
 
 const App = () => {
   return (
@@ -29,7 +33,7 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
-            <Main/>
+            <AppContainer/>
           </View>
 
 
