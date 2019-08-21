@@ -2,8 +2,7 @@ import React, {Component, Fragment, useRef} from 'react';
 import ModalExample from "../ModalExample";
 import {getAll} from "../Serviceclient";
 import {ActivityIndicator, View} from 'react-native';
-import { View, Text, TouchableOpacity } from 'react-native';
-import Modalize from 'react-native-modalize';
+
 
 class Main extends Component {
     state = {drinks: [], isLoading: false};

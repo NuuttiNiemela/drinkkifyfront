@@ -21,7 +21,9 @@
     "react-native-modalbox": "^1.7.1",
     "react-native-modalize": "^1.2.1",
     "react-navigation": "^3.11.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "react-native-material-bottom-navigation": "^1.0.4",
+    "react-native-typography": "^1.4.1"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
