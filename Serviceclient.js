@@ -9,6 +9,7 @@ export function getAll() {
         },
     })
         .then((response) => response.json())
+        .catch((error) => console.log(error.message))
 }
 
 export function getOne(i) {
@@ -20,4 +21,5 @@ export function getOne(i) {
         }
     })
         .then((response) => response.json())
+        .catch((error) => console.log(error.message))
 }
