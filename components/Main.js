@@ -1,10 +1,11 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component, Fragment, useRef} from 'react';
 import ModalExample from "../ModalExample";
 import {getAll} from "../Serviceclient";
 import {ActivityIndicator, View} from 'react-native';
 
+
 class Main extends Component {
-    state = {drinks: [], isLoading: true};
+    state = {drinks: [], isLoading: false};
 
     getDrinks = () => {
         getAll()
