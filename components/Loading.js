@@ -7,6 +7,8 @@ class Loading extends Component {
             <div>
 
             </div>
+            /*<Fragment>
+            </Fragment>*/
         );
     }
 }

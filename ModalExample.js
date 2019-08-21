@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} from 'react-native';
-import {Colors} from "react-native/Libraries/NewAppScreen";
-import * as Animatable from 'react-native-animatable'
+/*import {Colors} from "react-native/Libraries/NewAppScreen";
+import * as Animatable from 'react-native-animatable';*/
+import { material } from 'react-native-typography'
+
 
 
 
@@ -25,7 +27,12 @@ export class ModalExample extends Component {
                         Alert.alert('Modal has been closed.');
                     }}>
                     <View>
+                        <ScrollView
+                            contentInsetAdjustmentBehavior="automatic"
+                            style={styles.scrollView}>
                         <View style={styles.sectionContainer}>
+                            <Text>{"\n"}</Text>
+                            <Text style={material.display1}>Hello Typography!</Text>
                             <Text>{"\n"}</Text>
                             <Text style={styles.sectionTitle}>Drinksun Nimi</Text>
                             <Text>{"\n"}</Text>
@@ -38,7 +45,9 @@ export class ModalExample extends Component {
                             <Text style={styles.ingredientStyle}>2cl Aine</Text>
                             <View style = {styles.lineStyle} />
                             <Text>{"\n"}</Text>
-                            <Text style={styles.craftStyle}>Ohjeet ... </Text>
+                            <Text style={styles.craftStyle}>Ohjeet...</Text>
+                            <Text>{"\n"}</Text>
+                            <Text style={styles.craftStyle}>tjkömöldmsklmsihirgjhvskjkajfjshvbcnmv skdgjghkbs,mvsölkskfklsfjndmvmighuidhgklosjgjkdfvnjukyigcfcfgdrgdhgghkklölkpiuiygghfddetssweqarstcguihioolpåiiouyjkmoåpoiyyfjhjöoioyyijbjvfhctreytuijkmjkjhvfuijkkskdj</Text>
                             <Text>{"\n"}</Text>
                             <TouchableHighlight
                                 onPress={() => {
@@ -48,6 +57,7 @@ export class ModalExample extends Component {
                             </TouchableHighlight>
                             <Text>{"\n"}</Text>
                         </View>
+                        </ScrollView>
                     </View>
                 </Modal>
 
@@ -63,8 +73,9 @@ export class ModalExample extends Component {
 }
 
 const styles = StyleSheet.create({
+
     scrollView: {
-        backgroundColor: Colors.lighter,
+        backgroundColor: 'black',
     },
     engine: {
         position: 'absolute',
@@ -86,7 +97,7 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     body: {
-        backgroundColor: Colors.powderblue
+        backgroundColor: 'powderblue',
     },
     tableContent: {
         marginTop: 42,
