@@ -16,6 +16,8 @@ export class ModalExample extends Component {
         this.setState({modalVisible: visible});
     }
 
+
+
     render() {
         return (
             <View>
@@ -36,13 +38,13 @@ export class ModalExample extends Component {
                             <Text>{"\n"}</Text>
                             <Text style={styles.sectionTitle}>{this.props.name}</Text>
                             <Text>{"\n"}</Text>
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <Text style={styles.ingredientStyle}>{this.props.ingredient1}</Text>
                             <View style = {styles.lineStyle} />
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <Text style={styles.ingredientStyle}>{this.props.ingredient2}</Text>
                             <View style = {styles.lineStyle} />
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <Text style={styles.ingredientStyle}>{this.props.ingredient3}</Text>
                             <View style = {styles.lineStyle} />
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
+                            <Text style={styles.ingredientStyle}>{this.props.ingredient4}</Text>
                             <View style = {styles.lineStyle} />
                             <Text>{"\n"}</Text>
                             <Text style={styles.craftStyle}>Ohjeet...</Text>
