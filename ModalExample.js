@@ -32,8 +32,6 @@ export class ModalExample extends Component {
                             style={styles.scrollView}>
                         <View style={styles.sectionContainer}>
                             <Text>{"\n"}</Text>
-                            <Text style={material.display1}>Hello Typography!</Text>
-                            <Text>{"\n"}</Text>
                             <Text style={styles.sectionTitle}>{this.props.name}</Text>
                             <Text>{"\n"}</Text>
                             <Text style={styles.ingredientStyle}>2cl Aine</Text>
@@ -112,6 +110,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 14,
         backgroundColor: 'powderblue',
+
     },
     sectionTitle: {
         marginTop: 10,
@@ -119,13 +118,14 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         color: 'black',
         textAlign: 'center',
+        fontFamily: 'Roboto-Black',
     },
     sectionDescription: {
         marginTop: 18,
         fontSize: 20,
         fontWeight: '400',
-        color: 'black',
-        marginLeft: 20
+        marginLeft: 20,
+        color: 'gold',
     },
     highlight: {
         fontWeight: '700',

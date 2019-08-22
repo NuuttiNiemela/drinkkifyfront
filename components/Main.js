@@ -4,6 +4,7 @@ import {getAll, getSomething} from "../Serviceclient";
 import {ActivityIndicator, View, Button, TextInput} from 'react-native';
 import Drinks from "./Drinks";
 import _ from 'lodash';
+import AddDrink from "./AddDrink";
 
 class Main extends Component {
     state = {drinks: [], isLoading: false, query: ""};
@@ -64,9 +65,11 @@ class Main extends Component {
                     value={this.state.query}
                 />
                 <Drinks drinks={this.state.drinks}/>
-                <Button
+      <Button
                 title="Search"
                 onPress={this.search} />
+                onPress={() => this.props.navigation.navigate('Search')} />
+                <AddDrink/>
             </Fragment>
         );
     }
