@@ -1,12 +1,12 @@
 import React, {Component, Fragment, useRef} from 'react';
 import ModalExample from "../ModalExample";
 import {getAll} from "../Serviceclient";
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator, View, Button} from 'react-native';
 import Drinks from "./Drinks";
 
 
 class Main extends Component {
-    state = {drinks: [], isLoading: true};
+    state = {drinks: [], isLoading: false};
 
     getDrinks = () => {
         getAll()
@@ -38,6 +38,9 @@ class Main extends Component {
         return (
             <Fragment>
                 <Drinks drinks={this.state.drinks}/>
+                <Button
+                title="Search"
+                onPress={() => this.props.navigation.navigate('Search')} />
             </Fragment>
         );
     }
