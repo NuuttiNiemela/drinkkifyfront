@@ -12,30 +12,16 @@ import {
   Header,
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import ModalExample from "./ModalExample";
+import AppNavigator from "./components/AppNavigator";
+import {createAppContainer} from "react-navigation";
 import Main from "./components/Main";
+import Login from "./components/Login";
+
+const AppContainer = createAppContainer(AppNavigator);
 
 const App = () => {
   return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <Main/>
-          </View>
-
-
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
+            <AppNavigator/>
   );
 };
 
