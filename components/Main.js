@@ -3,6 +3,7 @@ import ModalExample from "../ModalExample";
 import {getAll} from "../Serviceclient";
 import {ActivityIndicator, View, Button} from 'react-native';
 import Drinks from "./Drinks";
+import AddDrink from "./AddDrink";
 
 
 class Main extends Component {
@@ -38,9 +39,10 @@ class Main extends Component {
         return (
             <Fragment>
                 <Drinks drinks={this.state.drinks}/>
-                <Button
+      <Button
                 title="Search"
                 onPress={() => this.props.navigation.navigate('Search')} />
+                <AddDrink/>
             </Fragment>
         );
     }
