@@ -42,7 +42,7 @@ class Main extends Component {
       <Button
                 title="Search"
                 onPress={() => this.props.navigation.navigate('Search')} />
-
+                <AddDrink/>
             </Fragment>
         );
     }

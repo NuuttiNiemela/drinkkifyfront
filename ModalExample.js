@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 14,
         backgroundColor: 'powderblue',
+
     },
     sectionTitle: {
         marginTop: 10,
@@ -123,8 +124,8 @@ const styles = StyleSheet.create({
         marginTop: 18,
         fontSize: 20,
         fontWeight: '400',
-        color: 'black',
-        marginLeft: 20
+        marginLeft: 20,
+        color: 'gold',
     },
     highlight: {
         fontWeight: '700',
