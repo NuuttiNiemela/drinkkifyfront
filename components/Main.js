@@ -65,10 +65,9 @@ class Main extends Component {
                     value={this.state.query}
                 />
                 <Drinks drinks={this.state.drinks}/>
-      <Button
+                <Button
                 title="Search"
                 onPress={this.search} />
-                onPress={() => this.props.navigation.navigate('Search')} />
                 <AddDrink/>
             </Fragment>
         );

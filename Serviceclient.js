@@ -1,4 +1,4 @@
-var ip = '10.100.104.25';
+var ip = 1;
 
 export function getAll() {
     return fetch('http://' + ip + ':3000/api/drinks')
@@ -11,7 +11,7 @@ export function getSomething(i) {
 }
 
     export function addToList(drink) {
-        return fetch ('http://IP:3000/api/drinks', {
+        return fetch ('http://' + ip + ':3000/api/drinks', {
             method: 'POST',
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions})
