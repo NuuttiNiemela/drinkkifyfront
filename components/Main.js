@@ -78,13 +78,12 @@ class Main extends Component {
                     placeholder="Type here"
                     onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
-                    onPress={this.search}
                 />
+                <Button
+                    title="Search"
+                    onPress={this.search} />
 
                 <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
-                <Button
-                title="Search"
-                onPress={this.search} />
                 <AddDrink paivita={this.getDrinks}/>
 
             </Fragment>
