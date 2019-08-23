@@ -1,4 +1,4 @@
-var ip = 1;
+var ip = "laita tähän";
 
 export function getAll() {
     return fetch('http://' + ip + ':3000/api/drinks')
@@ -7,6 +7,11 @@ export function getAll() {
 
 export function getSomething(i) {
     return fetch('http://' + ip + ':3000/api/drinks/' + i)
+        .then((response) => response.json())
+}
+
+export function getAllIngredients() {
+    return fetch('http://' + ip + ':3000/api//ingredients')
         .then((response) => response.json())
 }
 
@@ -20,6 +25,4 @@ export function getSomething(i) {
             // .then((responseData) => { console.log("response: " + responseData); })
             // .catch((err) => { console.log(err); });
     }
-
-
 
