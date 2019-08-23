@@ -5,7 +5,7 @@ class Ingredient extends Component {
     render() {
         return (
             <View>
-            <Text style={styles.ingredientStyle}>{this.props.ingredient.ingredient_name}</Text>
+            <Text style={styles.ingredientStyle}>{this.props.ingredient.ingredient_name} - {this.props.ingredient.amount} {this.props.ingredient.unit} </Text>
             <View style = {styles.lineStyle} />
             </View>
         );

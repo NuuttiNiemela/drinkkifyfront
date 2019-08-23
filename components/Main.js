@@ -8,7 +8,10 @@ import _ from 'lodash';
 import AddDrink from "./AddDrink";
 
 class Main extends Component {
-    state = {drinks: [], ingredients: [], isLoading: true, searchedDrinks: [], query: ""};
+
+
+    state = {drinks: [], isLoading: true, searchedDrinks: [], query: ""};
+
 
     getDrinks = () => {
         getAll()
@@ -23,17 +26,17 @@ class Main extends Component {
     }
 
 
-    getIngredients = () => {
-        getAllIngredients()
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    ingredients: response
-                })
-                console.log(this.state)
-            })
-            .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
-    }
+    // getIngredients = () => {
+    //     getAllIngredients()
+    //         .then((response) => {
+    //             console.log(response)
+    //             this.setState({
+    //                 ingredients: response
+    //             })
+    //             console.log(this.state)
+    //         })
+    //         .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
+    // }
 
 
 
@@ -51,8 +54,6 @@ class Main extends Component {
 
     componentDidMount = () => {
         this.getDrinks();
-        this.getIngredients();
-        console.log(this.state.ingredients);
     }
 
     search = (ev) => {
@@ -79,11 +80,12 @@ class Main extends Component {
                     onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
                 />
+
                 <Button
                     title="Search"
                     onPress={this.search} />
 
-                <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
+                <Drinks drinks={this.state.drinks}/>
                 <AddDrink paivita={this.getDrinks}/>
 
             </Fragment>
