@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, FlatList, Text, View, Alert, TouchableOpacity, TextInput, Button } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Keyboard } from 'react-native';
 import {addToList} from "../Serviceclient";
 
 
@@ -12,19 +12,11 @@ class AddDrink extends Component {
         instructions: '',
     }
 
-    addDrink = e => {
-        this.setState({name: e.target.value, })
-    };
-    addIngredients = e => {
-        this.setState({ingredients: e.target.value})
-    };
-    addInstructions = e => {
-        this.setState({instructions: e.target.value})
-    };
-
 send = (e) => {
     e.preventDefault();
-    addToList(this.state);
+    addToList(this.state)
+    .then(this.props.paivita)
+    Keyboard.dismiss();
     this.setState({name: '', ingredients: '', instructions: ''});
 }
 

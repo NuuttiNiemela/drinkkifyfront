@@ -1,12 +1,14 @@
 var ip = "laita tähän";
 
+
+
 export function getAll() {
     return fetch('http://' + ip + ':3000/api/drinks')
         .then((response) => response.json())
 }
 
 export function getSomething(i) {
-    return fetch('http://' + ip + ':3000/api/drinks/' + i)
+    return fetch('http://' + ip + ':3000/api/drinks/haku?name=' + i)
         .then((response) => response.json())
 }
 
