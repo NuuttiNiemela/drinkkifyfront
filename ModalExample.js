@@ -127,7 +127,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '400',
         marginLeft: 20,
-        color: 'white',
+        color: 'black',
+        fontFamily: 'Roboto-Black',
     },
     highlight: {
         fontWeight: '700',

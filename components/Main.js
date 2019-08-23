@@ -1,5 +1,4 @@
 import React, {Component, Fragment, useRef,} from 'react';
-import {getAll} from "../Serviceclient";
 import {getAll, getSomething} from "../Serviceclient";
 import {ActivityIndicator, View, Button, TextInput} from 'react-native';
 
@@ -72,7 +71,7 @@ class Main extends Component {
                 title="Search"
                 onPress={this.search} />
 
-                <AddDrink/>
+
             </Fragment>
 
         );

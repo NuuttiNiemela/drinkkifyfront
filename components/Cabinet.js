@@ -31,7 +31,6 @@ class Cabinet extends Component {
                 <View style = {styles.lineStyle} />
                 <Text style={styles.viinaStyle}>Punaviini</Text>
                 <View style = {styles.lineStyle} />
-                {/*<Text>{"\n"}</Text>*/}
 
 
                 <TouchableOpacity
