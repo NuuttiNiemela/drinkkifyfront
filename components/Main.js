@@ -1,8 +1,7 @@
 import React, {Component, Fragment, useRef} from 'react';
-import ModalExample from "../ModalExample";
-
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
-import {ActivityIndicator, View, Button, TextInput} from 'react-native';
+import {ActivityIndicator, View, Button, TextInput, Keyboard} from 'react-native';
+
 
 import Drinks from "./Drinks";
 import _ from 'lodash';
@@ -10,13 +9,16 @@ import AddDrink from "./AddDrink";
 
 class Main extends Component {
 
+
     state = {drinks: [], isLoading: false, query: ""};
+
 
     getDrinks = () => {
         getAll()
             .then((response) => {
                 this.setState({
                     drinks: response,
+                    searchedDrinks: response,
                     isLoading: false,
                 })
             })
@@ -24,17 +26,17 @@ class Main extends Component {
     }
 
 
-    getIngredients = () => {
-        getAllIngredients()
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    ingredients: response
-                })
-                console.log(this.state)
-            })
-            .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
-    }
+    // getIngredients = () => {
+    //     getAllIngredients()
+    //         .then((response) => {
+    //             console.log(response)
+    //             this.setState({
+    //                 ingredients: response
+    //             })
+    //             console.log(this.state)
+    //         })
+    //         .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
+    // }
 
 
 
@@ -43,7 +45,7 @@ class Main extends Component {
         getSomething(d)
             .then((response) => {
                 this.setState({
-                    drinks: [response],
+                    drinks: response,
                     isLoading: false,
                 })
             })
@@ -52,23 +54,17 @@ class Main extends Component {
 
     componentDidMount = () => {
         this.getDrinks();
-        this.getIngredients();
-        console.log(this.state.ingredients);
-    }
-
-    handleQuery = (ev) => {
-        this.setState({query: ev.target.value})
     }
 
     search = (ev) => {
         ev.preventDefault()
         console.log(this.state)
         this.searchDrinks(this.state.query)
+        Keyboard.dismiss();
     }
 
 
     render() {
-
         if(this.state.isLoading) {
             return(
                 <View style={{flex: 1, paddingTop: 20}}>
@@ -77,21 +73,27 @@ class Main extends Component {
             )
         }
         return (
-            <Fragment>
 
+            <Fragment>
                 <TextInput
                     placeholder="Type here"
-                    onChange={this.handleQuery}
+                    onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
                 />
-                <Drinks drinks={this.state.drinks}/>
+
                 <Button
-                title="Search"
-                onPress={this.search} />
-                <AddDrink/>
+                    title="Search"
+                    onPress={this.search} />
+
+                <Drinks drinks={this.state.drinks}/>
+                <AddDrink paivita={this.getDrinks}/>
+
             </Fragment>
+
         );
     }
 }
+
+
 
 export default Main;

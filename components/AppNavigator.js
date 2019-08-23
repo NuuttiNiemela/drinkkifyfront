@@ -24,16 +24,16 @@ const CabinetNavigator = createStackNavigator({
     {
         initialRouteName: "Home",
         defaultNavigationOptions: {
-            title: 'Cabinet'
+            title: 'Baarikaappi',
         },
     })
 
 AppNavigator.navigationOptions = {
-    tabBarLabel: 'Drinks'
+    tabBarLabel: 'Drinksut'
 };
 
 CabinetNavigator.navigationOptions = {
-    tabBarLabel: 'Cabinet'
+    tabBarLabel: 'Baarikaappi'
 };
 
 

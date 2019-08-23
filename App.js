@@ -44,12 +44,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: Colors.black,
+
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
     color: Colors.dark,
+    textAlign: 'center',
   },
   highlight: {
     fontWeight: '700',

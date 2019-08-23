@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet, FlatList, Text, View, Alert, TouchableOpacity, TextInput, Button } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Keyboard, TouchableOpacity, Text} from 'react-native';
 import {addToList} from "../Serviceclient";
+
 
 
 
@@ -12,19 +13,11 @@ class AddDrink extends Component {
         instructions: '',
     }
 
-    addDrink = e => {
-        this.setState({name: e.target.value, })
-    };
-    addIngredients = e => {
-        this.setState({ingredients: e.target.value})
-    };
-    addInstructions = e => {
-        this.setState({instructions: e.target.value})
-    };
-
 send = (e) => {
     e.preventDefault();
-    addToList(this.state);
+    addToList(this.state)
+    .then(this.props.paivita)
+    Keyboard.dismiss();
     this.setState({name: '', ingredients: '', instructions: ''});
 }
 
@@ -48,13 +41,31 @@ send = (e) => {
                     onChangeText={instructions => this.setState({ instructions })}
                     value={this.state.instructions}
                 />
-                <Button
-                    title= 'Lisää'
-                    onPress={this.send}
-                />
+                <TouchableOpacity onPress={this.send}>
+                    <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    buttonStyle: {
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderRadius: 12,
+        borderColor: 'gold',
+        color: 'gold',
+        fontFamily: 'RobotoSlab-Thin',
+        fontSize: 30,
+        fontWeight: 'bold',
+        overflow: 'hidden',
+        padding: 12,
+        textAlign:'center',
+    },
+
+});
+
 
 export default AddDrink;
