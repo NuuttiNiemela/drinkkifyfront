@@ -1,6 +1,6 @@
 
 export function getAll() {
-    return fetch('192.168.10.58:3000/api/drinks')
+    return fetch('http://10.100.104.36:3000/api/drinks')
         .then((response) => response.json())
 }
 
@@ -14,4 +14,9 @@ export function getOne(i) {
     })
         .then((response) => response.json())
         .catch((error) => console.log(error.message))
+}
+
+export function getAllIngredients() {
+    return fetch('http://10.100.104.36:3000/api/ingredients')
+        .then((response) => response.json())
 }
