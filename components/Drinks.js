@@ -24,22 +24,17 @@ class Drinks extends Component {
 
 
         return (
-
-                    <View
+            <View
                         style={{flex: 1, padding:20}}>
 
                         <FlatList
                             style={styles.listStyle}
                             data={this.props.drinks}
-                            renderItem={({item}) => <ModalExample name={item.drink_name} ingredients={this.props.ingredients}
-                                                                  instructions={item.drink_instructions}/>}
+                            renderItem={({item}) => <ModalExample name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
                             containerStyle={{borderBottomWidth: 0}}
                             ItemSeparatorComponent={this.renderSeparator}
                         keyExtractor={({id}) => id.toString()}/>
                     </View>
-
-
-
 
         );
     }
