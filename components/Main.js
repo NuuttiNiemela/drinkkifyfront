@@ -10,7 +10,7 @@ import AddDrink from "./AddDrink";
 class Main extends Component {
 
 
-    state = {drinks: [], isLoading: false, query: ""};
+    state = {drinks: [], isLoading: true, searchedDrinks: [], query: ""};
 
 
     getDrinks = () => {
