@@ -26,7 +26,7 @@ class Drinks extends Component {
         return (
 
                     <View
-                        containerStyle={{borderTopWidth: 0, borderBottomWidth: 0}}>
+                        style={{flex: 1, padding:20}}>
 
                         <FlatList
                             style={styles.listStyle}
