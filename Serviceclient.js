@@ -1,4 +1,4 @@
-var ip = "lisää tähän";
+var ip = "laita tähän";
 
 
 

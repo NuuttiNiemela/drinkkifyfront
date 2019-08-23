@@ -1,8 +1,7 @@
 import React, {Component, Fragment, useRef} from 'react';
-import ModalExample from "../ModalExample";
 
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
-import {ActivityIndicator, View, Button, TextInput} from 'react-native';
+import {ActivityIndicator, View, Button, TextInput, Keyboard} from 'react-native';
 
 import Drinks from "./Drinks";
 import _ from 'lodash';
@@ -60,11 +59,11 @@ class Main extends Component {
         ev.preventDefault()
         console.log(this.state)
         this.searchDrinks(this.state.query)
+        Keyboard.dismiss();
     }
 
 
     render() {
-
         if(this.state.isLoading) {
             return(
                 <View style={{flex: 1, paddingTop: 20}}>
@@ -74,17 +73,17 @@ class Main extends Component {
         }
         return (
             <Fragment>
-
                 <TextInput
                     placeholder="Type here"
                     onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
+                    onPress={this.search}
                 />
                 <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
                 <Button
                 title="Search"
                 onPress={this.search} />
-                <AddDrink/>
+                <AddDrink paivita={this.getDrinks}/>
             </Fragment>
         );
     }
