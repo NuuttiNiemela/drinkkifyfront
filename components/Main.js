@@ -7,7 +7,7 @@ import _ from 'lodash';
 import AddDrink from "./AddDrink";
 
 class Main extends Component {
-    state = {drinks: [], isLoading: false, query: ""};
+    state = {drinks: [], isLoading: true, searchedDrinks: [], query: ""};
 
 
     getDrinks = () => {
@@ -15,6 +15,7 @@ class Main extends Component {
             .then((response) => {
                 this.setState({
                     drinks: response,
+                    searchedDrinks: response,
                     isLoading: false,
                 })
             })
@@ -26,7 +27,7 @@ class Main extends Component {
         getSomething(d)
             .then((response) => {
                 this.setState({
-                    drinks: [response],
+                    drinks: response,
                     isLoading: false,
                 })
             })
@@ -35,10 +36,6 @@ class Main extends Component {
 
     componentDidMount = () => {
         this.getDrinks();
-    }
-
-    handleQuery = (ev) => {
-        this.setState({query: ev.target.value})
     }
 
     search = (ev) => {
@@ -61,7 +58,7 @@ class Main extends Component {
             <Fragment>
                 <TextInput
                     placeholder="Type here"
-                    onChange={this.handleQuery}
+                    onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
                 />
                 <Drinks drinks={this.state.drinks}/>
