@@ -12,7 +12,7 @@ class Drinks extends Component {
             <FlatList
             data={this.props.drinks}
 
-            renderItem={({item}) => <ModalExample name={item.drink_name} instructions={item.drink_instructions} ingredients={this.props.ingredients} />}
+            renderItem={({item}) => <ModalExample name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
             keyExtractor={({id}) => id.toString()}/>
 
             </View>

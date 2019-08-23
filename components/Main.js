@@ -10,7 +10,7 @@ import AddDrink from "./AddDrink";
 
 class Main extends Component {
 
-    state = {drinks: [], ingredients: [], isLoading: false, query: ""};
+    state = {drinks: [], isLoading: false, query: ""};
 
     getDrinks = () => {
         getAll()
@@ -84,7 +84,7 @@ class Main extends Component {
                     onChange={this.handleQuery}
                     value={this.state.query}
                 />
-                <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
+                <Drinks drinks={this.state.drinks}/>
                 <Button
                 title="Search"
                 onPress={this.search} />
