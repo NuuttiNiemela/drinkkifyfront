@@ -1,7 +1,7 @@
 import React, {Component, Fragment, useRef} from 'react';
-
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
 import {ActivityIndicator, View, Button, TextInput, Keyboard} from 'react-native';
+
 
 import Drinks from "./Drinks";
 import _ from 'lodash';
@@ -72,6 +72,7 @@ class Main extends Component {
             )
         }
         return (
+
             <Fragment>
                 <TextInput
                     placeholder="Type here"
@@ -79,14 +80,19 @@ class Main extends Component {
                     value={this.state.query}
                     onPress={this.search}
                 />
+
                 <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
                 <Button
                 title="Search"
                 onPress={this.search} />
                 <AddDrink paivita={this.getDrinks}/>
+
             </Fragment>
+
         );
     }
 }
+
+
 
 export default Main;
