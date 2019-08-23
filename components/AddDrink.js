@@ -48,13 +48,31 @@ send = (e) => {
                     onChangeText={instructions => this.setState({ instructions })}
                     value={this.state.instructions}
                 />
-                <Button
-                    title= 'Lisää'
-                    onPress={this.send}
-                />
+                <TouchableOpacity onPress={this.send}>
+                    <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    buttonStyle: {
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderRadius: 12,
+        borderColor: 'gold',
+        color: 'gold',
+        fontFamily: 'RobotoSlab-Thin',
+        fontSize: 30,
+        fontWeight: 'bold',
+        overflow: 'hidden',
+        padding: 12,
+        textAlign:'center',
+    },
+
+});
+
 
 export default AddDrink;

@@ -83,11 +83,13 @@ const styles = StyleSheet.create({
        fontSize: 20,
        color: 'black',
         textAlign : 'center',
+        fontFamily: 'Roboto-Black',
     },
     ingredientStyle: {
         fontSize: 18,
         color: 'black',
         margin: 10,
+        fontFamily: 'Roboto-Black',
     },
     lineStyle: {
         borderWidth: 0.5,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '400',
         marginLeft: 20,
-        color: 'gold',
+        color: 'white',
     },
     highlight: {
         fontWeight: '700',

@@ -1,7 +1,7 @@
-import React, {Component, Fragment, useRef} from 'react';
+import React, {Component, Fragment, useRef,} from 'react';
 import ModalExample from "../ModalExample";
 import {getAll} from "../Serviceclient";
-import {ActivityIndicator, View, Button} from 'react-native';
+import {ActivityIndicator, View, Button, StyleSheet} from 'react-native';
 import Drinks from "./Drinks";
 import AddDrink from "./AddDrink";
 
@@ -37,15 +37,20 @@ class Main extends Component {
             )
         }
         return (
+
             <Fragment>
                 <Drinks drinks={this.state.drinks}/>
       <Button
-                title="Search"
+                title="Etsi drinksuja"
                 onPress={() => this.props.navigation.navigate('Search')} />
+
                 <AddDrink/>
             </Fragment>
+
         );
     }
 }
+
+
 
 export default Main;
