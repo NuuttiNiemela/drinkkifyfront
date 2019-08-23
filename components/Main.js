@@ -1,14 +1,15 @@
 import React, {Component, Fragment, useRef} from 'react';
 import ModalExample from "../ModalExample";
-import {getAll, getSomething} from "../Serviceclient";
+
+import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
 import {ActivityIndicator, View, Button, TextInput} from 'react-native';
+
 import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
 
 class Main extends Component {
-    state = {drinks: [], isLoading: true, searchedDrinks: [], query: ""};
-
+    state = {drinks: [], ingredients: [], isLoading: true, searchedDrinks: [], query: ""};
 
     getDrinks = () => {
         getAll()
@@ -21,6 +22,21 @@ class Main extends Component {
             })
             .catch((error) => console.log('TÄSSÄ:' + error.message))
     }
+
+
+    getIngredients = () => {
+        getAllIngredients()
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    ingredients: response
+                })
+                console.log(this.state)
+            })
+            .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
+    }
+
+
 
     searchDrinks = _.debounce((d) => {
         console.log('TÄSÄTÄSÄTÄSÄTÄSÄTÄSÄ' + d)
@@ -36,6 +52,8 @@ class Main extends Component {
 
     componentDidMount = () => {
         this.getDrinks();
+        this.getIngredients();
+        console.log(this.state.ingredients);
     }
 
     search = (ev) => {
@@ -56,12 +74,13 @@ class Main extends Component {
         }
         return (
             <Fragment>
+
                 <TextInput
                     placeholder="Type here"
                     onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
                 />
-                <Drinks drinks={this.state.drinks}/>
+                <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
                 <Button
                 title="Search"
                 onPress={this.search} />
