@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "827809566027",
+    "firebase_url": "https://drinkkify.firebaseio.com",
+    "project_id": "drinkkify",
+    "storage_bucket": "drinkkify.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827809566027:android:dc04ecf05d41df94",
+        "android_client_info": {
+          "package_name": "com.drinkkifyfront"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827809566027-f3k9q6nfnapl9sp6si53cdntrd3fik9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyzjsBx1M7VPNDgLaY9rajlXC-yiSgrVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827809566027-f3k9q6nfnapl9sp6si53cdntrd3fik9b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
