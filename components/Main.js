@@ -1,25 +1,28 @@
 import React, {Component, Fragment, useRef} from 'react';
 import ModalExample from "../ModalExample";
-import {getAll, getAllIngredients} from "../Serviceclient";
-import {ActivityIndicator, View, Button} from 'react-native';
-import Drinks from "./Drinks";
 
+import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
+import {ActivityIndicator, View, Button, TextInput} from 'react-native';
+
+import Drinks from "./Drinks";
+import _ from 'lodash';
+import AddDrink from "./AddDrink";
 
 class Main extends Component {
-    state = {drinks: [], ingredients: [], isLoading: false};
+
+    state = {drinks: [], ingredients: [], isLoading: false, query: ""};
 
     getDrinks = () => {
         getAll()
             .then((response) => {
-                console.log(response)
                 this.setState({
                     drinks: response,
                     isLoading: false,
                 })
-                console.log(this.state)
             })
             .catch((error) => console.log('TÄSSÄ:' + error.message))
     }
+
 
     getIngredients = () => {
         getAllIngredients()
@@ -35,9 +38,32 @@ class Main extends Component {
 
 
 
+    searchDrinks = _.debounce((d) => {
+        console.log('TÄSÄTÄSÄTÄSÄTÄSÄTÄSÄ' + d)
+        getSomething(d)
+            .then((response) => {
+                this.setState({
+                    drinks: [response],
+                    isLoading: false,
+                })
+            })
+            .catch((error) => console.log('TÄSSÄ:' + error.message))
+    }, 250);
+
     componentDidMount = () => {
         this.getDrinks();
         this.getIngredients();
+        console.log(this.state.ingredients);
+    }
+
+    handleQuery = (ev) => {
+        this.setState({query: ev.target.value})
+    }
+
+    search = (ev) => {
+        ev.preventDefault()
+        console.log(this.state)
+        this.searchDrinks(this.state.query)
     }
 
 
@@ -52,10 +78,17 @@ class Main extends Component {
         }
         return (
             <Fragment>
+
+                <TextInput
+                    placeholder="Type here"
+                    onChange={this.handleQuery}
+                    value={this.state.query}
+                />
                 <Drinks drinks={this.state.drinks} ingredients={this.state.ingredients}/>
                 <Button
                 title="Search"
-                onPress={() => this.props.navigation.navigate('Search')} />
+                onPress={this.search} />
+                <AddDrink/>
             </Fragment>
         );
     }
