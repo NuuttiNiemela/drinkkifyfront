@@ -31,7 +31,7 @@ class Drinks extends Component {
                         <FlatList
                             style={styles.listStyle}
                             data={this.props.drinks}
-                            renderItem={({item}) => <ModalExample name={item.drink_name} ingredients={item.drink_ingredients}
+                            renderItem={({item}) => <ModalExample name={item.drink_name} ingredients={this.props.ingredients}
                                                                   instructions={item.drink_instructions}/>}
                             containerStyle={{borderBottomWidth: 0}}
                             ItemSeparatorComponent={this.renderSeparator}
