@@ -3,7 +3,7 @@ import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} fr
 /*import {Colors} from "react-native/Libraries/NewAppScreen";
 import * as Animatable from 'react-native-animatable';*/
 import { material } from 'react-native-typography'
-
+import Ingredient from "./components/Ingredient";
 
 
 
@@ -17,6 +17,12 @@ export class ModalExample extends Component {
     }
 
     render() {
+        const ingredientrows = this.props.ingredients
+            .map(function(drink_ingr) {
+                return(<Ingredient ingredient={drink_ingr} key={drink_ingr.id.toString()}/>);
+            });
+
+
         return (
             <View>
                 <Modal
@@ -34,14 +40,7 @@ export class ModalExample extends Component {
                             <Text>{"\n"}</Text>
                             <Text style={styles.sectionTitle}>{this.props.name}</Text>
                             <Text>{"\n"}</Text>
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
-                            <View style = {styles.lineStyle} />
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
-                            <View style = {styles.lineStyle} />
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
-                            <View style = {styles.lineStyle} />
-                            <Text style={styles.ingredientStyle}>2cl Aine</Text>
-                            <View style = {styles.lineStyle} />
+                            {ingredientrows}
                             <Text>{"\n"}</Text>
                             <Text style={styles.craftStyle}>Ohjeet...</Text>
                             <Text>{"\n"}</Text>

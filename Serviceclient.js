@@ -1,5 +1,9 @@
 var ip = '10.100.104.49';
 
+
+
+
+
 export function getAll() {
 
     return fetch('http://' + ip + ':3000/api/drinks')
@@ -7,7 +11,12 @@ export function getAll() {
 }
 
 export function getSomething(i) {
-    return fetch('http://' + ip + ':3000/api/drinks/' + i)
+    return fetch('http://' + ip + ':3000/api/drinks/haku?name=' + i)
+        .then((response) => response.json())
+}
+
+export function getAllIngredients() {
+    return fetch('http://' + ip + ':3000/api//ingredients')
         .then((response) => response.json())
 }
 
@@ -24,6 +33,4 @@ export function getSomething(i) {
             // .then((responseData) => { console.log("response: " + responseData); })
             // .catch((err) => { console.log(err); });
     }
-
-
 

@@ -5,6 +5,7 @@ import Markdown from 'react-native-easy-markdown';
 
 class Drinks extends Component {
 
+
     renderSeparator = () => {
         return (
             <View
@@ -18,8 +19,12 @@ class Drinks extends Component {
             />
         );
     };
+
     render() {
+
+
         return (
+
                     <View
                         containerStyle={{borderTopWidth: 0, borderBottomWidth: 0}}>
 
@@ -32,6 +37,9 @@ class Drinks extends Component {
                             ItemSeparatorComponent={this.renderSeparator}
                         keyExtractor={({id}) => id.toString()}/>
                     </View>
+
+
+
 
         );
     }
