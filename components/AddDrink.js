@@ -11,7 +11,11 @@ class AddDrink extends Component {
         name: '',
         ingredients: '',
         instructions: '',
+        drink_ingredients: this.props.drink_ingredients,
+        query: ''
     }
+
+
 
 send = (e) => {
     e.preventDefault();
@@ -20,6 +24,18 @@ send = (e) => {
     Keyboard.dismiss();
     this.setState({name: '', ingredients: '', instructions: ''});
 }
+    findIngredient(query) {
+        //method called everytime when we change the value of the input
+        if (query === '') {
+            //if the query is null then return blank
+            return [];
+        }
+        const {drinks_ingredients} = this.state;
+        const regex = new RegExp(`${query.trim()}`, 'i');
+        return drinks_ingredients.filter(ingredient_name=> ingredient_name.search(regex) >=0);
+    }
+
+
 
     render() {
         return (
