@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 import {View, Text, Button, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
+import firebase from "react-native-firebase";
 
 class Cabinet extends Component {
+    state = { currentUser: null}
+
+    componentDidMount() {
+        const {currentUser} = firebase.auth()
+        this.setState({currentUser})
+    }
+
     render() {
         return (
             <View>
@@ -9,6 +17,7 @@ class Cabinet extends Component {
                 contentInsetAdjustmentBehavior="automatic"
                 style={styles.scrollView}>
             <View style={{flex: 1, paddingTop: 20}} >
+                <Text>Hi {this.state.currentUser && this.state.currentUser.email}</Text>
                 <Text style={styles.viinaStyle}>Koskenkorva</Text>
                 <View style = {styles.lineStyle} />
                 <Text style={styles.viinaStyle}>Gin</Text>

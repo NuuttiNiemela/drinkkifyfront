@@ -86,7 +86,7 @@ class Main extends Component {
                     onPress={this.search} />
 
                 <Drinks drinks={this.state.drinks}/>
-                <AddDrink paivita={this.getDrinks}/>
+                <AddDrink update={this.getDrinks}/>
 
             </Fragment>
 
