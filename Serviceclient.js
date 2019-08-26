@@ -1,4 +1,4 @@
-var ip = 1;
+var ip = "x";
 
 
 

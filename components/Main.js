@@ -10,7 +10,7 @@ import AddDrink from "./AddDrink";
 class Main extends Component {
 
 
-    state = {drinks: [], isLoading: true, searchedDrinks: [], query: ""};
+    state = {drinks: [], ingredients: [], isLoading: true, searchedDrinks: [], query: ""};
 
 
     getDrinks = () => {
@@ -26,17 +26,17 @@ class Main extends Component {
     }
 
 
-    // getIngredients = () => {
-    //     getAllIngredients()
-    //         .then((response) => {
-    //             console.log(response)
-    //             this.setState({
-    //                 ingredients: response
-    //             })
-    //             console.log(this.state)
-    //         })
-    //         .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
-    // }
+    getIngredients = () => {
+        getAllIngredients()
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    ingredients: response
+                })
+                console.log(this.state)
+            })
+            .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
+    }
 
 
 
@@ -54,6 +54,7 @@ class Main extends Component {
 
     componentDidMount = () => {
         this.getDrinks();
+        this.getIngredients();
     }
 
     search = (ev) => {
@@ -86,7 +87,7 @@ class Main extends Component {
                     onPress={this.search} />
 
                 <Drinks drinks={this.state.drinks}/>
-                <AddDrink paivita={this.getDrinks}/>
+                <AddDrink paivita={this.getDrinks} ingredients={this.state.ingredients}/>
 
             </Fragment>
 
