@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, Button, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
 
 class Cabinet extends Component {
@@ -18,6 +18,11 @@ class Cabinet extends Component {
                 style={styles.scrollView}>
             <View style={{flex: 1, paddingTop: 20}} >
                 <Text>Hi {this.state.currentUser && this.state.currentUser.email}</Text>
+                <TouchableHighlight onPress={() => firebase.auth().signOut()}>
+                    <Text>Sign Out</Text>
+                </TouchableHighlight>
+
+
                 <Text style={styles.viinaStyle}>Koskenkorva</Text>
                 <View style = {styles.lineStyle} />
                 <Text style={styles.viinaStyle}>Gin</Text>
