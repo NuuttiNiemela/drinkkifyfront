@@ -1,28 +1,27 @@
-import React, {Fragment} from 'react';
+import React, {Component} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
 } from 'react-native';
 
 import {
-  Header,
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from "./components/AppNavigator";
 import {createAppContainer} from "react-navigation";
-import Main from "./components/Main";
-import Login from "./components/Login";
+import firebase from "react-native-firebase";
 
 const AppContainer = createAppContainer(AppNavigator);
 
-const App = () => {
-  return (
-            <AppNavigator/>
-  );
+class App extends Component {
+
+
+
+
+  render() {
+    return (
+        <AppNavigator/>
+    );
+  };
 };
 
 const styles = StyleSheet.create({

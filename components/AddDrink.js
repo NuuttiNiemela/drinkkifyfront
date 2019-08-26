@@ -16,7 +16,7 @@ class AddDrink extends Component {
 send = (e) => {
     e.preventDefault();
     addToList(this.state)
-    .then(this.props.paivita)
+    .then(this.props.update)
     Keyboard.dismiss();
     this.setState({name: '', ingredients: '', instructions: ''});
 }
