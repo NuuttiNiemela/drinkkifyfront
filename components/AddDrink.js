@@ -27,17 +27,17 @@ send = (e) => {
                 <TextInput
                     // style={styles.textInput}
                     autoCapitalize="none"
-                    placeholder="Drinksun nimi"
+                    placeholder="Drink name"
                     onChangeText={name => this.setState({ name })}
                     value={this.state.name}/>
                     <TextInput
                     autoCapitalize="none"
-                    placeholder="Ainekset"
+                    placeholder="Ingredients"
                     onChangeText={ingredients => this.setState({ ingredients })}
                     value={this.state.ingredients}/>
                     <TextInput
                     autoCapitalize="none"
-                    placeholder="Ohjeet"
+                    placeholder="Instructions"
                     onChangeText={instructions => this.setState({ instructions })}
                     value={this.state.instructions}
                 />

@@ -1,9 +1,14 @@
-import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
+import {createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import Main from "./Main";
 import Cabinet from "./Cabinet";
 import Login from "./authentication/Login";
 import SearchRecipe from "./SearchRecipe";
 import SearchBooze from "./SearchBooze";
+import React from "react";
+import {IconButton, Colors} from "react-native-paper";
+import Icon from 'react-native-ionicons';
+import {Button} from "react-native-elements";
+import {StyleSheet, Styles} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
 
@@ -14,7 +19,7 @@ const AppNavigator = createStackNavigator({
     {
         initialRouteName: "Main",
         defaultNavigationOptions: {
-            title: 'Drinks'
+            title: 'Drinkífy'
         }
     });
 
@@ -28,17 +33,32 @@ const CabinetNavigator = createStackNavigator({
     {
         initialRouteName: "Loading",
         defaultNavigationOptions: {
-            title: 'Baarikaappi',
+            title: 'Bar cabinet',
         },
-    })
+    });
 
 AppNavigator.navigationOptions = {
-    tabBarLabel: 'Drinksut'
+    tabBarLabel: 'Drinks',
+    tabBarIcon: ({tintColor}) => (
+        <Icon name='beer' size={20}/>
+    )
 };
 
 CabinetNavigator.navigationOptions = {
-    tabBarLabel: 'Baarikaappi'
+    tabBarLabel: 'Bar cabinet',
+    tabBarIcon: ({tintColor}) => (
+        <Icon name='home' size={20}/>
+    )
 };
+const styles = StyleSheet.create({
+
+    iconStyle: {
+        color: 'black',
+        fontFamily: 'Roboto-Black',
+        marginRight: '5%',
+    },
+
+});
 
 
 export default createAppContainer(createBottomTabNavigator({

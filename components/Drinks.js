@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, FlatList, StyleSheet, Text} from "react-native";
 import ModalExample from "../ModalExample";
-import Markdown from 'react-native-easy-markdown';
+//import Markdown from 'react-native-easy-markdown';
 
 class Drinks extends Component {
 

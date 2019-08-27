@@ -45,15 +45,15 @@ class Cabinet extends Component {
                 <View style = {styles.lineStyle} />
                 <Text style={styles.viinaStyle}>Punaviini</Text>
                 <View style = {styles.lineStyle} />
-
-
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('Search')}>
-                    <Text style={styles.buttonStyle}>Lisää juoma</Text>
-            </TouchableOpacity>
             </View>
             </ScrollView>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text style={styles.buttonStyle}>Add ingredient</Text>
+            </TouchableOpacity>
             </View>
+
+
 
         );
     }
@@ -74,15 +74,22 @@ const styles = StyleSheet.create({
 
     buttonStyle: {
         backgroundColor: 'white',
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 12,
         borderColor: 'gold',
         color: 'gold',
-        fontFamily: 'RobotoSlab-Thin',
-        fontSize: 30,
+        fontFamily: 'RobotoSlab-Black',
+        fontSize: 25,
         overflow: 'hidden',
-        padding: 12,
+        padding: 10,
         textAlign:'center',
+        fontWeight: 'bold',
+        position: 'absolute',
+        width: '100%',
+        height: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        bottom: 0,
     },
     lineStyle: {
         borderWidth: 0.8,
