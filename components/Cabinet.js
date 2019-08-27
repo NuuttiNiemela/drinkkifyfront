@@ -10,6 +10,8 @@ class Cabinet extends Component {
         this.setState({currentUser})
     }
 
+
+
     render() {
         return (
             <View>
