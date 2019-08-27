@@ -5,22 +5,26 @@ import Login from "./authentication/Login";
 import SearchRecipe from "./SearchRecipe";
 import SearchBooze from "./SearchBooze";
 import React from "react";
-import {IconButton, Colors} from "react-native-paper";
+// import {IconButton, Colors} from "react-native-paper";
+// import {Icon} from 'react-native-vector-icons';
 import Icon from 'react-native-ionicons';
 import {Button} from "react-native-elements";
 import {StyleSheet, Styles} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
 
+
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
+
 },
     {
         initialRouteName: "Main",
         defaultNavigationOptions: {
-            title: 'Drinkífy'
-        }
+            title: 'Drinkify',
+
+        },
     });
 
 const CabinetNavigator = createStackNavigator({
@@ -31,7 +35,7 @@ const CabinetNavigator = createStackNavigator({
     SignUp: SignUp,
 },
     {
-        initialRouteName: "Loading",
+        initialRouteName: "Cabinet",
         defaultNavigationOptions: {
             title: 'Bar cabinet',
         },
@@ -42,6 +46,7 @@ AppNavigator.navigationOptions = {
     tabBarIcon: ({tintColor}) => (
         <Icon name='beer' size={20}/>
     )
+
 };
 
 CabinetNavigator.navigationOptions = {
@@ -50,6 +55,18 @@ CabinetNavigator.navigationOptions = {
         <Icon name='home' size={20}/>
     )
 };
+
+/*
+const MyComponent = () => (
+    <IconButton
+        icon="archive"
+        color={Colors.black}
+        size={30}
+        onPress={() => console.log('Pressed')}
+    />
+);
+*/
+
 const styles = StyleSheet.create({
 
     iconStyle: {
@@ -59,7 +76,6 @@ const styles = StyleSheet.create({
     },
 
 });
-
 
 export default createAppContainer(createBottomTabNavigator({
     AppNavigator,
