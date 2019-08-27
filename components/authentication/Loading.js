@@ -1,13 +1,52 @@
 import React, {Component} from 'react';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, Text, ActivityIndicator, StyleSheet, Button } from 'react-native'
 import firebase from 'react-native-firebase'
+import Cabinet from "../Cabinet";
+import Login from "./Login";
 
 class Loading extends Component {
+    state = {isLogged: null, token: ''}
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user ? 'Cabinet' : 'Login')
+            if(user) {
+                return firebase.auth().currentUser.getIdToken()
+                    .then(idToken => {this.setState({token: idToken, isLogged: true})})
+            } else {
+                this.setState({isLogged: false, token: ''})
+            }
         })
+    }
+
+    // renderComponent() {
+    //     if (this.state.isLogged) {
+    //         return (
+    //             this.props.navigation.navigate('Cabinet')
+    //         );
+    //     }
+    //     return (
+    //         this.props.navigation.navigate('Login')
+    //     );
+    // }
+
+    // renderComponent() {
+    //         if (this.state.isLogged) {
+    //             return (
+    //                <Cabinet/>
+    //             );
+    //         } else {
+    //             return (
+    //                 <Login/>
+    //             );
+    //         }
+    // }
+
+    componentDidUpdate() {
+        if(this.state.isLogged) {
+            this.props.navigation.navigate('Cabinet')
+        } else {
+            this.props.navigation.navigate('Login')
+        }
     }
 
     render() {
