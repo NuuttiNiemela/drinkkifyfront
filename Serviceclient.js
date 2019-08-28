@@ -1,4 +1,7 @@
 
+var ip = "10.100.104.11";
+
+
 import axios from 'react-native-axios';
 
 const ip = "x";

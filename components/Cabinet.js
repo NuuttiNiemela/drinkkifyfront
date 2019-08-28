@@ -38,7 +38,7 @@ class Cabinet extends Component {
             <View style={{flex: 1, paddingTop: 20}} >
 
                 <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
-                <View style = {styles.lineStyle} />
+                <Text>{"\n"}</Text>
                 <TouchableOpacity onPress={() => firebase.auth().signOut()}>
                     <Text style={styles.buttonStyle}>Sing out</Text>
                 </TouchableOpacity>
