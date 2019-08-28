@@ -28,15 +28,6 @@ class Cabinet extends Component {
                 contentInsetAdjustmentBehavior="automatic"
                 style={styles.scrollView}>
             <View style={{flex: 1, paddingTop: 20}} >
-                <Text style={styles.textStyle}>Hi {this.state.currentUser && this.state.currentUser.email}</Text>
-            <View>
-                <TouchableHighlight onPress={() => firebase.auth().signOut()}>
-                    <Text>
-                        Sign Out
-                    </Text>
-                </TouchableHighlight>
-            </View>
-
                 <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
                 <View style = {styles.lineStyle} />
                 <TouchableOpacity onPress={() => firebase.auth().signOut()}>
