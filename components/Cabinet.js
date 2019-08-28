@@ -31,12 +31,9 @@ class Cabinet extends Component {
                 <Text style={styles.textStyle}>Hi {this.state.currentUser && this.state.currentUser.email}</Text>
             <View>
                 <TouchableHighlight onPress={() => firebase.auth().signOut()}>
-                    <Button
-                        title="Sign out"
-                        type="outline"
-                        buttonStyle={{backgroundColor:"white", borderColor: "yellow", borderRadius:12, borderWidth: 2}}
-                        titleStyle={{color:"black", fontSize:25}}
-                    />
+                    <Text>
+                        Sign Out
+                    </Text>
                 </TouchableHighlight>
             </View>
                 {/*<Text style={styles.viinaStyle}>Koskenkorva</Text>*/}
