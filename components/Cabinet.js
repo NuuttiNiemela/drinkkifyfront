@@ -19,10 +19,6 @@ class Cabinet extends Component {
 
 
     render() {
-        // const ingredientrows = this.state.ingredients
-        //     .map(function(drink_ingr) {
-        //         return(<Ingredient ingredient={drink_ingr} key={drink_ingr.id.toString()}/>);
-        //     });
         return (
             <View>
             <ScrollView
@@ -34,9 +30,6 @@ class Cabinet extends Component {
                     <Text>Sign Out</Text>
                 </TouchableHighlight>
 
-                <Text>===</Text>
-                {/*{ingredientrows}*/}
-                <Text>===</Text>
                 <Text style={styles.viinaStyle}>Koskenkorva</Text>
                 <View style = {styles.lineStyle} />
                 <Text style={styles.viinaStyle}>Gin</Text>
