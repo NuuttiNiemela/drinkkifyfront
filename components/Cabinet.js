@@ -20,7 +20,7 @@ class Cabinet extends Component {
             .then((response) => {
                 this.setState({cabinetIngredients: response})
                 console.log('cabinet: ' + this.state.cabinetIngredients)
-            }
+            })
         getAllIngredients()
             .then((response) => {
                 this.setState({ingredients: response})
