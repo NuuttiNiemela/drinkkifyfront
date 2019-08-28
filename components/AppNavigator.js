@@ -35,7 +35,7 @@ const CabinetNavigator = createStackNavigator({
     SignUp: SignUp,
 },
     {
-        initialRouteName: "Cabinet",
+        initialRouteName: "Loading",
         defaultNavigationOptions: {
             title: 'Bar cabinet',
         },
