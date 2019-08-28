@@ -3,13 +3,20 @@ import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight
 import firebase from "react-native-firebase";
 import { Button } from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/FontAwesome';
+// import Ingredient from "./Ingredient";
+import {getAll} from "../Serviceclient";
+
 
 class Cabinet extends Component {
-    state = { currentUser: null}
+    state = { currentUser: null, ingredients: ''}
 
     componentDidMount() {
         const {currentUser} = firebase.auth()
         this.setState({currentUser})
+        getAll()
+            .then((response) => {
+                this.setState({ingredients: response.ingredients})
+            })
     }
 
 
@@ -30,10 +37,7 @@ class Cabinet extends Component {
                         buttonStyle={{backgroundColor:"white", borderColor: "yellow", borderRadius:12, borderWidth: 2}}
                         titleStyle={{color:"black", fontSize:25}}
                     />
-
-                        {/*Sign Out</Button>*/}
                 </TouchableHighlight>
-
             </View>
                 {/*<Text style={styles.viinaStyle}>Koskenkorva</Text>*/}
                 {/*<View style = {styles.lineStyle} />*/}
@@ -57,6 +61,8 @@ class Cabinet extends Component {
                 {/*<View style = {styles.lineStyle} />*/}
                 {/*<Text style={styles.viinaStyle}>Punaviini</Text>*/}
                 {/*<View style = {styles.lineStyle} />*/}
+
+
             </View>
             </ScrollView>
             {/*    <TouchableOpacity*/}

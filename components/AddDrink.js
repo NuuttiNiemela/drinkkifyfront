@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, TextInput, Button, Keyboard, TouchableOpacity, Text} from 'react-native';
+import {
+    StyleSheet,
+    View,
+    TextInput,
+    Button,
+    Keyboard,
+    TouchableOpacity,
+    Text,
+    Modal,
+    TouchableHighlight
+} from 'react-native';
 import {addToList} from "../Serviceclient";
 
 
@@ -11,6 +21,7 @@ class AddDrink extends Component {
         name: '',
         ingredients: '',
         instructions: '',
+        visible: false,
     }
 
 send = (e) => {
@@ -21,9 +32,14 @@ send = (e) => {
     this.setState({name: '', ingredients: '', instructions: ''});
 }
 
+    setModalVisible(visible) {
+        this.setState({visible: visible});
+    }
+
     render() {
         return (
             <View>
+            <Modal visible={this.state.visible}>
                 <TextInput
                     // style={styles.textInput}
                     autoCapitalize="none"
@@ -44,6 +60,19 @@ send = (e) => {
                 <TouchableOpacity onPress={this.send}>
                     <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
                 </TouchableOpacity>
+                <TouchableHighlight
+                    onPress={() => {
+                        this.setModalVisible(!this.state.visible);
+                    }}>
+                    <Text style={styles.footer}>Sulje Drinksu</Text>
+                </TouchableHighlight>
+            </Modal>
+                <TouchableHighlight
+                    onPress={() => {
+                        this.setModalVisible(true);
+                    }}>
+                    <Text>Lisää Drinksu</Text>
+                </TouchableHighlight>
             </View>
         );
     }
