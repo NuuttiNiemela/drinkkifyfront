@@ -1,68 +1,54 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    View,
-    TextInput,
-    Button,
-    Keyboard,
-    TouchableOpacity,
-    Text,
-    Modal,
-    TouchableHighlight
-} from 'react-native';
+import { StyleSheet, View, TextInput, Button, Keyboard, TouchableOpacity, Text} from 'react-native';
 import {addToList} from "../Serviceclient";
+import SearchableDropDown from 'react-native-searchable-dropdown';
 
 class AddDrink extends Component {
 
     state = {
         name: '',
-        ingredients: '',
+        ingredients: [{
+            ingredient_name: '', amount:'', unit:''
+        }],
         instructions: '',
-        visible: false,
     }
 
 
-    setModalVisible(visible) {
-        this.setState({visible: visible});
-    }
 
+    send = (e) => {
+        e.preventDefault();
+        addToList(this.state)
+            .then(this.props.update)
+        Keyboard.dismiss();
+        this.setState({name: '', ingredients: '', instructions: ''});
+    }
     render() {
+
+        const allingredients = this.props.drink_ingredients;
+
+
         return (
             <View>
-            <Modal visible={this.state.visible}>
                 <TextInput
                     // style={styles.textInput}
                     autoCapitalize="none"
-                    placeholder="Drink name"
+                    placeholder="Drinksun nimi"
                     onChangeText={name => this.setState({ name })}
                     value={this.state.name}/>
                 <TextInput
                     autoCapitalize="none"
-                    placeholder="Ingredients"
+                    placeholder="Ainekset"
                     onChangeText={ingredients => this.setState({ ingredients })}
                     value={this.state.ingredients}/>
                 <TextInput
                     autoCapitalize="none"
-                    placeholder="Instructions"
+                    placeholder="Ohjeet"
                     onChangeText={instructions => this.setState({ instructions })}
                     value={this.state.instructions}
                 />
                 <TouchableOpacity onPress={this.send}>
                     <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
                 </TouchableOpacity>
-                <TouchableHighlight
-                    onPress={() => {
-                        this.setModalVisible(!this.state.visible);
-                    }}>
-                    <Text style={styles.footer}>Sulje Drinksu</Text>
-                </TouchableHighlight>
-            </Modal>
-                <TouchableHighlight
-                    onPress={() => {
-                        this.setModalVisible(true);
-                    }}>
-                    <Text>Lisää Drinksu</Text>
-                </TouchableHighlight>
             </View>
         );
     }
