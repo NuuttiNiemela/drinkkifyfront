@@ -4,18 +4,19 @@ import firebase from "react-native-firebase";
 import { Button } from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 // import Ingredient from "./Ingredient";
-import {getAll} from "../Serviceclient";
+import {getCabinet} from "../Serviceclient";
 
 
 class Cabinet extends Component {
-    state = { currentUser: null, ingredients: ''}
+    state = { currentUser: null, ingredients: []}
 
     componentDidMount() {
         const {currentUser} = firebase.auth()
         this.setState({currentUser})
-        getAll()
+        getCabinet()
             .then((response) => {
-                this.setState({ingredients: response.ingredients})
+                this.setState({ingredients: response})
+                console.log('cabinet: '+ this.state.ingredients)
             })
     }
 

@@ -17,7 +17,7 @@ export function getSomething(i) {
 }
 
 export function getAllIngredients() {
-    return axios.get('http://' + ip + ':3000/api//ingredients')
+    return axios.get('http://' + ip + ':3000/api/ingredients')
         .then((response) => response.data)
 }
 
@@ -32,4 +32,9 @@ export function getAllIngredients() {
             // .then((responseData) => { console.log("response: " + responseData); })
             // .catch((err) => { console.log(err); });
     }
+
+export function getCabinet() {
+    return axios.get('http://' + ip + ':3000/api/cabinet')
+        .then((response) => response.data)
+}
 
