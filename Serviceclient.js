@@ -1,7 +1,6 @@
-
 import axios from 'react-native-axios';
 
-const ip = "x";
+const ip = "1";
 
 export function getAll() {
 
