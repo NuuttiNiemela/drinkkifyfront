@@ -28,47 +28,42 @@ class Cabinet extends Component {
                 contentInsetAdjustmentBehavior="automatic"
                 style={styles.scrollView}>
             <View style={{flex: 1, paddingTop: 20}} >
-                <Text style={styles.textStyle}>Hi {this.state.currentUser && this.state.currentUser.email}</Text>
-            <View>
-                <TouchableHighlight onPress={() => firebase.auth().signOut()}>
-                    <Button
-                        title="Sign out"
-                        type="outline"
-                        buttonStyle={{backgroundColor:"white", borderColor: "yellow", borderRadius:12, borderWidth: 2}}
-                        titleStyle={{color:"black", fontSize:25}}
-                    />
-                </TouchableHighlight>
-            </View>
-                {/*<Text style={styles.viinaStyle}>Koskenkorva</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Gin</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Jägermeister</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Galliano</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Vodka</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Shamppanja</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Valkoviini</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Salmiakki</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Kahlua</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Roseviini</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-                {/*<Text style={styles.viinaStyle}>Punaviini</Text>*/}
-                {/*<View style = {styles.lineStyle} />*/}
-
+                <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
+                <View style = {styles.lineStyle} />
+                <TouchableOpacity onPress={() => firebase.auth().signOut()}>
+                    <Text style={styles.buttonStyle}>Sing out</Text>
+                </TouchableOpacity>
+                <Text>{"\n"}</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Koskenkorva</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Gin</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Jägermeister</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Galliano</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Vodka</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Shamppanja</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Valkoviini</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Salmiakki</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Kahlua</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Roseviini</Text>
+                <View style = {styles.lineStyle} />
+                <Text style={styles.viinaStyle}>Punaviini</Text>
+                <View style = {styles.lineStyle} />
 
             </View>
             </ScrollView>
-            {/*    <TouchableOpacity*/}
-            {/*        onPress={() => this.props.navigation.navigate('Search')}>*/}
-            {/*        <Text style={styles.button2Style}>Add ingredient</Text>*/}
-            {/*</TouchableOpacity>*/}
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text style={styles.button2Style}>Add ingredient</Text>
+            </TouchableOpacity>
             </View>
 
 
@@ -79,9 +74,13 @@ class Cabinet extends Component {
 
 const styles = StyleSheet.create({
 
-    titleStyle: {
+    textStyle: {
         padding: 2,
-        marginLeft:2,
+        marginLeft:5,
+        fontSize: 18,
+        textAlign: 'center',
+        color: '#E6C2BF',
+        fontFamily: 'Roboto-Black',
     },
 
     scrollView: {
@@ -94,13 +93,27 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         margin: 12,
     },
+    buttonStyle: {
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderRadius: 12,
+        borderColor: '#E6C2BF',
+        color: '#E6C2BF',
+        fontFamily: 'RobotoSlab-Black',
+        fontSize: 25,
+        padding: 10,
+        textAlign:'center',
+        fontWeight: 'bold',
+        width: '100%',
+        height: 60,
+    },
 
     button2Style: {
         backgroundColor: 'white',
         borderWidth: 2,
         borderRadius: 12,
-        borderColor: 'gold',
-        color: 'gold',
+        borderColor: '#E6C2BF',
+        color: '#E6C2BF',
         fontFamily: 'RobotoSlab-Black',
         fontSize: 25,
         overflow: 'hidden',
@@ -116,7 +129,7 @@ const styles = StyleSheet.create({
     },
     lineStyle: {
         borderWidth: 0.8,
-        borderColor: 'gold',
+        borderColor: '#E6C2BF',
         margin: 10,
     },
 
