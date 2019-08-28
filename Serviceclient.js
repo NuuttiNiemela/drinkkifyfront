@@ -1,3 +1,4 @@
+import axios from 'react-native-axios';
 var ip = "1";
 
 
@@ -6,28 +7,26 @@ var ip = "1";
 
 export function getAll() {
 
-    return fetch('http://' + ip + ':3000/api/drinks')
-        .then((response) => response.json())
+    return axios.get('http://' + ip + ':3000/api/drinks')
+        .then((response) => response.data)
 }
 
 export function getSomething(i) {
-    return fetch('http://' + ip + ':3000/api/drinks/haku?name=' + i)
-        .then((response) => response.json())
+    return axios.get('http://' + ip + ':3000/api/drinks/haku?name=' + i)
+        .then((response) => response.data)
 }
 
 export function getAllIngredients() {
-    return fetch('http://' + ip + ':3000/api//ingredients')
-        .then((response) => response.json())
+    return axios.get('http://' + ip + ':3000/api//ingredients')
+        .then((response) => response.data)
 }
 
     export function addToList(drink) {
-
-
-        return fetch ('http://' + ip + ':3000/api/drinks', {
+        return axios('http://' + ip + ':3000/api/drinks', {
 
             method: 'POST',
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            body: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredients})
+            data: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredients})
         })
             // .then((response) => response.text())
             // .then((responseData) => { console.log("response: " + responseData); })

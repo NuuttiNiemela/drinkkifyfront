@@ -3,6 +3,7 @@ import { View, Text, ActivityIndicator, StyleSheet, Button } from 'react-native'
 import firebase from 'react-native-firebase'
 import Cabinet from "../Cabinet";
 import Login from "./Login";
+import axios from 'react-native-axios'
 
 class Loading extends Component {
     state = {isLogged: null, token: ''}
@@ -12,6 +13,7 @@ class Loading extends Component {
             if(user) {
                 return firebase.auth().currentUser.getIdToken()
                     .then(idToken => {this.setState({token: idToken, isLogged: true})})
+                    .then(() => axios.defaults.headers.common['Authorization'] = this.state.token)
             } else {
                 this.setState({isLogged: false, token: ''})
             }

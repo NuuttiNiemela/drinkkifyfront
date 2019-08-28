@@ -4,7 +4,7 @@ import {Text, TouchableOpacity, ActivityIndicator, View, Button, TextInput, Keyb
 import {Icon} from "react-native-elements";
 import Drinks from "./Drinks";
 import _ from 'lodash';
-// import AddDrink from "./AddDrink";
+import AddDrink from "./AddDrink";
 
 class Main extends Component {
 
@@ -20,6 +20,7 @@ class Main extends Component {
                     searchedDrinks: response,
                     isLoading: false,
                 })
+                console.log('moi ' + this.state)
             })
             .catch((error) => console.log('TÄSSÄ:' + error.message))
     }
@@ -95,7 +96,7 @@ class Main extends Component {
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
-                {/*<AddDrink update={this.getDrinks}/>*/}
+                <AddDrink update={this.getDrinks}/>
 
             </Fragment>
 
