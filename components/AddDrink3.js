@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, TextInput, Button, Keyboard, TouchableOpacity, Text} from 'react-native';
 import {addToList} from "../Serviceclient";
+import SearchableDropDown from 'react-native-searchable-dropdown';
 
 class AddDrink extends Component {
 
     state = {
         name: '',
-        ingredients: '',
+        ingredients: [{
+            ingredient_name: '', amount:'', unit:''
+        }],
         instructions: '',
     }
 
@@ -20,6 +23,10 @@ class AddDrink extends Component {
         this.setState({name: '', ingredients: '', instructions: ''});
     }
     render() {
+
+        const allingredients = this.props.drink_ingredients;
+
+
         return (
             <View>
                 <TextInput

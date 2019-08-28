@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, TextInput, Button, Keyboard, TouchableOpacity, Text} from 'react-native';
 import {addToList} from "../Serviceclient";
+import Autocomplete from 'react-native-autocomplete-input';
+
+
+
 
 class AddDrink extends Component {
 
@@ -8,6 +12,8 @@ class AddDrink extends Component {
         name: '',
         ingredients: '',
         instructions: '',
+        query: '',
+        all_ingredients: []
     }
 
 

@@ -1,16 +1,35 @@
 import React, {Component} from 'react';
+import {getAllIngredients} from "../Serviceclient";
 import {View, Text, Button, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
+import Ingredient from "./components/Ingredient";
 
 class Cabinet extends Component {
-    state = { currentUser: null}
+    state = { currentUser: null, ingredients: []}
+
+    // getIngredients = () => {
+    //     getAllIngredients()
+    //         .then((response) => {
+    //             console.log(response)
+    //             this.setState({
+    //                 ingredients: response
+    //             })
+    //             console.log(this.state)
+    //         })
+    //         .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
+    // }
 
     componentDidMount() {
         const {currentUser} = firebase.auth()
         this.setState({currentUser})
+        // this.getIngredients();
     }
 
     render() {
+        // const ingredientrows = this.state.ingredients
+        //     .map(function(drink_ingr) {
+        //         return(<Ingredient ingredient={drink_ingr} key={drink_ingr.id.toString()}/>);
+        //     });
         return (
             <View>
             <ScrollView
@@ -21,32 +40,7 @@ class Cabinet extends Component {
                 <TouchableHighlight onPress={() => firebase.auth().signOut()}>
                     <Text>Sign Out</Text>
                 </TouchableHighlight>
-
-
-                <Text style={styles.viinaStyle}>Koskenkorva</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Gin</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Jägermeister</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Galliano</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Vodka</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Shamppanja</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Valkoviini</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Salmiakki</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Kahlua</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Roseviini</Text>
-                <View style = {styles.lineStyle} />
-                <Text style={styles.viinaStyle}>Punaviini</Text>
-                <View style = {styles.lineStyle} />
-
-
+                {ingredientrows}
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('Search')}>
                     <Text style={styles.buttonStyle}>Lisää juoma</Text>

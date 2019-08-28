@@ -5,7 +5,7 @@ import {ActivityIndicator, View, Button, TextInput, Keyboard} from 'react-native
 
 import Drinks from "./Drinks";
 import _ from 'lodash';
-import AddDrink from "./AddDrink";
+import AddDrink3 from "./AddDrink3";
 
 class Main extends Component {
 
@@ -87,7 +87,7 @@ class Main extends Component {
                     onPress={this.search} />
 
                 <Drinks drinks={this.state.drinks}/>
-                <AddDrink update={this.getDrinks} drink_ingredients={this.state.ingredients}/>
+                <AddDrink3 update={this.getDrinks} drink_ingredients={this.state.ingredients}/>
 
             </Fragment>
 
