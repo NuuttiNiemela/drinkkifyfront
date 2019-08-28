@@ -50,7 +50,7 @@ export class ModalExample extends Component {
                                 onPress={() => {
                                     this.setModalVisible(!this.state.modalVisible);
                                 }}>
-                                <Text style={styles.footer}>Sulje Drinksu</Text>
+                                <Text style={styles.buttonStyle}>Close drink</Text>
                             </TouchableHighlight>
                             <Text>{"\n"}</Text>
                         </View>
@@ -94,9 +94,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: 'black',
         margin: 10,
-    },
-    body: {
-        backgroundColor: 'powderblue',
+        color: 'black',
     },
     tableContent: {
         marginTop: 42,
@@ -109,8 +107,9 @@ const styles = StyleSheet.create({
         marginTop: 42,
         paddingHorizontal: 24,
         textAlign: 'center',
+        fontFamily: 'Roboto-Black',
         fontSize: 14,
-        backgroundColor: 'powderblue',
+        backgroundColor: '#DBE8D8',
 
     },
     sectionTitle: {
@@ -132,11 +131,14 @@ const styles = StyleSheet.create({
     highlight: {
         fontWeight: '700',
     },
-    footer: {
+    buttonStyle: {
         color: 'black',
+        borderColor: 'black',
+        borderRadius: 15,
+        borderWidth: 2,
         fontSize: 16,
         fontWeight: '600',
-        padding: 4,
+        padding: 8,
         textAlign: 'center',
     },
 });

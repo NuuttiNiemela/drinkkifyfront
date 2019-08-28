@@ -1,11 +1,10 @@
 import React, {Component, Fragment, useRef} from 'react';
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
-import {ActivityIndicator, View, Button, TextInput, Keyboard} from 'react-native';
-
-
+import {Text, TouchableOpacity, ActivityIndicator, View, Button, TextInput, Keyboard, StyleSheet} from 'react-native';
+import {Icon} from "react-native-elements";
 import Drinks from "./Drinks";
 import _ from 'lodash';
-import AddDrink from "./AddDrink";
+// import AddDrink from "./AddDrink";
 
 class Main extends Component {
 
@@ -75,18 +74,28 @@ class Main extends Component {
         return (
 
             <Fragment>
-                <TextInput
-                    placeholder="Type here"
-                    onChangeText={(query) => this.setState({query})}
-                    value={this.state.query}
-                />
-
-                <Button
-                    title="Search"
-                    onPress={this.search} />
-
+                <View style={styles.searchSection}>
+                    <Icon
+                        style={styles.searchIcon}
+                        name="search"
+                        size={30}
+                        color="black"
+                        onPress={this.search}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Search drinks"
+                        onChangeText={(query) => this.setState({query})}
+                        value={this.state.query}
+                    />
+                    <TouchableOpacity
+                        onPress={this.search}>
+                        <Text style={styles.buttonStyle}>Search drinks</Text>
+                    </TouchableOpacity>
+                </View>
                 <Drinks drinks={this.state.drinks}/>
-                <AddDrink update={this.getDrinks}/>
+
+                {/*<AddDrink update={this.getDrinks}/>*/}
 
             </Fragment>
 
@@ -95,5 +104,46 @@ class Main extends Component {
 }
 
 
+const styles = StyleSheet.create({
+
+    buttonStyle: {
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderRadius: 12,
+        borderColor: 'gold',
+        color: '#FAD02C',
+        fontFamily: 'Roboto-Black',
+        fontSize: 20,
+        // fontWeight: 'bold',
+        overflow: 'hidden',
+        padding: 2,
+        textAlign:'center',
+        width: '100%',
+        alignSelf: 'stretch',
+    },
+    searchSection: {
+        // flex: 1,
+        flexDirection: 'row',
+        // alignItems: 'center',
+        backgroundColor: '#fff',
+        width: '100%'
+    },
+    searchIcon: {
+        padding: 1,
+        marginLeft: 1,
+    },
+    input: {
+        // flex: 1,
+        paddingTop: 2,
+        paddingRight: 2,
+        paddingBottom: 2,
+        paddingLeft: 2,
+        backgroundColor: '#fff',
+        color: '#424242',
+        marginLeft: 1,
+    },
+
+
+});
 
 export default Main;
