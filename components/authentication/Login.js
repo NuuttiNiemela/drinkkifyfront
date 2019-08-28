@@ -10,8 +10,11 @@ class Login extends Component {
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-            .then(() => this.props.navigation.navigate('Cabin'))
+            // .then(()=> alert(this.state.password))
+            .then(() => this.setState({email: '', password: ''}))
+            .then(() => this.props.navigation.navigate('Loading'))
             .catch(error => this.setState({errorMessage: error.message}))
+
     }
 
     render() {

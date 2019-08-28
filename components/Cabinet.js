@@ -1,59 +1,73 @@
 import React, {Component} from 'react';
-import {getAllIngredients} from "../Serviceclient";
-import {View, Text, Button, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
+
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
-import Ingredient from "./components/Ingredient";
+import { Button } from 'react-native-elements';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+// import Ingredient from "./Ingredient";
+import {getAll, getAllIngredients} from "../Serviceclient";
+import CabinetIngredient from "./CabinetIngredient";
+
 
 class Cabinet extends Component {
     state = { currentUser: null, ingredients: []}
 
-    // getIngredients = () => {
-    //     getAllIngredients()
-    //         .then((response) => {
-    //             console.log(response)
-    //             this.setState({
-    //                 ingredients: response
-    //             })
-    //             console.log(this.state)
-    //         })
-    //         .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
-    // }
-
     componentDidMount() {
         const {currentUser} = firebase.auth()
         this.setState({currentUser})
-        // this.getIngredients();
+
+        getAllIngredients()
+            .then((response) => {
+                this.setState({ingredients: response})
+            })
+
     }
 
+
+
     render() {
-        // const ingredientrows = this.state.ingredients
-        //     .map(function(drink_ingr) {
-        //         return(<Ingredient ingredient={drink_ingr} key={drink_ingr.id.toString()}/>);
-        //     });
+        const ingredientrows = this.state.ingredients
+            .map(function(ingredient) {
+                return(<CabinetIngredient ingredient={ingredient} key={ingredient.id.toString()}/>);
+            });
         return (
             <View>
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
                 style={styles.scrollView}>
             <View style={{flex: 1, paddingTop: 20}} >
-                <Text>Hi {this.state.currentUser && this.state.currentUser.email}</Text>
-                <TouchableHighlight onPress={() => firebase.auth().signOut()}>
-                    <Text>Sign Out</Text>
-                </TouchableHighlight>
+
+                <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
+                <View style = {styles.lineStyle} />
+                <TouchableOpacity onPress={() => firebase.auth().signOut()}>
+                    <Text style={styles.buttonStyle}>Sing out</Text>
+                </TouchableOpacity>
+                <Text>{"\n"}</Text>
                 {ingredientrows}
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('Search')}>
-                    <Text style={styles.buttonStyle}>Lisää juoma</Text>
-            </TouchableOpacity>
             </View>
             </ScrollView>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text style={styles.button2Style}>Add ingredient</Text>
+            </TouchableOpacity>
             </View>
+
+
 
         );
     }
 }
 
 const styles = StyleSheet.create({
+
+    textStyle: {
+        padding: 2,
+        marginLeft:5,
+        fontSize: 18,
+        textAlign: 'center',
+        color: '#E6C2BF',
+        fontFamily: 'Roboto-Black',
+    },
 
     scrollView: {
         backgroundColor: 'white',
@@ -65,22 +79,43 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         margin: 12,
     },
-
     buttonStyle: {
         backgroundColor: 'white',
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 12,
-        borderColor: 'gold',
-        color: 'gold',
-        fontFamily: 'RobotoSlab-Thin',
-        fontSize: 30,
-        overflow: 'hidden',
-        padding: 12,
+        borderColor: '#E6C2BF',
+        color: '#E6C2BF',
+        fontFamily: 'RobotoSlab-Black',
+        fontSize: 25,
+        padding: 10,
         textAlign:'center',
+        fontWeight: 'bold',
+        width: '100%',
+        height: 60,
+    },
+
+    button2Style: {
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderRadius: 12,
+        borderColor: '#E6C2BF',
+        color: '#E6C2BF',
+        fontFamily: 'RobotoSlab-Black',
+        fontSize: 25,
+        overflow: 'hidden',
+        padding: 10,
+        textAlign:'center',
+        fontWeight: 'bold',
+        position: 'absolute',
+        width: '100%',
+        height: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        bottom: 0,
     },
     lineStyle: {
         borderWidth: 0.8,
-        borderColor: 'gold',
+        borderColor: '#E6C2BF',
         margin: 10,
     },
 
