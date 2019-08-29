@@ -12,15 +12,18 @@ import Icon from 'react-native-ionicons';
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
+import AddIngredient from "./AddIngredient";
 
 
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
+    // Aine: AddIngredient,
 
 },
     {
         initialRouteName: "Main",
+        // initialRouteName: "Aine",
         defaultNavigationOptions: {
             title: 'Drinkify',
 

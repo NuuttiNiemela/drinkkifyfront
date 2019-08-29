@@ -1,7 +1,3 @@
-
-var ip = "10.100.104.11";
-
-
 import axios from 'react-native-axios';
 
 const ip = "x";
@@ -19,6 +15,11 @@ export function getSomething(i) {
 
 export function getAllIngredients() {
     return axios.get('http://' + ip + ':3000/api/ingredients')
+        .then((response) => response.data)
+}
+
+export function getCabinet(uid) {
+    return axios.get('http://' + ip + ':3000/api//cabinet')
         .then((response) => response.data)
 }
 
