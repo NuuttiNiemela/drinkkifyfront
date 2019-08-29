@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Image} from "react-native-elements";
 
-class Index extends Component {
+class Header extends Component {
 
     onHamburgerClick() {
         this.props.toggleDrawer();
@@ -31,4 +31,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default Header;
