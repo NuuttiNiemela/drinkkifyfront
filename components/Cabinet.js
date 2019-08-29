@@ -27,8 +27,6 @@ class Cabinet extends Component {
 
     }
 
-
-
     render() {
         const ingredientrows = this.state.ingredients
             .map(function(ingredient) {
