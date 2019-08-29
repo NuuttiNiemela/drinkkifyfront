@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight, FlatList} from 'react-native';
 import firebase from "react-native-firebase";
 import { Button } from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 // import Ingredient from "./Ingredient";
 import {getCabinet, getAllIngredients} from "../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
+import DrinkDetails from "./DrinkDetails";
 
 
 class Cabinet extends Component {
@@ -15,23 +16,21 @@ class Cabinet extends Component {
     componentDidMount() {
         const {currentUser} = firebase.auth()
         this.setState({currentUser})
-        getCabinet()
+        getCabinet(currentUser.email)
             .then((response) => {
                 this.setState({cabinetIngredients: response})
-                console.log('cabinet: ' + this.state.cabinetIngredients)
+                console.log('cabinet: ' + this.state.cabinetIngredients[2].ingredient_name)
             })
-        getAllIngredients()
-            .then((response) => {
-                this.setState({ingredients: response})
-            })
-
     }
 
     render() {
-        const ingredientrows = this.state.ingredients
-            .map(function(ingredient) {
-                return(<CabinetIngredient ingredient={ingredient} key={ingredient.id.toString()}/>);
+        const ingredientrows = this.state.cabinetIngredients
+            .map((ingredient) => {
+                console.log(ingredient.ingredient_name)
+                return(<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()}/>);
             });
+
+
         return (
             <View>
             <ScrollView
@@ -46,12 +45,16 @@ class Cabinet extends Component {
                 </TouchableOpacity>
                 <Text>{"\n"}</Text>
                 {ingredientrows}
+                {/*<FlatList*/}
+                {/*    data={this.state.cabinetIngredients}*/}
+                {/*    renderItem={({item}) => <CabinetIngredient ingredient={item}/>}*/}
+                {/*    keyExtractor={({ingredients_id}) => ingredients_id.toString()}/>*/}
             </View>
             </ScrollView>
                 <TouchableOpacity
                     style={styles.button2Style}
                     onPress={() => this.props.navigation.navigate('Search')}>
-                    <Text>Add ingredient</Text>
+                    <Text>Drinkkify</Text>
             </TouchableOpacity>
             </View>
 
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
         padding: 10,
         textAlign:'center',
         fontWeight: 'bold',
-        position: 'absolute',
+        // position: 'absolute',
         width: '100%',
         height: 60,
         alignItems: 'center',
