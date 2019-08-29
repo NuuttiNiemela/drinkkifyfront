@@ -29,8 +29,8 @@ export function getAllIngredients() {
             // .catch((err) => { console.log(err); });
     }
 
-export function getCabinet() {
-    return axios.get('http://' + ip + ':3000/api/cabinetverify')
+export function getCabinet(email) {
+    return axios.get('http://' + ip + ':3000/api/cabinetverify/' + email)
         .then((response) => response.data)
 }
 
