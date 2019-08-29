@@ -5,8 +5,7 @@ import firebase from "react-native-firebase";
 import { Button } from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 // import Ingredient from "./Ingredient";
-import {getCabinet} from "../Serviceclient";
-import {getAll, getAllIngredients} from "../Serviceclient";
+import {getCabinet, getAllIngredients} from "../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
 
 
@@ -52,8 +51,9 @@ class Cabinet extends Component {
             </View>
             </ScrollView>
                 <TouchableOpacity
+                    style={styles.button2Style}
                     onPress={() => this.props.navigation.navigate('Search')}>
-                    <Text style={styles.button2Style}>Add ingredient</Text>
+                    <Text>Add ingredient</Text>
             </TouchableOpacity>
             </View>
 
