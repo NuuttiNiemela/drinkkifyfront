@@ -39,11 +39,11 @@ class Login extends Component {
                 />
                 <View style = {styles.lineStyle} />
                 <Text>{"\n"}</Text>
-<View style={styles.container}>
-                <TouchableOpacity  onPress={this.handleLogin}>
-                    <Text style={styles.button1Style}>Log In</Text>
+
+                <TouchableOpacity style={styles.button1Style} onPress={this.handleLogin}>
+                    <Text style={styles.textStyle}>Log In</Text>
                 </TouchableOpacity>
-</View>
+
                 <Text>{"\n"}</Text>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('SignUp')}>
                     <Text style={styles.button2Style}>Don't have an account? Create a new account here!</Text>
@@ -54,41 +54,34 @@ class Login extends Component {
 }
 const styles = StyleSheet.create({
 
-    // container: {
-    //     backgroundColor: 'white',
-    //     borderWidth: 2,
-    //     borderRadius: 12,
-    //     borderColor: '#E6C2BF',
-    //     color: '#E6C2BF',
-    //     fontFamily: 'RobotoSlab-Black',
-    //     fontSize: 25,
-    //     padding: 10,
-    //     textAlign:'center',
-    //     fontWeight: 'bold',
-    //     width: '100%',
-    //     height: 60,
-    // },
+    textStyle: {
+        color: '#F8EFE4',
+        fontFamily: 'Roboto-Black',
+        fontSize: 23,
+        textAlign: 'center',
+    },
+
     button1Style: {
         backgroundColor: '#E6C2BF',
         borderWidth: 2,
         borderRadius: 12,
         borderColor: '#E6C2BF',
-        color: 'white',
+        color: '#F8EFE4',
         fontFamily: 'Roboto-Black',
-        fontSize: 20,
+        fontSize: 23,
         padding: 10,
         textAlign: 'center',
         width: '100%',
         height: 50,
     },
     button2Style: {
-        backgroundColor: 'white',
+        backgroundColor: '#F8EFE4',
         borderWidth: 2,
         borderRadius: 12,
         borderColor: '#E6C2BF',
         color: '#E6C2BF',
         fontFamily: 'Roboto-Black',
-        fontSize: 15,
+        fontSize: 18,
         padding: 10,
         textAlign:'center',
         width: '100%',
