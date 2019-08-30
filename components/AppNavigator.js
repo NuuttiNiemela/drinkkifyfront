@@ -12,12 +12,14 @@ import SearchBooze from "./SearchBooze";
 import React from "react";
 // import {IconButton, Colors} from "react-native-paper";
 // import {Icon} from 'react-native-vector-icons';
-import Icon from 'react-native-ionicons';
+// import Icon from 'react-native-ionicons';
 // import {Button} from "react-native-elements";
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
 import {Image} from "react-native-elements";
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Drinkkify from "./Drinkkify";
 
 
 
@@ -50,6 +52,7 @@ const CabinetNavigator = createStackNavigator({
         Login: Login,
     Loading: Loading,
     SignUp: SignUp,
+    Drinkkify: Drinkkify,
 },
     {
         initialRouteName: "Loading",
