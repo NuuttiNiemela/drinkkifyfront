@@ -14,8 +14,11 @@ class Loading extends Component {
                 return firebase.auth().currentUser.getIdToken()
                     .then(idToken => {this.setState({token: idToken, isLogged: true})})
                     .then(() => axios.defaults.headers.common['Authorization'] = this.state.token)
+                    .then(() => this.props.navigation.navigate('Cabinet'))
             } else {
                 this.setState({isLogged: false, token: ''})
+                axios.defaults.headers.common['Authorization'] = null;
+                this.props.navigation.navigate('Login')
             }
         })
     }
@@ -43,19 +46,19 @@ class Loading extends Component {
     //         }
     // }
 
-    componentDidUpdate() {
-        if(this.state.isLogged) {
-            this.props.navigation.navigate('Cabinet')
-        } else {
-            this.props.navigation.navigate('Login')
-        }
-    }
+    // componentDidUpdate() {
+    //     if(this.state.isLogged) {
+    //         this.props.navigation.navigate('Cabinet')
+    //     } else {
+    //         this.props.navigation.navigate('Login')
+    //     }
+    // }
 
     render() {
         return (
             <View style={styles.container}>
                 <ActivityIndicator size="large" />
-                <Text>Welcome to world of Drinkify!</Text>
+                <Text>Welcome to the world of Drinkify!</Text>
             </View>
         );
     }

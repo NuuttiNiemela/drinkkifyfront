@@ -22,7 +22,7 @@ class Main extends Component {
                 })
                 console.log('moi ' + this.state)
             })
-            .catch((error) => console.log('TÄSSÄ:' + error.message))
+            .catch((error) => console.log('Error:' + error.message))
     }
 
 
@@ -41,7 +41,6 @@ class Main extends Component {
 
 
     searchDrinks = _.debounce((d) => {
-        console.log('TÄSÄTÄSÄTÄSÄTÄSÄTÄSÄ' + d)
         getSomething(d)
             .then((response) => {
                 this.setState({
@@ -49,7 +48,7 @@ class Main extends Component {
                     isLoading: false,
                 })
             })
-            .catch((error) => console.log('TÄSSÄ:' + error.message))
+            .catch((error) => console.log('Error:' + error.message))
     }, 250);
 
     componentDidMount = () => {
@@ -98,7 +97,7 @@ class Main extends Component {
                 <Drinks drinks={this.state.drinks}/>
 
 
-                <AddDrink update={this.getDrinks}/>
+                {/*<AddDrink update={this.getDrinks}/>*/}
             </Fragment>
 
         );

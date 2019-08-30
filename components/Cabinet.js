@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
-
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight, FlatList} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
 import { Button } from 'react-native-elements';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 // import Ingredient from "./Ingredient";
 import {getCabinet, getAllIngredients} from "../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
-import DrinkDetails from "./DrinkDetails";
 
 
 class Cabinet extends Component {
@@ -18,17 +16,19 @@ class Cabinet extends Component {
         this.setState({currentUser})
         getCabinet(currentUser.email)
             .then((response) => {
+                if (response.length > 0)
                 this.setState({cabinetIngredients: response})
-                console.log('cabinet: ' + this.state.cabinetIngredients[2].ingredient_name)
             })
+            .catch(error => console.log(error.message))
     }
 
+
     render() {
-        const ingredientrows = this.state.cabinetIngredients
-            .map((ingredient) => {
-                console.log(ingredient.ingredient_name)
-                return(<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()}/>);
-            });
+            const ingredientrows = this.state.cabinetIngredients
+                .map((ingredient) => {
+                    return (<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()}/>);
+                });
+
 
 
         return (
@@ -45,17 +45,18 @@ class Cabinet extends Component {
                 </TouchableOpacity>
                 <Text>{"\n"}</Text>
                 {ingredientrows}
-                {/*<FlatList*/}
-                {/*    data={this.state.cabinetIngredients}*/}
-                {/*    renderItem={({item}) => <CabinetIngredient ingredient={item}/>}*/}
-                {/*    keyExtractor={({ingredients_id}) => ingredients_id.toString()}/>*/}
+                <TouchableOpacity
+                    style={styles.button2Style}
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text>Add Ingredient</Text>
+                </TouchableOpacity>
             </View>
             </ScrollView>
                 <TouchableOpacity
                     style={styles.button2Style}
-                    onPress={() => this.props.navigation.navigate('Search')}>
+                    onPress={() => this.props.navigation.navigate('Drinkkify')}>
                     <Text>Drinkkify</Text>
-            </TouchableOpacity>
+                </TouchableOpacity>
             </View>
 
 
