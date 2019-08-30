@@ -55,7 +55,7 @@ class Loading extends Component {
         return (
             <View style={styles.container}>
                 <ActivityIndicator size="large" />
-                <Text>Tervetuloa Drinkkifyn maailmaan</Text>
+                <Text>Welcome to world of Drinkify!</Text>
             </View>
         );
     }

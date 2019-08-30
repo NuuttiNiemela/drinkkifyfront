@@ -1,4 +1,9 @@
-import {createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import {
+    createStackNavigator,
+    createAppContainer,
+    createBottomTabNavigator,
+    NavigationScreenComponent as navigationOptions
+} from 'react-navigation';
 import Main from "./Main";
 import Cabinet from "./Cabinet";
 import Login from "./authentication/Login";
@@ -12,9 +17,24 @@ import Icon from 'react-native-ionicons';
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
+<<<<<<< HEAD
 import AddIngredient from "./AddIngredient";
+=======
+import {Image} from "react-native-elements";
+>>>>>>> master
 
 
+
+// class LogoTitle extends React.Component {
+//     render() {
+//         return (
+//             <Image
+//             source={require('../assets/kuvat/Drinkify.jpg')}
+//             style={{width:30, height:30}}
+//             />
+//         );
+//     }
+// }
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
@@ -26,9 +46,9 @@ const AppNavigator = createStackNavigator({
         // initialRouteName: "Aine",
         defaultNavigationOptions: {
             title: 'Drinkify',
-
-        },
-    });
+            // headerTitle: <LogoTitle/>
+        }
+});
 
 const CabinetNavigator = createStackNavigator({
     Cabinet: Cabinet,
