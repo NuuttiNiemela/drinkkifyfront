@@ -1,7 +1,7 @@
 import React, {Component, Fragment, useRef} from 'react';
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
 import {Text, TouchableOpacity, ActivityIndicator, View, Button, TextInput, Keyboard, StyleSheet} from 'react-native';
-import {Icon} from "react-native-elements";
+import {Icon} from 'react-native-elements';
 import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
