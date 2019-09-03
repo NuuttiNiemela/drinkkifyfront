@@ -3,11 +3,11 @@ import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} fr
 /*import {Colors} from "react-native/Libraries/NewAppScreen";
 import * as Animatable from 'react-native-animatable';*/
 import { material } from 'react-native-typography'
-import Ingredient from "./components/Ingredient";
+import Ingredient from "./Ingredient";
 
 
 
-export class ModalExample extends Component {
+export class DrinkDetails extends Component {
     state = {
         modalVisible: false,
     };
@@ -144,4 +144,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ModalExample;
+export default DrinkDetails;

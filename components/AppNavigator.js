@@ -13,10 +13,9 @@ import React from "react";
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
-// import {Image} from "react-native-elements";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {Image} from "react-native-elements";
-// import Header2 from "./Header/Header2";
+import Drinkkify from "./Drinkkify";
+
 
 
 const AppNavigator = createStackNavigator({
@@ -42,6 +41,7 @@ const CabinetNavigator = createStackNavigator({
         Login: Login,
     Loading: Loading,
     SignUp: SignUp,
+    Drinkkify: Drinkkify,
 },
     {
         initialRouteName: "Loading",
@@ -57,7 +57,8 @@ const CabinetNavigator = createStackNavigator({
 AppNavigator.navigationOptions = {
     title: 'test',
     tabBarLabel: 'Drinks',
-    tabBarIcon: ({tintColor ='#FAD02C'}) => (
+
+    tabBarIcon: ({tintColor = '#FAD02C'}) => (
         <Icon name='beer' size={25} color={'#FAD02C'}/>
     )
 
@@ -66,7 +67,9 @@ AppNavigator.navigationOptions = {
 CabinetNavigator.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
     tabBarIcon: ({tintColor = '#E6C2BF'}) => (
-        <Icon name='home' size={25} color={'#E6C2BF'}/>
+
+        <Icon name='home' size={25} color={'#E6C2BF'} />
+
     )
 };
 
