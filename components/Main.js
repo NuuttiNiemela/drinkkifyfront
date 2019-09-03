@@ -20,7 +20,6 @@ class Main extends Component {
                     searchedDrinks: response,
                     isLoading: false,
                 })
-                console.log('moi ' + this.state)
             })
             .catch((error) => console.log('Error:' + error.message))
     }

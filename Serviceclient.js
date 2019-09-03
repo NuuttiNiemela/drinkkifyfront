@@ -20,6 +20,13 @@ export function getAllIngredients() {
         .catch((e) => console.log("Error: " + e.message))
 }
 
+// EI TOIMI VIELÄ
+export function getSomeIngredients(i) {
+    return axios.get('http://' + ip + ':3000/api/drinks/haku?name=' + i)
+        .then((response) => response.data)
+        .catch((e) => console.log("Error: " + e.message))
+}
+
     export function addToList(drink) {
         return axios('http://' + ip + ':3000/api/drinks/', {
             method: 'POST',
@@ -44,5 +51,21 @@ export function addUser(email) {
         .catch((e) => console.log("Error: " + e.message))
 }
 
+export function addToCabinet(email, ingredient) {
+    return axios('http://' + ip + ':3000/api/cabinetverify/' + email,{
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        data: JSON.stringify({id: ingredient})
+    })
+        .catch((e) => console.log("Error: " + e.message))
+}
 
+export function removeFromCabinet(email, id) {
+    return axios('http://' + ip + ':3000/api/cabinetverify/del' + '?email=' + email + '&id=' + id,{
+        method: 'DELETE',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+
+    })
+        .catch((e) => console.log("Error: " + e.message))
+}
 
