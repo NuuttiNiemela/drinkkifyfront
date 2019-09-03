@@ -8,7 +8,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from "./components/AppNavigator";
 import {createAppContainer} from "react-navigation";
-// import firebase from "react-native-firebase";
+import firebase from "react-native-firebase";
 // import Header2 from "./components/Header/Header2";
 // import {SearchBar} from "react-native-elements";
 // import MySearchBar from "./components/MySearchBar";
