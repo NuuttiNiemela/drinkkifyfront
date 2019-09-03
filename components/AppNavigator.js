@@ -18,7 +18,6 @@ import Drinkkify from "./Drinkkify";
 
 
 
-
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
@@ -27,7 +26,20 @@ const AppNavigator = createStackNavigator({
     {
         initialRouteName: "Main",
         defaultNavigationOptions: {
-            title: 'Drinkkify',
+            headerTitle: 'Drinkkify',
+            headerRight: Platform.select({
+
+                ios: null,
+                android: (
+                <Icon
+                name="search"
+                size={30}
+                color="black"
+                onPress={this.search}
+            />
+                )
+})
+
             // headerBackground:
                 //
                 // <Image
@@ -57,7 +69,6 @@ const CabinetNavigator = createStackNavigator({
     });
 
 AppNavigator.navigationOptions = {
-    title: 'test',
     tabBarLabel: 'Drinks',
 
     tabBarIcon: ({tintColor = '#FAD02C'}) => (
@@ -81,6 +92,11 @@ const styles = StyleSheet.create({
         color: 'black',
         fontFamily: 'Roboto-Black',
         marginRight: '5%',
+    },
+    icon: {
+        padding: 1,
+        marginLeft: 1,
+        // flex: 1,
     },
 
 });
