@@ -6,10 +6,10 @@ import {addUser} from "../../Serviceclient";
 class SignUp extends Component {
     state = {email: '', password: '', verify: '', errorMessage: null}
 
-    handleSignUp = () => {
+    handleSignUp = async () => {
         if(this.state.password === this.state.verify) {
-            const {email, password} = this.state
-            firebase
+            const {email, password} = this.state;
+            await firebase
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(() => alert("Account creation successful"))

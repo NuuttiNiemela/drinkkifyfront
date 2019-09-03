@@ -42,7 +42,7 @@ export class DrinkDetails extends Component {
                             <Text>{"\n"}</Text>
                             {ingredientrows}
                             <Text>{"\n"}</Text>
-                            <Text style={styles.craftStyle}>Ohjeet...</Text>
+                            <Text style={styles.craftStyle}>Instructions</Text>
                             <Text>{"\n"}</Text>
                             <Text style={styles.craftStyle}>{this.props.instructions}</Text>
                             <Text>{"\n"}</Text>

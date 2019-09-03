@@ -22,14 +22,17 @@ class Cabinet extends Component {
             .catch(error => console.log(error.message))
     }
 
+    signOutUser = async () => {
+            await firebase.auth().signOut()
+                .then(() => {this.setState({currentUser: null})})
+    }
+
 
     render() {
             const ingredientrows = this.state.cabinetIngredients
                 .map((ingredient) => {
                     return (<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()}/>);
                 });
-
-
 
         return (
             <View>
@@ -40,8 +43,8 @@ class Cabinet extends Component {
 
                 <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
                 <Text>{"\n"}</Text>
-                <TouchableOpacity onPress={() => firebase.auth().signOut()}>
-                    <Text style={styles.buttonStyle}>Sing out</Text>
+                <TouchableOpacity onPress={this.signOutUser}>
+                    <Text style={styles.buttonStyle}>Sign out</Text>
                 </TouchableOpacity>
                 <Text>{"\n"}</Text>
                 {ingredientrows}

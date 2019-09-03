@@ -5,9 +5,9 @@ import firebase from "react-native-firebase";
 class Login extends Component {
     state = {email: '', password: '', errorMessage: null}
 
-    handleLogin = () => {
+    handleLogin = async () => {
         const {email, password} = this.state
-        firebase
+        await firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then(() => this.setState({email: '', password: ''}))
