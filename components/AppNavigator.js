@@ -18,6 +18,7 @@ import Drinkkify from "./Drinkkify";
 
 
 
+
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
@@ -26,12 +27,13 @@ const AppNavigator = createStackNavigator({
     {
         initialRouteName: "Main",
         defaultNavigationOptions: {
-            headerBackground:
-
-                <Image
-                    source={require('./Drinkify5.png')}
-                    style={{width:'100%', height:150}}
-                />
+            title: 'Drinkkify',
+            // headerBackground:
+                //
+                // <Image
+                //     source={require('./Drinkify5.png')}
+                //     style={{width:'100%', height:150}}
+                // />
         }
 });
 

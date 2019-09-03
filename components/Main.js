@@ -1,9 +1,10 @@
+import React, {Component, Fragment, useRef} from 'react';
+import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
+import {Text, TouchableOpacity, ActivityIndicator, View, Button, TextInput, Keyboard, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
 import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
-import {SearchBar} from "react-native-elements";
-import MySearchBar from "./MySearchBar";
 
 class Main extends Component {
 
@@ -74,35 +75,26 @@ class Main extends Component {
         return (
 
             <Fragment>
-                {/*<View style={styles.searchSection}>*/}
-                {/*   */}
-                {/*    <Icon*/}
-                {/*        style={styles.searchIcon}*/}
-                {/*        name="search"*/}
-                {/*        size={30}*/}
-                {/*        color="black"*/}
-                {/*        onPress={this.search}*/}
-                {/*    />*/}
-                {/*    <TextInput*/}
-                {/*        style={styles.input}*/}
-                {/*        placeholder="Search drinks"*/}
-                {/*        onChangeText={(query) => this.setState({query})}*/}
-                {/*        value={this.state.query}*/}
-                {/*    />*/}
-                {/*    <Text>{"\n"}</Text>*/}
-                {/*    <TouchableOpacity*/}
-                {/*        onPress={this.search}>*/}
-                {/*        <Text style={styles.buttonStyle}>Search drinks</Text>*/}
-                {/*    </TouchableOpacity>*/}
-                {/*</View>*/}
-
-       <View style={{position: 'absolute', bottom: 4, width:'120%', marginRight: 2}}>
-                    {/*<Text style={styles.lineStyle}/>*/}
-                    <MySearchBar/>
+                <View style={styles.searchSection}>
+                    <Icon
+                        style={styles.searchIcon}
+                        name="search"
+                        size={30}
+                        color="black"
+                        onPress={this.search}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Search drinks"
+                        onChangeText={(query) => this.setState({query})}
+                        value={this.state.query}
+                    />
+                    <TouchableOpacity
+                        onPress={this.search}>
+                        <Text style={styles.buttonStyle}>Search drinks</Text>
+                    </TouchableOpacity>
                 </View>
                 <Drinks drinks={this.state.drinks}/>
-
-
 
                 {/*<AddDrink update={this.getDrinks}/>*/}
 
