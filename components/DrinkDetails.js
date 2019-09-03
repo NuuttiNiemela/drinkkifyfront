@@ -32,7 +32,7 @@ export class DrinkDetails extends Component {
                     onRequestClose={() => {
                         this.setModalVisible(!this.state.modalVisible);
                     }}>
-                    <View>
+                    <View style={{Color:'black'}}>
                         <ScrollView
                             contentInsetAdjustmentBehavior="automatic"
                             style={styles.scrollView}>
@@ -72,7 +72,7 @@ export class DrinkDetails extends Component {
 const styles = StyleSheet.create({
 
     scrollView: {
-        backgroundColor: 'black',
+        color: 'black',
     },
     engine: {
         position: 'absolute',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'Roboto-Black',
         fontSize: 14,
-        backgroundColor: '#DBE8D8',
+        backgroundColor: '#F8EFE4',
 
     },
     sectionTitle: {
@@ -133,13 +133,14 @@ const styles = StyleSheet.create({
     },
     buttonStyle: {
         color: 'black',
-        borderColor: 'black',
+        borderColor: '#282120',
         borderRadius: 15,
         borderWidth: 2,
         fontSize: 16,
         fontWeight: '600',
         padding: 8,
         textAlign: 'center',
+        backgroundColor: '#F8EFE4'
     },
 });
 

@@ -2,7 +2,7 @@ import {
     createStackNavigator,
     createAppContainer,
     createBottomTabNavigator,
-    NavigationScreenComponent as navigationOptions
+    // NavigationScreenComponent as navigationOptions
 } from 'react-navigation';
 import Main from "./Main";
 import Cabinet from "./Cabinet";
@@ -18,16 +18,7 @@ import Drinkkify from "./Drinkkify";
 
 
 
-// class LogoTitle extends React.Component {
-//     render() {
-//         return (
-//             <Image
-//             source={require('../assets/kuvat/Drinkify.jpg')}
-//             style={{width:30, height:30}}
-//             />
-//         );
-//     }
-// }
+
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
@@ -36,8 +27,13 @@ const AppNavigator = createStackNavigator({
     {
         initialRouteName: "Main",
         defaultNavigationOptions: {
-            title: 'Drinkify',
-            // headerTitle: <LogoTitle/>
+            title: 'Drinkkify',
+            // headerBackground:
+                //
+                // <Image
+                //     source={require('./Drinkify5.png')}
+                //     style={{width:'100%', height:150}}
+                // />
         }
 });
 
@@ -52,12 +48,18 @@ const CabinetNavigator = createStackNavigator({
     {
         initialRouteName: "Loading",
         defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#F8EFE4',
+            },
+            headerTintColor: '#E6C2BF',
             title: 'Bar cabinet',
         },
     });
 
 AppNavigator.navigationOptions = {
+    title: 'test',
     tabBarLabel: 'Drinks',
+
     tabBarIcon: ({tintColor = '#FAD02C'}) => (
         <Icon name='beer' size={25} color={'#FAD02C'}/>
     )
@@ -67,7 +69,9 @@ AppNavigator.navigationOptions = {
 CabinetNavigator.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
     tabBarIcon: ({tintColor = '#E6C2BF'}) => (
+
         <Icon name='home' size={25} color={'#E6C2BF'} />
+
     )
 };
 
