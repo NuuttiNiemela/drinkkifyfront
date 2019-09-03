@@ -1,6 +1,6 @@
 import axios from 'react-native-axios';
 
-const ip = "1";
+const ip = "10.100.104.14";
 
 export function getAll() {
 

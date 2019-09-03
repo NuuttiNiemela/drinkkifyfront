@@ -15,6 +15,7 @@ class Drinks extends Component {
                     backgroundColor: "#CED0CE",
                     marginLeft: "5%",
                     marginTop: "2%",
+                    color: '#FAD02C'
                 }}
             />
         );
