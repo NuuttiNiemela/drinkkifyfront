@@ -74,25 +74,25 @@ class Main extends Component {
         return (
 
             <Fragment>
-                <View style={styles.searchSection}>
-                    <Icon
-                        style={styles.searchIcon}
-                        name="search"
-                        size={30}
-                        color="black"
-                        onPress={this.search}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Search drinks"
-                        onChangeText={(query) => this.setState({query})}
-                        value={this.state.query}
-                    />
-                    <TouchableOpacity
-                        onPress={this.search}>
-                        <Text style={styles.buttonStyle}>Search drinks</Text>
-                    </TouchableOpacity>
-                </View>
+                {/*<View style={styles.searchSection}>*/}
+                {/*    <Icon*/}
+                {/*        style={styles.searchIcon}*/}
+                {/*        name="search"*/}
+                {/*        size={30}*/}
+                {/*        color="black"*/}
+                {/*        onPress={this.search}*/}
+                {/*    />*/}
+                {/*    <TextInput*/}
+                {/*        style={styles.input}*/}
+                {/*        placeholder="Search drinks"*/}
+                {/*        onChangeText={(query) => this.setState({query})}*/}
+                {/*        value={this.state.query}*/}
+                {/*    />*/}
+                {/*    <TouchableOpacity*/}
+                {/*        onPress={this.search}>*/}
+                {/*        <Text style={styles.buttonStyle}>Search drinks</Text>*/}
+                {/*    </TouchableOpacity>*/}
+                {/*</View>*/}
                 <Drinks drinks={this.state.drinks}/>
 
                 {/*<AddDrink update={this.getDrinks}/>*/}
