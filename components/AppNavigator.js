@@ -8,7 +8,7 @@ import Main from "./Main";
 import Cabinet from "./Cabinet";
 import Login from "./authentication/Login";
 import SearchRecipe from "./SearchRecipe";
-import SearchBooze from "./SearchBooze";
+import AddIngredient from "./AddIngredient";
 import React from "react";
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
@@ -39,7 +39,7 @@ const AppNavigator = createStackNavigator({
 
 const CabinetNavigator = createStackNavigator({
     Cabinet: Cabinet,
-    Search: SearchBooze,
+    Search: AddIngredient,
         Login: Login,
     Loading: Loading,
     SignUp: SignUp,
