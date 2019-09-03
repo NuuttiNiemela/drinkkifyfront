@@ -95,8 +95,8 @@ class Main extends Component {
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
-
                 {/*<AddDrink update={this.getDrinks}/>*/}
+
             </Fragment>
 
         );
@@ -106,9 +106,15 @@ class Main extends Component {
 
 const styles = StyleSheet.create({
 
+    lineStyle: {
+        borderWidth: 0.8,
+        borderColor: '#E6C2BF',
+        margin: 10,
+    },
+
     buttonStyle: {
         backgroundColor: 'white',
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 12,
         borderColor: 'gold',
         color: '#FAD02C',
@@ -120,9 +126,11 @@ const styles = StyleSheet.create({
         textAlign:'center',
         width: '100%',
         alignSelf: 'stretch',
+        flex: 2,
+        // position: 'absolute',
     },
     searchSection: {
-        // flex: 1,
+        // flex: 2,
         flexDirection: 'row',
         // alignItems: 'center',
         backgroundColor: '#fff',
@@ -131,14 +139,15 @@ const styles = StyleSheet.create({
     searchIcon: {
         padding: 1,
         marginLeft: 1,
+        // flex: 1,
     },
     input: {
-        // flex: 1,
+        // flex: 2,
         paddingTop: 2,
         paddingRight: 2,
         paddingBottom: 2,
         paddingLeft: 2,
-        backgroundColor: '#fff',
+        backgroundColor: '#F8EFE4',
         color: '#424242',
         marginLeft: 1,
     },
