@@ -1,11 +1,22 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, View, TouchableOpacity} from "react-native";
 
 class CabinetIngredient extends Component {
+
+    del = () => {
+        this.props.delete(this.props.ingredient.ingredients_id)
+    }
+
     render() {
         return (
             <View>
                 <Text style={styles.viinaStyle}>{this.props.ingredient.ingredient_name}</Text>
+                <TouchableOpacity
+                onPress={this.del} >
+                    <Text>
+                        DEL
+                    </Text>
+                </TouchableOpacity>
                 <View style = {styles.lineStyle} />
             </View>
         );

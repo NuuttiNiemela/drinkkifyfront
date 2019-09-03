@@ -4,7 +4,7 @@ import firebase from "react-native-firebase";
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 // import Ingredient from "./Ingredient";
-import {getCabinet, getAllIngredients} from "../Serviceclient";
+import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
 
 
@@ -27,11 +27,15 @@ class Cabinet extends Component {
                 .then(() => {this.setState({currentUser: null})})
     }
 
+    deleteIngredient = (i) => {
+        removeFromCabinet(this.state.currentUser.email, i)
+            .catch(() => alert("Adding didn't work"))
+    }
 
     render() {
             const ingredientrows = this.state.cabinetIngredients
                 .map((ingredient) => {
-                    return (<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()}/>);
+                    return (<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()} delete={this.deleteIngredient} />);
                 });
 
         return (
