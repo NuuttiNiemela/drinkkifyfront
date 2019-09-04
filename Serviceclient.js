@@ -1,6 +1,6 @@
 import axios from 'react-native-axios';
 
-const ip = "10.100.24.34";
+const ip = "10.100.24.37";
 
 export function getAll() {
     return axios.get('http://' + ip + ':3000/api/drinks')

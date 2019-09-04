@@ -15,6 +15,8 @@ import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Drinkkify from "./Drinkkify";
+import {Image} from "react-native-elements";
+import HakuModalExample from "./HakuModalExample";
 
 
 
@@ -26,7 +28,12 @@ const AppNavigator = createStackNavigator({
     {
         initialRouteName: "Main",
         defaultNavigationOptions: {
-            headerTitle: 'Drinkkify',
+            headerBackground:
+
+                <Image
+                    source={require('./Drinkify6.png')}
+                    style={{width:'50%', height:80}}
+                />,
             headerRight: Platform.select({
 
                 ios: null,
@@ -39,13 +46,6 @@ const AppNavigator = createStackNavigator({
             />
                 )
 })
-
-            // headerBackground:
-                //
-                // <Image
-                //     source={require('./Drinkify5.png')}
-                //     style={{width:'100%', height:150}}
-                // />
         }
 });
 
@@ -68,20 +68,30 @@ const CabinetNavigator = createStackNavigator({
         },
     });
 
+
 AppNavigator.navigationOptions = {
-    tabBarLabel: 'Drinks',
+    tabBarLabel: 'Home',
 
     tabBarIcon: ({tintColor = '#FAD02C'}) => (
-        <Icon name='beer' size={25} color={'#FAD02C'}/>
+        <Icon name='home' size={25} color={'#FAD02C'}/>
     )
 
+};
+//MITEN TÄMÄN VOIS TEHDÄ?
+SearchNavigator.navigationOptions = {
+    tabBarLabel: 'Search Drinks',
+    tabBarIcon: ({tintColor = '#E6C2BF'}) => (
+
+        <Icon name='search' size={25} color={'black'} />
+
+    )
 };
 
 CabinetNavigator.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
     tabBarIcon: ({tintColor = '#E6C2BF'}) => (
 
-        <Icon name='home' size={25} color={'#E6C2BF'} />
+        <Icon name='beer' size={25} color={'#E6C2BF'} />
 
     )
 };
@@ -93,15 +103,11 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto-Black',
         marginRight: '5%',
     },
-    icon: {
-        padding: 1,
-        marginLeft: 1,
-        // flex: 1,
-    },
 
 });
 
 export default createAppContainer(createBottomTabNavigator({
     AppNavigator,
+    SearchNavigator,
     CabinetNavigator,
 }));

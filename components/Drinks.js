@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, FlatList, StyleSheet, Text} from "react-native";
 import DrinkDetails from "./DrinkDetails";
-//import Markdown from 'react-native-easy-markdown';
+
 
 class Drinks extends Component {
 
@@ -12,7 +12,7 @@ class Drinks extends Component {
                 style={{
                     height: 2,
                     width: "86%",
-                    backgroundColor: "#CED0CE",
+                    backgroundColor: "#FAD02C",
                     marginLeft: "5%",
                     marginTop: "2%",
                     color: '#FAD02C'
@@ -29,6 +29,7 @@ class Drinks extends Component {
                         style={{flex: 1, padding:20}}>
 
                         <FlatList
+                            marginTop={50}
                             style={styles.listStyle}
                             data={this.props.drinks}
                             renderItem={({item}) => <DrinkDetails name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}

@@ -1,7 +1,7 @@
 import React, {Component, Fragment, useRef} from 'react';
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
 import {Text, TouchableOpacity, ActivityIndicator, View, Button, TextInput, Keyboard, StyleSheet} from 'react-native';
-import {Icon} from 'react-native-elements';
+import {Icon, Image} from 'react-native-elements';
 import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
@@ -74,6 +74,10 @@ class Main extends Component {
         return (
 
             <Fragment>
+               {/*<Image*/}
+               {/*     source={require('./Drinkify6.png')}*/}
+               {/*     style={{width:'100%', height:100}}*/}
+               {/* />*/}
                 {/*<View style={styles.searchSection}>*/}
                 {/*    <Icon*/}
                 {/*        style={styles.searchIcon}*/}
