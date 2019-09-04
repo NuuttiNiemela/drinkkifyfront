@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
+import {withNavigation} from 'react-navigation';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 // import Ingredient from "./Ingredient";
@@ -9,27 +10,42 @@ import CabinetIngredient from "./CabinetIngredient";
 
 
 class Cabinet extends Component {
-    state = { currentUser: null, ingredients: [], cabinetIngredients: []}
+    state = { currentUser: null, ingredients: [], cabinetIngredients: [], moreAdded: false}
 
     componentDidMount() {
         const {currentUser} = firebase.auth()
-        this.setState({currentUser})
-        getCabinet(currentUser.email)
+        this.setState({currentUser},
+            this.getYourCabinet)
+        const {navigation} = this.props;
+        this.focusListener = navigation.addListener('didFocus', () => {
+            if(this.state.currentUser != null) this.getYourCabinet()
+                .then(r => console.log('mitä ' + r))
+        })
+    }
+
+    getYourCabinet = async () => {
+        await getCabinet(this.state.currentUser.email)
             .then((response) => {
-                if (response.length > 0)
-                this.setState({cabinetIngredients: response})
+                if (response) {
+                    this.setState({cabinetIngredients: response})
+                } else {
+                    this.setState({cabinetIngredients: []})
+                }
             })
-            .catch(error => console.log(error.message))
     }
 
     signOutUser = async () => {
             await firebase.auth().signOut()
-                .then(() => {this.setState({currentUser: null})})
+                .then(() => {this.setState({currentUser: null, cabinetIngredients: []})})
     }
 
     deleteIngredient = (i) => {
         removeFromCabinet(this.state.currentUser.email, i)
-            .catch(() => alert("Adding didn't work"))
+            .then(this.getYourCabinet)
+    }
+
+    componentWillUnmount() {
+        this.focusListener.remove();
     }
 
     render() {
