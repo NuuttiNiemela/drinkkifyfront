@@ -9,56 +9,34 @@ class Loading extends Component {
     state = {isLogged: null, token: ''}
 
     componentDidMount() {
-        firebase.auth().onAuthStateChanged(user => {
-            if(user) {
-                return firebase.auth().currentUser.getIdToken()
-                    .then(idToken => {this.setState({token: idToken, isLogged: true})})
-                    .then(() => axios.defaults.headers.common['Authorization'] = this.state.token)
+
+
+        const {navigation} = this.props;
+        this.focusListener = navigation.addListener('didFocus', () => {
+            firebase.auth().onAuthStateChanged(user => {
+                if(user) {
+                    return firebase.auth().currentUser.getIdToken()
+                        .then(idToken => {this.setState({token: idToken, isLogged: true})})
+                        .then(() => axios.defaults.headers.common['Authorization'] = this.state.token)
                     .then(() => this.props.navigation.navigate('Cabinet'))
-            } else {
-                this.setState({isLogged: false, token: ''})
-                axios.defaults.headers.common['Authorization'] = null;
-                this.props.navigation.navigate('Login')
-            }
+                } else {
+                    this.setState({isLogged: false, token: ''})
+                    axios.defaults.headers.common['Authorization'] = null;
+                    this.props.navigation.navigate('Login')
+                }
+            })
         })
     }
 
-    // renderComponent() {
-    //     if (this.state.isLogged) {
-    //         return (
-    //             this.props.navigation.navigate('Cabinet')
-    //         );
-    //     }
-    //     return (
-    //         this.props.navigation.navigate('Login')
-    //     );
-    // }
-
-    // renderComponent() {
-    //         if (this.state.isLogged) {
-    //             return (
-    //                <Cabinet/>
-    //             );
-    //         } else {
-    //             return (
-    //                 <Login/>
-    //             );
-    //         }
-    // }
-
-    // componentDidUpdate() {
-    //     if(this.state.isLogged) {
-    //         this.props.navigation.navigate('Cabinet')
-    //     } else {
-    //         this.props.navigation.navigate('Login')
-    //     }
-    // }
+    componentWillUnmount() {
+        this.focusListener.remove();
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <ActivityIndicator size="large" />
-                <Text>Welcome to the world of Drinkify!</Text>
+                <Text>Welcome to the world of Drinkkify!</Text>
             </View>
         );
     }
