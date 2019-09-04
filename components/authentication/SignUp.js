@@ -13,7 +13,7 @@ class SignUp extends Component {
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(() => alert("Account creation successful"))
-                .then(() => this.props.navigation.navigate('Login'))
+                .then(() => this.props.navigation.navigate('Loading'))
                 .catch(error => this.setState({errorMessage: error.message}))
             addUser(this.state.email)
         } else {
