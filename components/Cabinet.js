@@ -10,7 +10,7 @@ import CabinetIngredient from "./CabinetIngredient";
 
 
 class Cabinet extends Component {
-    state = { currentUser: null, ingredients: [], cabinetIngredients: [], moreAdded: false}
+    state = { currentUser: null, ingredients: [], cabinetIngredients: []}
 
     componentDidMount() {
         const {currentUser} = firebase.auth()
