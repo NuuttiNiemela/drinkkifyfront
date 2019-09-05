@@ -98,7 +98,6 @@ class Main extends Component {
                 {/*<AddDrink update={this.getDrinks}/>*/}
 
             </Fragment>
-
         );
     }
 }

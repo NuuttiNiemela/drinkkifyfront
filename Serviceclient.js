@@ -27,19 +27,14 @@ export function getSomeIngredients(i) {
         .catch((e) => console.log("Error: " + e.message))
 }
 
-export function getCabinet(uid) {
-    return axios.get('http://' + ip + ':3000/api//cabinet')
-        .then((response) => response.data)
+export function addToList(drink) {
+    return axios('http://' + ip + ':3000/api/drinks/', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        data: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredients})
+    })
+        .catch((e) => console.log("Error: " + e.message))
 }
-
-    export function addToList(drink) {
-        return axios('http://' + ip + ':3000/api/drinks/', {
-            method: 'POST',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            data: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredients})
-        })
-            .catch((e) => console.log("Error: " + e.message))
-    }
 
 export function getCabinet(email) {
     return axios.get('http://' + ip + ':3000/api/cabinetverify/' + email)
@@ -73,4 +68,3 @@ export function removeFromCabinet(email, id) {
     })
         .catch((e) => console.log("Error: " + e.message))
 }
-

@@ -13,25 +13,18 @@ import React from "react";
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import AddIngredient from "./AddIngredient";
-=======
+
 import {Image} from "react-native-elements";
->>>>>>> master
-=======
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Drinkkify from "./Drinkkify";
-
->>>>>>> master
-
+import AddDrink from "./AddDrink";
 
 
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
     // Aine: AddIngredient,
-
 },
     {
         initialRouteName: "Main",
@@ -46,6 +39,46 @@ const AppNavigator = createStackNavigator({
                 // />
         }
 });
+
+// Hampurilaisnavigaatio-harjoitus by Laura. Apuja mm. täältä:
+// https://www.igismap.com/drawer-react-navigation-3-x-react-native/
+// Pitkä matka tästä toimivaksi, en ole vielä hahmottanut, mitä kaikkea pitäisi laittaa minnekin, että tuon lopulta saa toimimaan.
+
+// const Drawer = createDrawerNavigator({
+//         Home: {
+//             navigationOptions: {
+//                 drawerLabel: "Home"
+//             },
+//             screen: Home
+//         },
+//
+//         // ProfilePage: {
+//         //     screen: ProfilePage,
+//         //     navigationOptions: {
+//         //         drawerLabel: 'Profile'
+//         //     }
+//         // },
+//         AddIngredientPage: {
+//             screen: AddIngredient,
+//             navigationOptions: {
+//                 drawerLabel: 'Add Ingredient-sivu'
+//             }
+//         },
+//         AddRecipePage: {
+//             screen: AddDrink,
+//             navigationOptions: {
+//                 drawerLabel: 'Add Recipe-sivu'
+//             }
+//         }
+//     },
+//     {
+//         drawerPosition: 'right',
+//         contentComponent: CustomDrawerNavigation,
+//         drawerOpenRoute: 'DrawerOpen',
+//         drawerCloseRoute: 'DrawerClose',
+//         drawerToggleRoute: 'DrawerToggle',
+//         drawerWidth: (width / 3) * 2
+//     });
 
 const CabinetNavigator = createStackNavigator({
     Cabinet: Cabinet,
