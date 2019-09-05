@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, FlatList, StyleSheet, Text} from "react-native";
-import ModalExample from "../ModalExample";
+import DrinkDetails from "./DrinkDetails";
 //import Markdown from 'react-native-easy-markdown';
 
 class Drinks extends Component {
@@ -15,6 +15,7 @@ class Drinks extends Component {
                     backgroundColor: "#CED0CE",
                     marginLeft: "5%",
                     marginTop: "2%",
+                    color: '#FAD02C'
                 }}
             />
         );
@@ -30,7 +31,7 @@ class Drinks extends Component {
                         <FlatList
                             style={styles.listStyle}
                             data={this.props.drinks}
-                            renderItem={({item}) => <ModalExample name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
+                            renderItem={({item}) => <DrinkDetails name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
                             containerStyle={{borderBottomWidth: 0}}
                             ItemSeparatorComponent={this.renderSeparator}
                         keyExtractor={({id}) => id.toString()}/>

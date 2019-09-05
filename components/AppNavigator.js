@@ -2,39 +2,31 @@ import {
     createStackNavigator,
     createAppContainer,
     createBottomTabNavigator,
-    NavigationScreenComponent as navigationOptions
+    // NavigationScreenComponent as navigationOptions
 } from 'react-navigation';
 import Main from "./Main";
 import Cabinet from "./Cabinet";
 import Login from "./authentication/Login";
 import SearchRecipe from "./SearchRecipe";
-import SearchBooze from "./SearchBooze";
+import AddIngredient from "./AddIngredient";
 import React from "react";
-// import {IconButton, Colors} from "react-native-paper";
-// import {Icon} from 'react-native-vector-icons';
-import Icon from 'react-native-ionicons';
-// import {Button} from "react-native-elements";
 import {StyleSheet} from 'react-native';
 import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import AddIngredient from "./AddIngredient";
 =======
 import {Image} from "react-native-elements";
 >>>>>>> master
+=======
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Drinkkify from "./Drinkkify";
+
+>>>>>>> master
 
 
 
-// class LogoTitle extends React.Component {
-//     render() {
-//         return (
-//             <Image
-//             source={require('../assets/kuvat/Drinkify.jpg')}
-//             style={{width:30, height:30}}
-//             />
-//         );
-//     }
-// }
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
@@ -45,37 +37,51 @@ const AppNavigator = createStackNavigator({
         initialRouteName: "Main",
         // initialRouteName: "Aine",
         defaultNavigationOptions: {
-            title: 'Drinkify',
-            // headerTitle: <LogoTitle/>
+            title: 'Drinkkify',
+            // headerBackground:
+                //
+                // <Image
+                //     source={require('./Drinkify5.png')}
+                //     style={{width:'100%', height:150}}
+                // />
         }
 });
 
 const CabinetNavigator = createStackNavigator({
     Cabinet: Cabinet,
-    Search: SearchBooze,
+    Search: AddIngredient,
         Login: Login,
     Loading: Loading,
     SignUp: SignUp,
+    Drinkkify: Drinkkify,
 },
     {
         initialRouteName: "Loading",
         defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#F8EFE4',
+            },
+            headerTintColor: '#E6C2BF',
             title: 'Bar cabinet',
         },
     });
 
 AppNavigator.navigationOptions = {
+    title: 'test',
     tabBarLabel: 'Drinks',
-    tabBarIcon: ({tintColor}) => (
-        <Icon name='beer' size={20}/>
+
+    tabBarIcon: ({tintColor = '#FAD02C'}) => (
+        <Icon name='beer' size={25} color={'#FAD02C'}/>
     )
 
 };
 
 CabinetNavigator.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
-    tabBarIcon: ({tintColor}) => (
-        <Icon name='home' size={20}/>
+    tabBarIcon: ({tintColor = '#E6C2BF'}) => (
+
+        <Icon name='home' size={25} color={'#E6C2BF'} />
+
     )
 };
 

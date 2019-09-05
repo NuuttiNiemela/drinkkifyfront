@@ -3,11 +3,11 @@ import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} fr
 /*import {Colors} from "react-native/Libraries/NewAppScreen";
 import * as Animatable from 'react-native-animatable';*/
 import { material } from 'react-native-typography'
-import Ingredient from "./components/Ingredient";
+import Ingredient from "./Ingredient";
 
 
 
-export class ModalExample extends Component {
+export class DrinkDetails extends Component {
     state = {
         modalVisible: false,
     };
@@ -32,7 +32,7 @@ export class ModalExample extends Component {
                     onRequestClose={() => {
                         this.setModalVisible(!this.state.modalVisible);
                     }}>
-                    <View>
+                    <View style={{Color:'black'}}>
                         <ScrollView
                             contentInsetAdjustmentBehavior="automatic"
                             style={styles.scrollView}>
@@ -42,7 +42,7 @@ export class ModalExample extends Component {
                             <Text>{"\n"}</Text>
                             {ingredientrows}
                             <Text>{"\n"}</Text>
-                            <Text style={styles.craftStyle}>Ohjeet...</Text>
+                            <Text style={styles.craftStyle}>Instructions</Text>
                             <Text>{"\n"}</Text>
                             <Text style={styles.craftStyle}>{this.props.instructions}</Text>
                             <Text>{"\n"}</Text>
@@ -72,7 +72,7 @@ export class ModalExample extends Component {
 const styles = StyleSheet.create({
 
     scrollView: {
-        backgroundColor: 'black',
+        color: 'black',
     },
     engine: {
         position: 'absolute',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'Roboto-Black',
         fontSize: 14,
-        backgroundColor: '#DBE8D8',
+        backgroundColor: '#F8EFE4',
 
     },
     sectionTitle: {
@@ -133,14 +133,15 @@ const styles = StyleSheet.create({
     },
     buttonStyle: {
         color: 'black',
-        borderColor: 'black',
+        borderColor: '#282120',
         borderRadius: 15,
         borderWidth: 2,
         fontSize: 16,
         fontWeight: '600',
         padding: 8,
         textAlign: 'center',
+        backgroundColor: '#F8EFE4'
     },
 });
 
-export default ModalExample;
+export default DrinkDetails;
