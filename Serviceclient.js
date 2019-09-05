@@ -69,3 +69,9 @@ export function removeFromCabinet(email, id) {
         .catch((e) => console.log("Error: " + e.message))
 }
 
+export function drinkkify(email) {
+    return axios.get('http://' + ip + ':3000/api/cabinetverify/search/drinkkify?email=' + email)
+        .then((response) => response.data)
+        .catch((e) => console.log("Error: " + e.message))
+}
+
