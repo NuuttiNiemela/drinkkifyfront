@@ -95,16 +95,6 @@ class Cabinet extends Component {
                 {/*</TouchableOpacity>*/}
                 <Text>{"\n"}</Text>
                 {ingredientrows}
-                <TouchableOpacity
-                    style={styles.button2Style}
-                    onPress={() => this.props.navigation.navigate('Search')}>
-                    <Text>Add Ingredient</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button2Style}
-                    onPress={() => this.props.navigation.navigate('Drinkkify')}>
-                    <Text>Drinkkify</Text>
-                </TouchableOpacity>
             </View>
             </ScrollView>
             </View>
