@@ -97,7 +97,6 @@ class Cabinet extends Component {
                 {ingredientrows}
             </View>
             </ScrollView>
-
             </View>
 
 
