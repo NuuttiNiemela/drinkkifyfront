@@ -14,13 +14,20 @@ import {
 import * as Animatable from 'react-native-animatable';*/
 import { material } from 'react-native-typography'
 import Ingredient from "./Ingredient";
-import {Icon} from "react-native-elements";
-
+import {Icon, Image} from "react-native-elements";
+import {createStackNavigator} from "react-navigation";
+import Main from "./Main";
+import SearchRecipe from "./SearchRecipe";
+import AppNavigator from "./AppNavigator";
+import AddDrink from "./AddDrink";
 
 
 export class HakuModalExample extends Component {
-    state = {
-        modalVisible: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalVisible: false,
+        }
     };
 
     setModalVisible(visible) {
@@ -28,11 +35,6 @@ export class HakuModalExample extends Component {
     }
 
     render() {
-        const ingredientrows = this.props.ingredients
-            .map(function(drink_ingr) {
-                return(<Ingredient ingredient={drink_ingr} key={drink_ingr.id.toString()}/>);
-            });
-
 
         return (
             <View>
@@ -59,18 +61,32 @@ export class HakuModalExample extends Component {
                                         onPress={this.search}>
                                         <Text style={styles.buttonStyle}>Search drinks</Text>
                                     </TouchableOpacity>
+
                                 </View>
+                                <Text>{"\n"}</Text>
+                                <TouchableHighlight
+                                    onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible);
+                                    }}>
+                                    <Text style={styles.buttonStyle}>Close drink</Text>
+                                </TouchableHighlight>
+                                <Text>{"\n"}</Text>
                             </View>
                         </ScrollView>
                     </View>
                 </Modal>
 
-                <TouchableHighlight
+
+                <Icon
+                    // style={{margin: '1%'}}
+                    name="search"
+                    size={30}
+                    color="black"
                     onPress={() => {
                         this.setModalVisible(true);
-                    }}>
-                    <Text style={styles.sectionDescription}>{this.props.name}</Text>
-                </TouchableHighlight>
+                    }}
+                />
+
             </View>
         );
     }

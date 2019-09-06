@@ -76,7 +76,7 @@ class Cabinet extends Component {
             </View>
             </ScrollView>
                 <TouchableOpacity
-                    style={styles.button2Style}
+                    style={styles.buttonDrinkkify}
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
                     <Text>Drinkkify</Text>
                 </TouchableOpacity>
@@ -137,11 +137,32 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontWeight: 'bold',
         // position: 'absolute',
-        width: '100%',
+        width: '80%',
         height: 60,
         alignItems: 'center',
         justifyContent: 'center',
-        bottom: 0,
+        // bottom: 50,
+        marginTop: 135,
+    },
+    buttonDrinkkify: {
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderRadius: 18,
+        borderColor: '#E6C2BF',
+        color: '#E6C2BF',
+        fontFamily: 'Roboto-Black',
+        fontSize: 25,
+        // overflow: 'hidden',
+        padding: 10,
+        textAlign:'center',
+        fontWeight: 'bold',
+        // position: 'absolute',
+        width: '70%',
+        height: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 120,
+
     },
     lineStyle: {
         borderWidth: 0.8,

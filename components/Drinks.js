@@ -12,7 +12,7 @@ class Drinks extends Component {
                 style={{
                     height: 2,
                     width: "86%",
-                    backgroundColor: "#CED0CE",
+                    backgroundColor: "#FAD02C",
                     marginLeft: "5%",
                     marginTop: "2%",
                     color: '#FAD02C'
