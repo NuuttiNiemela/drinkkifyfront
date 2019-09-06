@@ -24,10 +24,10 @@ class Drinkkify extends Component {
                 style={{
                     height: 2,
                     width: "86%",
-                    backgroundColor: "#FAD02C",
+                    backgroundColor: "#E6C2BF",
                     marginLeft: "5%",
                     marginTop: "2%",
-                    color: '#FAD02C'
+                    color: '#E6C2BF'
                 }}
             />
         );
@@ -51,7 +51,9 @@ class Drinkkify extends Component {
                     renderItem={({item}) => <DrinkDetails name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
                     containerStyle={{borderBottomWidth: 0}}
                     ItemSeparatorComponent={this.renderSeparator}
-                    keyExtractor={({id}) => id.toString()}/>
+                    keyExtractor={({id}) => id.toString()}
+                    ItemSeparatorComponent={this.renderSeparator}
+                />
 
                 {/*<DrinkDetails name={this.state.drinks[0].drink_name} instructions={this.state.drinks[0].drink_instructions} ingredients={this.state.drinks[0].ingredients}/>*/}
             </View>

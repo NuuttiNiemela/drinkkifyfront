@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from "react-native";
+import {StyleSheet, Text, View,} from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class CabinetIngredient extends Component {
 
@@ -10,13 +11,23 @@ class CabinetIngredient extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.viinaStyle}>{this.props.ingredient.ingredient_name}</Text>
-                <TouchableOpacity
-                onPress={this.del} >
-                    <Text>
-                        DEL
-                    </Text>
-                </TouchableOpacity>
+<View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: '5%',}}>
+                <Text style={styles.viinaStyle}>{this.props.ingredient.ingredient_name} </Text>
+
+                    <Icon
+                        name="trash-alt"
+                        size={20}
+                        color="black"
+                        onPress={this.del}
+                    />
+                {/*<TouchableOpacity*/}
+                {/*onPress={this.del} >*/}
+                {/*    <Text>*/}
+                {/*        DEL*/}
+                {/*    </Text>*/}
+                {/*</TouchableOpacity>*/}
+
+            </View>
                 <View style = {styles.lineStyle} />
             </View>
         );
@@ -30,15 +41,15 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     lineStyle: {
-        borderWidth: 0.5,
-        borderColor: 'black',
+        borderWidth: 0.8,
+        borderColor: '#E6C2BF',
         margin: 10,
     },
     viinaStyle: {
         fontFamily: 'Roboto-Black',
         fontSize: 20,
         textAlign: 'left',
-        margin: 12,
+        margin: 5,
     },
 });
 
