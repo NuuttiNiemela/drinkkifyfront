@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, ActivityIndicator, FlatList, StyleSheet} from "react-native";
 import firebase from "react-native-firebase";
-import {getSomething} from "../Serviceclient";
+import {drinkkify, getSomething} from "../Serviceclient";
 import DrinkDetails from "./DrinkDetails";
 
 class Drinkkify extends Component {
@@ -11,10 +11,11 @@ class Drinkkify extends Component {
     componentDidMount() {
         const {currentUser} = firebase.auth()
         this.setState({currentUser})
-        getSomething('kossu-v')
+        drinkkify(currentUser.email)
             .then((response) => {
                 this.setState({drinks: response,
                     isLoading: false})
+                console.log(response)
             })
     }
     renderSeparator = () => {
