@@ -15,7 +15,7 @@ class Drinks extends Component {
                     backgroundColor: "#FAD02C",
                     marginLeft: "5%",
                     marginTop: "2%",
-                    color: '#FAD02C'
+                    color: 'grey'
                 }}
             />
         );
@@ -34,7 +34,9 @@ class Drinks extends Component {
                             renderItem={({item}) => <DrinkDetails name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
                             containerStyle={{borderBottomWidth: 0}}
                             ItemSeparatorComponent={this.renderSeparator}
-                        keyExtractor={({id}) => id.toString()}/>
+                        keyExtractor={({id}) => id.toString()}
+                            ItemSeparatorComponent={this.renderSeparator}
+                        />
                     </View>
 
         );
@@ -42,7 +44,7 @@ class Drinks extends Component {
 }const styles = StyleSheet.create({
 
     listStyle: {
-        // backgroundColor: 'white',
+        backgroundColor: 'white',
         // borderColor: 'gold',
         // borderRadius: 10,
         // borderWidth: 2,

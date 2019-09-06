@@ -65,7 +65,7 @@ const AppNavigator = createStackNavigator({
 
                 <Image
                     source={require('./Drinkkify.png')}
-                    style={{width:'50%', height:48, marginTop:'2%'}}
+                    style={{width:'50%', height:46, marginTop:'2%'}}
                 />
         }
 });
