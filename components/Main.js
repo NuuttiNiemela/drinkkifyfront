@@ -75,6 +75,12 @@ class Main extends Component {
 
             <Fragment>
                 <View style={styles.searchSection}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Search drinks"
+                        onChangeText={(query) => this.setState({query})}
+                        value={this.state.query}
+                    />
                     <Icon
                         style={styles.searchIcon}
                         name="search"
@@ -82,16 +88,11 @@ class Main extends Component {
                         color="black"
                         onPress={this.search}
                     />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Search drinks"
-                        onChangeText={(query) => this.setState({query})}
-                        value={this.state.query}
-                    />
-                    <TouchableOpacity
-                        onPress={this.search}>
-                        <Text style={styles.buttonStyle}>Search drinks</Text>
-                    </TouchableOpacity>
+
+                    {/*<TouchableOpacity*/}
+                    {/*    onPress={this.search}>*/}
+                    {/*    <Text style={styles.buttonStyle}>Search drinks</Text>*/}
+                    {/*</TouchableOpacity>*/}
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
@@ -139,16 +140,20 @@ const styles = StyleSheet.create({
         padding: 1,
         marginLeft: 1,
         // flex: 1,
+
     },
     input: {
         // flex: 2,
-        paddingTop: 2,
-        paddingRight: 2,
-        paddingBottom: 2,
-        paddingLeft: 2,
+        // paddingTop: 2,
+        // paddingRight: 2,
+        // paddingBottom: 2,
+        // paddingLeft: 2,
+        padding: 1,
         backgroundColor: '#F8EFE4',
         color: '#424242',
-        marginLeft: 1,
+        marginLeft: 30,
+        width: '80%',
+
     },
 
 
