@@ -20,9 +20,8 @@ export function getAllIngredients() {
         .catch((e) => console.log("Error: " + e.message))
 }
 
-// EI TOIMI VIELÄ
 export function getSomeIngredients(i) {
-    return axios.get('http://' + ip + ':3000/api/drinks/haku?name=' + i)
+    return axios.get('http://' + ip + ':3000/api/ingredients/search?name=' + i)
         .then((response) => response.data)
         .catch((e) => console.log("Error: " + e.message))
 }
@@ -57,7 +56,7 @@ export function addToCabinet(email, ingredient) {
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         data: JSON.stringify({id: ingredient})
     })
-        .catch((e) => console.log("Error: " + e.message))
+        .catch((e) => {console.log("Error: " + e.message); alert("Ingredient " + ingredient.ingredient_name + " already in your bar cabinet")})
 }
 
 export function removeFromCabinet(email, id) {

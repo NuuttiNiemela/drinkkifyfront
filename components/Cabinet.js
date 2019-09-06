@@ -73,13 +73,13 @@ class Cabinet extends Component {
                     onPress={() => this.props.navigation.navigate('Search')}>
                     <Text>Add Ingredient</Text>
                 </TouchableOpacity>
-            </View>
-            </ScrollView>
                 <TouchableOpacity
                     style={styles.button2Style}
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
                     <Text>Drinkkify</Text>
                 </TouchableOpacity>
+            </View>
+            </ScrollView>
             </View>
 
 
