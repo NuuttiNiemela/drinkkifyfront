@@ -75,3 +75,13 @@ export function drinkkify(email) {
         .catch((e) => console.log("Error: " + e.message))
 }
 
+export function addIngredient(i, email) {
+    return axios('http://' + ip + ':3000/api/ingredients?email=' + email,{
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        data: JSON.stringify({ingredient_name: i})
+    })
+        .then((response) => response.data)
+        .catch((e) => console.log("Error: " + e.message))
+}
+
