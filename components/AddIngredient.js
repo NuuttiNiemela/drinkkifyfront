@@ -4,24 +4,27 @@ import {getAllIngredients, getSomeIngredients, getSomething} from "../Servicecli
 import _ from "lodash";
 import AddableIngredient from "./AddableIngredient";
 import firebase from "react-native-firebase";
+import NewIngredient from "./NewIngredient";
 
 class AddIngredient extends Component {
-    state = {ingredients: [] ,query: ""}
+    state = {currentUser: null, ingredients: [] ,query: ""}
 
-    componentDidMount = () => {
-        this.getIngredients();
+    componentDidMount() {
         const {currentUser} = firebase.auth()
-        this.setState({currentUser})
+        this.setState({currentUser},
+            this.getIngredients)
+        const {navigation} = this.props;
+        this.focusListener = navigation.addListener('didFocus', () => {
+            if(this.state.currentUser != null) this.getIngredients()
+        })
     }
 
     getIngredients = () => {
         getAllIngredients()
             .then((response) => {
-                console.log(response)
                 this.setState({
                     ingredients: response
                 })
-                console.log(this.state)
             })
             .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
     }
@@ -43,12 +46,21 @@ class AddIngredient extends Component {
             .catch((error) => console.log('Error:' + error.message))
     }, 250);
 
+    componentWillUnmount() {
+        this.focusListener.remove();
+    }
+
     render() {
 
         const ingredientrows = this.state.ingredients
             .map((ingredient) => {
                 return (<AddableIngredient ingredient={ingredient} key={ingredient.id.toString()}/>);
             });
+
+        // const newIngredient = this.state.currentUser
+        //     .map((user) => {
+        //         return(<NewIngredient user={user}/>)
+        //     })
 
         return (
             <View style={{flex: 1, paddingTop: 20}} >
@@ -63,6 +75,7 @@ class AddIngredient extends Component {
                 </TouchableOpacity>
                 <ScrollView
                     contentInsetAdjustmentBehavior="automatic" >
+                    <NewIngredient user={this.state.currentUser} />
                     {ingredientrows}
                 </ScrollView>
                 <Button

@@ -48,7 +48,36 @@ class Cabinet extends Component {
         this.focusListener.remove();
     }
 
+    renderComponent = () => {
+        return(
+        <View style={{backgroundColor: 'white'}}>
+            <View>
+                <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
+                <Text>{"\n"}</Text>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={{shadowColor: '#F6C213', // IOS
+                        shadowOffset: { height: 1, width: 1 }, // IOS
+                        shadowOpacity: 1, // IOS
+                        shadowRadius: 1, //IOS
+                        elevation: 2,}} onPress={() => this.props.navigation.navigate('Drinkkify')}
+                    onPress={() => this.props.navigation.navigate('Drinkkify')}>
+                    <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.signOutUser}>
+                    <Text style={styles.buttonStyle}>{"\n"}Sign{"\n"}out</Text>
+                </TouchableOpacity>
+            </View>
+            </View>
+        )}
+
     render() {
+
             const ingredientrows = this.state.cabinetIngredients
                 .map((ingredient) => {
                     return (<CabinetIngredient ingredient={ingredient} key={ingredient.ingredients_id.toString()} delete={this.deleteIngredient} />);
@@ -56,34 +85,12 @@ class Cabinet extends Component {
 
         return (
             <View>
-                <View>
-                    <Text>{"\n"}</Text>
-                    <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
-                    <Text>{"\n"}</Text>
-                </View>
-                <ScrollView
-                    contentInsetAdjustmentBehavior="automatic"
-                    style={styles.scrollView}
-                    stickyHeaderIndices={[]}
-                >
-                <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Search')}>
-                        <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={{shadowColor: '#F6C213', // IOS
-                            shadowOffset: { height: 1, width: 1 }, // IOS
-                            shadowOpacity: 1, // IOS
-                            shadowRadius: 1, //IOS
-                            elevation: 2,}} onPress={() => this.props.navigation.navigate('Drinkkify')}>
-                        <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this.signOutUser}>
-                        <Text style={styles.buttonStyle}>{"\n"}Sign{"\n"}out</Text>
-                    </TouchableOpacity>
-                </View>
 
+            <ScrollView
+                stickyHeaderIndices={[0]}
+                contentInsetAdjustmentBehavior="automatic"
+                style={styles.scrollView}>
+                {this.renderComponent()}
 
             <View style={{flex: 1, paddingTop: 20}} >
                 <Text>{"\n"}</Text>
@@ -91,9 +98,6 @@ class Cabinet extends Component {
             </View>
             </ScrollView>
             </View>
-
-
-
         );
     }
 }
