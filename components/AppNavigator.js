@@ -122,27 +122,32 @@ const CabinetNavigator = createStackNavigator({
         initialRouteName: "Loading",
         defaultNavigationOptions: {
             headerStyle: {
-                backgroundColor: '#F8EFE4',
+                backgroundColor: '#EBEEF3',
             },
-            headerTintColor: '#E6C2BF',
+            headerTintColor: '#696D3F',
             title: 'Bar cabinet',
         },
     });
 
 AppNavigator.navigationOptions = {
+    headerStyle: {
+        backgroundColor: '#f4511e',
+    },
     tabBarLabel: 'Drinks',
-
-    tabBarIcon: ({tintColor = '#FAD02C'}) => (
-        <Icon name='beer' size={25} color={'#FAD02C'}/>
+    tabBarIcon: ({tintColor = 'black'}) => (
+        <Icon name='beer' size={25} color={'#FAD02C'} backgroundColor={'#B2C8D4'}/>
     )
 
 };
 
 CabinetNavigator.navigationOptions = {
+    headerStyle: {
+        backgroundColor: '#f4511e',
+    },
     tabBarLabel: 'Bar cabinet',
-    tabBarIcon: ({tintColor = '#E6C2BF'}) => (
+    tabBarIcon: ({tintColor = 'black'}) => (
 
-        <Icon name='home' size={25} color={'#E6C2BF'} />
+        <Icon name='home' size={25} color={'#696D3F'} />
 
     )
 };

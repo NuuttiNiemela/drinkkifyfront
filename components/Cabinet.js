@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, Flex, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView, Flex, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
 import {withNavigation} from 'react-navigation';
 import { Button } from 'react-native-elements';
@@ -61,38 +61,31 @@ class Cabinet extends Component {
                     <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
                     <Text>{"\n"}</Text>
                 </View>
+                <ScrollView
+                    contentInsetAdjustmentBehavior="automatic"
+                    style={styles.scrollView}
+                    stickyHeaderIndices={[]}
+                >
                 <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Search')}>
                         <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Drinkkify')}>
+                        style={{shadowColor: '#F6C213', // IOS
+                            shadowOffset: { height: 1, width: 1 }, // IOS
+                            shadowOpacity: 1, // IOS
+                            shadowRadius: 1, //IOS
+                            elevation: 2,}} onPress={() => this.props.navigation.navigate('Drinkkify')}>
                         <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.signOutUser}>
                         <Text style={styles.buttonStyle}>{"\n"}Sign{"\n"}out</Text>
                     </TouchableOpacity>
                 </View>
-            <ScrollView
-                contentInsetAdjustmentBehavior="automatic"
-                style={styles.scrollView}>
+
 
             <View style={{flex: 1, paddingTop: 20}} >
-
-                {/*<Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>*/}
-                {/*<Text>{"\n"}</Text>*/}
-                {/*<TouchableOpacity onPress={this.signOutUser}>*/}
-                {/*    <Text style={styles.buttonStyle}>Sign out</Text>*/}
-                {/*</TouchableOpacity>*/}
-                {/*<TouchableOpacity*/}
-                {/*    onPress={() => this.props.navigation.navigate('Search')}>*/}
-                {/*    <Text style={styles.buttonStyle}>Add Ingredient</Text>*/}
-                {/*</TouchableOpacity>*/}
-                {/*<TouchableOpacity*/}
-                {/*    onPress={() => this.props.navigation.navigate('Drinkkify')}>*/}
-                {/*    <Text style={styles.buttonStyle}>Drinkkify</Text>*/}
-                {/*</TouchableOpacity>*/}
                 <Text>{"\n"}</Text>
                 {ingredientrows}
             </View>
@@ -110,12 +103,11 @@ const styles = StyleSheet.create({
     textStyle: {
         padding: 2,
         marginLeft:5,
-        fontSize: 18,
+        fontSize: 20,
         textAlign: 'center',
-        color: '#E6C2BF',
+        color: '#698D3F',
         fontFamily: 'Roboto-Black',
     },
-
     scrollView: {
         backgroundColor: 'white',
     },
@@ -141,39 +133,18 @@ const styles = StyleSheet.create({
         width: 80,
         height: 80,
     },
-
-    // button2Style: {
-    //     backgroundColor: 'white',
-    //     borderWidth: 3,
-    //     borderRadius: 12,
-    //     borderColor: '#E6C2BF',
-    //     color: '#E6C2BF',
-    //     fontFamily: 'Roboto-Black',
-    //     fontSize: 25,
-    //     overflow: 'hidden',
-    //     padding: 10,
-    //     textAlign:'center',
-    //     fontWeight: 'bold',
-    //     // position: 'absolute',
-    //     width: '80%',
-    //     height: 60,
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     // bottom: 50,
-    //     marginTop: 135,
-    // },
     buttonDrinkkify: {
         justifyContent: 'center',
-        backgroundColor: '#E6C2BF',
+        backgroundColor: '#F8DA74',
         borderWidth: 4,
         borderRadius: 100/ 2,
-        borderColor: '#F8EFE4',
-        color: '#F8EFE4',
+        borderColor: '#F6C213',
+        color: 'white',
         fontFamily: 'Roboto-Black',
         fontSize: 20,
         padding: 5,
         textAlign:'center',
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         width: 100,
         height: 100,
     },

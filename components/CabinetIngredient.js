@@ -11,22 +11,15 @@ class CabinetIngredient extends Component {
     render() {
         return (
             <View>
-<View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: '5%',}}>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: '5%',}}>
                 <Text style={styles.viinaStyle}>{this.props.ingredient.ingredient_name} </Text>
-
                     <Icon
                         name="trash-alt"
                         size={20}
                         color="black"
                         onPress={this.del}
+                        style="reverse"
                     />
-                {/*<TouchableOpacity*/}
-                {/*onPress={this.del} >*/}
-                {/*    <Text>*/}
-                {/*        DEL*/}
-                {/*    </Text>*/}
-                {/*</TouchableOpacity>*/}
-
             </View>
                 <View style = {styles.lineStyle} />
             </View>
