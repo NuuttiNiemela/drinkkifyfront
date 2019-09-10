@@ -65,7 +65,7 @@ const AppNavigator = createStackNavigator({
 
                 <Image
                     source={require('./Drinkkify.png')}
-                    style={{width:'50%', height:46, marginTop:'2%'}}
+                    style={{width:'50%', height:46, marginTop:'2%', marginLeft: '2%',}}
                 />
         }
 });
@@ -122,17 +122,16 @@ const CabinetNavigator = createStackNavigator({
         initialRouteName: "Loading",
         defaultNavigationOptions: {
             headerStyle: {
-                backgroundColor: '#F8EFE4',
+                backgroundColor: '#EBEEF3',
             },
-            headerTintColor: '#E6C2BF',
+            headerTintColor: '#696D3F',
             title: 'Bar cabinet',
         },
     });
 
 AppNavigator.navigationOptions = {
     tabBarLabel: 'Drinks',
-
-    tabBarIcon: ({tintColor = '#FAD02C'}) => (
+    tabBarIcon: ({tintColor = 'black'}) => (
         <Icon name='beer' size={25} color={'#FAD02C'}/>
     )
 
@@ -140,9 +139,8 @@ AppNavigator.navigationOptions = {
 
 CabinetNavigator.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
-    tabBarIcon: ({tintColor = '#E6C2BF'}) => (
-
-        <Icon name='home' size={25} color={'#E6C2BF'} />
+    tabBarIcon: ({tintColor = 'black'}) => (
+        <Icon name='home' size={25} color={'#696D3F'} />
 
     )
 };

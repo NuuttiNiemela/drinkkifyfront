@@ -12,10 +12,10 @@ class Drinks extends Component {
                 style={{
                     height: 2,
                     width: "86%",
-                    backgroundColor: "#FAD02C",
+                    backgroundColor: "#F6E2AD",
                     marginLeft: "5%",
                     marginTop: "2%",
-                    color: 'grey'
+                    color: '#F6C213'
                 }}
             />
         );
@@ -26,7 +26,7 @@ class Drinks extends Component {
 
         return (
             <View
-                        style={{flex: 1, padding:20}}>
+                        style={{flex: 1, padding:20,}}>
 
                         <FlatList
                             style={styles.listStyle}
@@ -34,9 +34,7 @@ class Drinks extends Component {
                             renderItem={({item}) => <DrinkDetails name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
                             containerStyle={{borderBottomWidth: 0}}
                             ItemSeparatorComponent={this.renderSeparator}
-                        keyExtractor={({id}) => id.toString()}
-                            ItemSeparatorComponent={this.renderSeparator}
-                        />
+                            keyExtractor={({id}) => id.toString()}/>
                     </View>
 
         );
@@ -45,10 +43,6 @@ class Drinks extends Component {
 
     listStyle: {
         backgroundColor: 'white',
-        // borderColor: 'gold',
-        // borderRadius: 10,
-        // borderWidth: 2,
-        color: 'black',
 
 }
 });
