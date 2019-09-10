@@ -30,7 +30,7 @@ export function addToList(drink) {
     return axios('http://' + ip + ':3000/api/drinks/', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        data: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredients})
+        data: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredient, ingredientAmount: drink.ingredientAmount, ingredientUnit: drink.ingredientUnit})
     })
         .catch((e) => console.log("Error: " + e.message))
 }
