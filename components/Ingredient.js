@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     ingredientStyle: {
         fontSize: 18,
         color: 'black',
-        margin: 10,
+        margin: 20,
     },
     lineStyle: {
         borderWidth: 0.5,

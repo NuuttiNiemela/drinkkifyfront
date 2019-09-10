@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: 'black',
         margin: 10,
-        color: 'black',
+        color: '#F6C213',
     },
     tableContent: {
         marginTop: 42,
