@@ -96,7 +96,7 @@ class Main extends Component {
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
-                {/*<AddDrink update={this.getDrinks}/>*/}
+                <AddDrink update={this.getDrinks}/>
 
             </Fragment>
         );
