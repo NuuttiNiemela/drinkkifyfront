@@ -5,6 +5,7 @@ import {Icon} from 'react-native-elements';
 import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
+import AddDrink2 from "./AddDrink2";
 
 class Main extends Component {
 
