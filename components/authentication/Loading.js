@@ -4,6 +4,7 @@ import firebase from 'react-native-firebase'
 import Cabinet from "../Cabinet";
 import Login from "./Login";
 import axios from 'react-native-axios'
+import {Image} from "react-native-elements";
 
 class Loading extends Component {
     state = {isLogged: null, token: ''}
@@ -36,7 +37,11 @@ class Loading extends Component {
         return (
             <View style={styles.container}>
                 <ActivityIndicator size="large" />
-                <Text>Welcome to the world of Drinkkify!</Text>
+                <Text style={{color: '#698D3F', fontFamily: 'Roboto-Black', fontSize: 20}}> Welcome to </Text>
+                <View>
+                <Image source={require('./Drinkify6.png')}
+                       style={{width: 237, height: 138,}}/>
+                </View>
             </View>
         );
     }
@@ -47,7 +52,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    image: {
+        width: 217,
+        height: 138,
+    },
 })
 
 export default Loading;

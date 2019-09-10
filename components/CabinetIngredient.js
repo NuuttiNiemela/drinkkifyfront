@@ -16,7 +16,7 @@ class CabinetIngredient extends Component {
                     <Icon
                         name="trash-alt"
                         size={20}
-                        color="black"
+                        color="#698D3F"
                         onPress={this.del}
                         style="reverse"
                     />
@@ -30,19 +30,19 @@ const styles = StyleSheet.create({
 
     ingredientStyle: {
         fontSize: 18,
-        color: 'black',
-        margin: 10,
+        color: '#698D3F',
+        margin: 20,
     },
     lineStyle: {
         borderWidth: 0.8,
-        borderColor: '#E6C2BF',
+        borderColor: '#B2C8D4',
         margin: 10,
     },
     viinaStyle: {
         fontFamily: 'Roboto-Black',
         fontSize: 20,
         textAlign: 'left',
-        margin: 5,
+        margin: 10,
     },
 });
 

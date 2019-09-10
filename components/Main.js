@@ -77,7 +77,7 @@ class Main extends Component {
                 <View style={styles.searchSection}>
                     <TextInput
                         style={styles.input}
-                        placeholder="Search drinks"
+                        placeholder="Type here to search drinks"
                         onChangeText={(query) => this.setState({query})}
                         value={this.state.query}
                     />
@@ -85,7 +85,7 @@ class Main extends Component {
                         style={styles.searchIcon}
                         name="search"
                         size={30}
-                        color="black"
+                        color="#698D3F"
                         onPress={this.search}
                     />
 
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         padding: 1,
         backgroundColor: '#F6E2AD',
         color: '#424242',
-        marginLeft: 30,
+        marginLeft: 40,
         width: '80%',
 
     },

@@ -26,7 +26,7 @@ class Drinks extends Component {
 
         return (
             <View
-                        style={{flex: 1, padding:20}}>
+                        style={{flex: 1, padding:20,}}>
 
                         <FlatList
                             style={styles.listStyle}
@@ -43,10 +43,6 @@ class Drinks extends Component {
 
     listStyle: {
         backgroundColor: 'white',
-        // borderColor: 'gold',
-        // borderRadius: 10,
-        // borderWidth: 2,
-        color: 'black',
 
 }
 });

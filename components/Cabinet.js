@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView, Flex, TouchableHighlight} from 'react-native';
 import firebase from "react-native-firebase";
-import {withNavigation} from 'react-navigation';
-import { Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-// import Ingredient from "./Ingredient";
 import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
 
@@ -52,7 +48,7 @@ class Cabinet extends Component {
         return(
         <View style={{backgroundColor: 'white'}}>
             <View>
-                <Text style={styles.textStyle}>Welcome {this.state.currentUser && this.state.currentUser.email}!</Text>
+                <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
                 <Text>{"\n"}</Text>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
@@ -61,11 +57,6 @@ class Cabinet extends Component {
                     <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={{shadowColor: '#F6C213', // IOS
-                        shadowOffset: { height: 1, width: 1 }, // IOS
-                        shadowOpacity: 1, // IOS
-                        shadowRadius: 1, //IOS
-                        elevation: 2,}} onPress={() => this.props.navigation.navigate('Drinkkify')}
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
                     <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
                 </TouchableOpacity>
@@ -106,9 +97,9 @@ const styles = StyleSheet.create({
 
     textStyle: {
         padding: 2,
-        marginLeft:5,
-        fontSize: 20,
-        textAlign: 'center',
+        marginLeft:20,
+        fontSize: 15,
+        textAlign: 'left',
         color: '#698D3F',
         fontFamily: 'Roboto-Black',
     },
@@ -124,11 +115,11 @@ const styles = StyleSheet.create({
     },
     buttonStyle: {
         justifyContent: 'center',
-        backgroundColor: '#F8EFE4',
-        borderWidth: 3,
+        backgroundColor: '#B2C8D4',
+        // borderWidth: 3,
         borderRadius: 80/ 2,
-        borderColor: '#E6C2BF',
-        color: '#E6C2BF',
+        // borderColor: '#E6C2BF',
+        color: 'white',
         fontFamily: 'Roboto-Black',
         fontSize: 14,
         padding: 5,
@@ -136,13 +127,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         width: 80,
         height: 80,
+        elevation: 5,
+        position: 'relative',
     },
     buttonDrinkkify: {
         justifyContent: 'center',
         backgroundColor: '#F8DA74',
-        borderWidth: 4,
+        // borderWidth: 4,
         borderRadius: 100/ 2,
-        borderColor: '#F6C213',
+        // borderColor: '#F6C213',
         color: 'white',
         fontFamily: 'Roboto-Black',
         fontSize: 20,
@@ -151,10 +144,12 @@ const styles = StyleSheet.create({
         // fontWeight: 'bold',
         width: 100,
         height: 100,
+        elevation: 5,
+        position: 'relative',
     },
     lineStyle: {
         borderWidth: 0.8,
-        borderColor: '#E6C2BF',
+        borderColor: '#698D3F',
         margin: 10,
     },
 
