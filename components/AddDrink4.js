@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,  Fragment} from 'react';
 import {
     StyleSheet,
     View,
@@ -8,9 +8,12 @@ import {
     TouchableOpacity,
     Text,
     Modal,
-    TouchableHighlight
+    TouchableHighlight,
+    ScrollView,
 } from 'react-native';
 import {addToList, addToList2} from "../Serviceclient";
+import SearchableDropDown from "react-native-searchable-dropdown";
+import {Dropdown} from 'react-native-material-dropdown';
 
 class AddDrink extends Component {
 
@@ -41,6 +44,8 @@ class AddDrink extends Component {
         value: '',
         valueArray: [],
         visible: false,
+        allIngredients: [],
+        units:[]
     }
 
     send = (e) => {
@@ -73,22 +78,31 @@ class AddDrink extends Component {
             ingredientAmount6: '',
             ingredientUnit6: '',
         });
+        this.setModalVisible(!this.state.visible)
     }
 
 
     setModalVisible(visible) {
-        this.setState({visible: visible, value: 0});
+        this.setState({visible: visible, value: 0, valueArray: [] ,allIngredients: this.props.all, units: [  {name: 'cl'}, {name: 'dl'}, {name: 'for garnish'}, {name: 'top with'}, {name: 'stick'}, {name: 'piece'}, {name: 'serving'}, {name: 'pieces'}, {name: 'cut to pretty shapes.'}, {name: 'dashes'}, {name: 'optional'}, {name: 'for garnish'}, {name: 'tbsp for the rim'}, {name: 'spoonfuls'}, {name: 'piece'}, {name: 'grated'}, {name: 'to garnish'}, {name: 'to taste'}, {name: 'pieces'}, {name: 'to garnish'}, {name: 'to top with'}, {name: 'leaves'}, {name: 'pinch'}, {name: 'dash of'}, {name: 'according to taste'}, {name: 'serving'}, {name: 'according to your taste'}, {name: 'dl, or according to taste.'}, {name: 'shavings'}, {name: 'small bunch'}, {name: 'splash'}, {name: 'shaving'}, {name: 'dash'}]
+        });
     }
+
 
     renderIngredient = (number) => {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient => this.setState({ ingredient })}
-                    value={this.state.ingredient} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -96,11 +110,15 @@ class AddDrink extends Component {
                     onChangeText={ingredientAmount => this.setState({ ingredientAmount })}
                     value={this.state.ingredientAmount} />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit => this.setState({ ingredientUnit })}
-                    value={this.state.ingredientUnit} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
+
             </View>
         )
     }
@@ -109,23 +127,31 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient1: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient1 => this.setState({ ingredient1 })}
-                    value={this.state.ingredient1} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
                     placeholder="Amount"
                     onChangeText={ingredientAmount1 => this.setState({ ingredientAmount1 })}
-                    value={this.state.ingredientAmount1} />
+                    value={this.state.ingredientAmount1}
+                />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit1: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit1 => this.setState({ ingredientUnit1 })}
-                    value={this.state.ingredientUnit1} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
+
             </View>
         )
     }
@@ -134,11 +160,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient2: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient2 => this.setState({ ingredient2 })}
-                    value={this.state.ingredient2} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -146,11 +175,14 @@ class AddDrink extends Component {
                     onChangeText={ingredientAmount2 => this.setState({ ingredientAmount2 })}
                     value={this.state.ingredientAmount2} />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit2: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit2 => this.setState({ ingredientUnit2 })}
-                    value={this.state.ingredientUnit2} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
             </View>
         )
     }
@@ -159,11 +191,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient3: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient3 => this.setState({ ingredient3 })}
-                    value={this.state.ingredient3} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -171,11 +206,14 @@ class AddDrink extends Component {
                     onChangeText={ingredientAmount3 => this.setState({ ingredientAmount3 })}
                     value={this.state.ingredientAmount3} />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit3: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit3 => this.setState({ ingredientUnit3 })}
-                    value={this.state.ingredientUnit3} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
             </View>
         )
     }
@@ -184,11 +222,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient4: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient4 => this.setState({ ingredient4 })}
-                    value={this.state.ingredient4} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -196,11 +237,14 @@ class AddDrink extends Component {
                     onChangeText={ingredientAmount4 => this.setState({ ingredientAmount4 })}
                     value={this.state.ingredientAmount4} />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit4: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit4 => this.setState({ ingredientUnit4 })}
-                    value={this.state.ingredientUnit4} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
             </View>
         )
     }
@@ -209,11 +253,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient5: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient5 => this.setState({ ingredient5 })}
-                    value={this.state.ingredient5} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -221,11 +268,14 @@ class AddDrink extends Component {
                     onChangeText={ingredientAmount5 => this.setState({ ingredientAmount5 })}
                     value={this.state.ingredientAmount5} />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit5: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit5 => this.setState({ ingredientUnit5 })}
-                    value={this.state.ingredientUnit5} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
             </View>
         )
     }
@@ -234,11 +284,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient6: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient6 => this.setState({ ingredient6 })}
-                    value={this.state.ingredient6} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -246,11 +299,14 @@ class AddDrink extends Component {
                     onChangeText={ingredientAmount6 => this.setState({ ingredientAmount6 })}
                     value={this.state.ingredientAmount6} />
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredientUnit6: item.name})}
+                    items={this.state.units}
                     placeholder="Unit"
-                    onChangeText={ingredientUnit6 => this.setState({ ingredientUnit6 })}
-                    value={this.state.ingredientUnit6} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
             </View>
         )
     }
@@ -288,6 +344,7 @@ class AddDrink extends Component {
                            this.setModalVisible(!this.state.visible);
                        }}
                 >
+                    <Fragment>
                     <TextInput
                         // style={styles.textInput}
                         autoCapitalize="none"
@@ -303,6 +360,7 @@ class AddDrink extends Component {
 
                     {newArray}
 
+
                     <TouchableOpacity onPress={this.send}>
                         <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
                     </TouchableOpacity>
@@ -313,14 +371,15 @@ class AddDrink extends Component {
                         <Text style={styles.footer}>Sulje Drinksu</Text>
                     </TouchableHighlight>
                     <Button
-                        title={'Paina'}
+                        title={'Add Ingredient'}
                         onPress={this.addMore}/>
+                    </Fragment>
                 </Modal>
                 <TouchableHighlight
                     onPress={() => {
                         this.setModalVisible(true);
                     }}>
-                    <Text>Lisää Drinksu2</Text>
+                    <Text>Add Drink 4</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -342,7 +401,26 @@ const styles = StyleSheet.create({
         padding: 12,
         textAlign:'center',
     },
-
+    // inputStyle: {
+    //     padding: 12,
+    //     borderWidth: 1,
+    //     borderColor: '#ccc',
+    //     borderRadius: 5
+    // },
+    itemStyle: {
+        padding: 10,
+        marginTop: 2,
+        backgroundColor: '#ddd',
+        borderColor: '#bbb',
+        borderWidth: 1,
+        borderRadius:5
+    },
+    itemTextStyle: {
+        color: '#222'
+    },
+    itemsContainerStyle: {
+        maxHeight: 140
+    },
 });
 
 
