@@ -30,7 +30,48 @@ export function addToList(drink) {
     return axios('http://' + ip + ':3000/api/drinks/', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        data: JSON.stringify({drink_name:drink.name, drink_instructions:drink.instructions, drink_ingredient:drink.ingredient, ingredientAmount: drink.ingredientAmount, ingredientUnit: drink.ingredientUnit})
+        data: JSON.stringify({
+            value: drink.value,
+            drink_name:drink.name,
+            drink_instructions:drink.instructions,
+            drink_ingredient:drink.ingredient,
+            ingredientAmount: drink.ingredientAmount,
+            ingredientUnit: drink.ingredientUnit,
+        })
+    })
+        .catch((e) => console.log("Error: " + e.message))
+}
+
+export function addToList2(drink) {
+    return axios('http://' + ip + ':3000/api/drinks/', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        data: JSON.stringify({
+            value: drink.value,
+            drink_name:drink.name,
+            drink_instructions:drink.instructions,
+            drink_ingredient0:drink.ingredient,
+            ingredientAmount0: drink.ingredientAmount,
+            ingredientUnit0: drink.ingredientUnit,
+            drink_ingredient1:drink.ingredient1,
+            ingredientAmount1: drink.ingredientAmount1,
+            ingredientUnit1: drink.ingredientUnit1,
+            drink_ingredient2:drink.ingredient2,
+            ingredientAmount2: drink.ingredientAmount2,
+            ingredientUnit2: drink.ingredientUnit2,
+            drink_ingredient3:drink.ingredient3,
+            ingredientAmount3: drink.ingredientAmount3,
+            ingredientUnit3: drink.ingredientUnit3,
+            drink_ingredient4:drink.ingredient4,
+            ingredientAmount4: drink.ingredientAmount4,
+            ingredientUnit4: drink.ingredientUnit4,
+            drink_ingredient5:drink.ingredient5,
+            ingredientAmount5: drink.ingredientAmount5,
+            ingredientUnit5: drink.ingredientUnit5,
+            drink_ingredient6:drink.ingredient6,
+            ingredientAmount6: drink.ingredientAmount6,
+            ingredientUnit6: drink.ingredientUnit6,
+        })
     })
         .catch((e) => console.log("Error: " + e.message))
 }
