@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,  Fragment} from 'react';
 import {
     StyleSheet,
     View,
@@ -8,9 +8,11 @@ import {
     TouchableOpacity,
     Text,
     Modal,
-    TouchableHighlight
+    TouchableHighlight,
+    ScrollView,
 } from 'react-native';
 import {addToList, addToList2} from "../Serviceclient";
+import SearchableDropDown from "react-native-searchable-dropdown";
 
 class AddDrink extends Component {
 
@@ -41,6 +43,7 @@ class AddDrink extends Component {
         value: '',
         valueArray: [],
         visible: false,
+        allIngredients: [],
     }
 
     send = (e) => {
@@ -73,22 +76,29 @@ class AddDrink extends Component {
             ingredientAmount6: '',
             ingredientUnit6: '',
         });
+        this.setModalVisible(!this.state.visible)
     }
 
 
     setModalVisible(visible) {
-        this.setState({visible: visible, value: 0});
+        this.setState({visible: visible, value: 0, valueArray: [] ,allIngredients: this.props.all});
     }
 
     renderIngredient = (number) => {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient => this.setState({ ingredient })}
-                    value={this.state.ingredient} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -109,11 +119,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient1: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient1 => this.setState({ ingredient1 })}
-                    value={this.state.ingredient1} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -134,11 +147,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient2: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient2 => this.setState({ ingredient2 })}
-                    value={this.state.ingredient2} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -159,11 +175,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient3: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient3 => this.setState({ ingredient3 })}
-                    value={this.state.ingredient3} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -184,11 +203,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient4: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient4 => this.setState({ ingredient4 })}
-                    value={this.state.ingredient4} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -209,11 +231,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient5: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient5 => this.setState({ ingredient5 })}
-                    value={this.state.ingredient5} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -234,11 +259,14 @@ class AddDrink extends Component {
         return(
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
-                <TextInput
-                    autoCapitalize="none"
+                <SearchableDropDown
+                    onTextChange={text => console.log(text)}
+                    onItemSelect={(item) => this.setState({ingredient6: item.ingredient_name})}
+                    items={this.state.allIngredients}
                     placeholder="Ingredient"
-                    onChangeText={ingredient6 => this.setState({ ingredient6 })}
-                    value={this.state.ingredient6} />
+                    resetValue={false}
+                    underlineColorAndroid='transparent'
+                />
 
                 <TextInput
                     autoCapitalize="none"
@@ -288,6 +316,7 @@ class AddDrink extends Component {
                            this.setModalVisible(!this.state.visible);
                        }}
                 >
+                    <Fragment>
                     <TextInput
                         // style={styles.textInput}
                         autoCapitalize="none"
@@ -303,6 +332,7 @@ class AddDrink extends Component {
 
                     {newArray}
 
+
                     <TouchableOpacity onPress={this.send}>
                         <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
                     </TouchableOpacity>
@@ -313,14 +343,15 @@ class AddDrink extends Component {
                         <Text style={styles.footer}>Sulje Drinksu</Text>
                     </TouchableHighlight>
                     <Button
-                        title={'Paina'}
+                        title={'Add Ingredient'}
                         onPress={this.addMore}/>
+                    </Fragment>
                 </Modal>
                 <TouchableHighlight
                     onPress={() => {
                         this.setModalVisible(true);
                     }}>
-                    <Text>Lisää Drinksu2</Text>
+                    <Text>Add Drink 4</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -342,7 +373,26 @@ const styles = StyleSheet.create({
         padding: 12,
         textAlign:'center',
     },
-
+    // inputStyle: {
+    //     padding: 12,
+    //     borderWidth: 1,
+    //     borderColor: '#ccc',
+    //     borderRadius: 5
+    // },
+    itemStyle: {
+        padding: 10,
+        marginTop: 2,
+        backgroundColor: '#ddd',
+        borderColor: '#bbb',
+        borderWidth: 1,
+        borderRadius:5
+    },
+    itemTextStyle: {
+        color: '#222'
+    },
+    itemsContainerStyle: {
+        maxHeight: 140
+    },
 });
 
 

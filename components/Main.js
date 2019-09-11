@@ -6,6 +6,7 @@ import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
 import AddDrink2 from "./AddDrink2";
+import AddDrink4 from "./AddDrink4";
 
 class Main extends Component {
 
@@ -29,11 +30,9 @@ class Main extends Component {
     getIngredients = () => {
         getAllIngredients()
             .then((response) => {
-                console.log(response)
                 this.setState({
                     ingredients: response
                 })
-                console.log(this.state)
             })
             .catch((error) => console.log('Virhe ingredientsien haussa:' + error.message))
     }
@@ -97,7 +96,8 @@ class Main extends Component {
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
-                <AddDrink2 update={this.getDrinks}/>
+                {/*<AddDrink2 update={this.getDrinks} />*/}
+                <AddDrink4 all={this.state.ingredients.map((ingredient) => {ingredient.name=ingredient.ingredient_name; return ingredient} )} update={this.getDrinks}/>
 
             </Fragment>
         );
