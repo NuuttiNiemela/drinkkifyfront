@@ -1,7 +1,8 @@
 import {
     createStackNavigator,
     createAppContainer,
-    createBottomTabNavigator
+    createBottomTabNavigator,
+    createDrawerNavigator, NavigationScreenProp as navigation,
 } from 'react-navigation';
 import Main from "./Main";
 import Cabinet from "./Cabinet";
@@ -14,30 +15,16 @@ import Loading from "./authentication/Loading";
 import SignUp from "./authentication/SignUp";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Drinkkify from "./Drinkkify";
-import {Image} from "react-native-elements";
-import HakuModalExample from "./HakuModalExample";
-import AddDrink from "./AddDrink";
+import {Image} from "react-native-elements"
+import HamppariTesti from "./HamppariTesti";
 
 
-// class Navigator extends Component{
-//     constructor(props) {
-//         super(props);
-//
-//     }
-//     componentDidMount(){
-//         this.refs.modalVisible()
-//     }
-//     render() {
-//         return <HakuModalExample container={this} ref = "modal" />
-//     }
-//
-//
-//
-// }
 
 const AppNavigator = createStackNavigator({
     Main: Main,
     Search: SearchRecipe,
+    HamppariTesti: HamppariTesti,
+
     // Aine: AddIngredient,
 },
     {
@@ -45,23 +32,7 @@ const AppNavigator = createStackNavigator({
         // initialRouteName: "Aine",
         defaultNavigationOptions: {
             headerTitle: '',
-//             headerRight: Platform.select({
-//
-//                 ios: null,
-//                 android: (
-//
-//                     <Icon
-//                         // style={{margin: '1%'}}
-//                         name="search"
-//                         size={30}
-//                         color="black"
-//                         onPress={() => {
-//                             this.setModalVisible(true);
-//                         }}
-//                     />
-//                 )
-// }),
-            headerBackground:
+      headerBackground:
 
                 <Image
                     source={require('./Drinkkify.png')}
@@ -110,6 +81,11 @@ const AppNavigator = createStackNavigator({
 //         drawerWidth: (width / 3) * 2
 //     });
 
+
+function navigate(hamppariTesti) {
+
+}
+
 const CabinetNavigator = createStackNavigator({
     Cabinet: Cabinet,
     Search: AddIngredient,
@@ -117,6 +93,8 @@ const CabinetNavigator = createStackNavigator({
     Loading: Loading,
     SignUp: SignUp,
     Drinkkify: Drinkkify,
+    HamppariTesti: HamppariTesti,
+    // Cabinet: DrawerNavigator,
 },
     {
         initialRouteName: "Loading",
@@ -124,9 +102,12 @@ const CabinetNavigator = createStackNavigator({
             headerStyle: {
                 backgroundColor: '#EBEEF3',
             },
-            headerTintColor: '#696D3F',
-            title: 'Bar cabinet',
-        },
+                headerTintColor: '#696D3F',
+                title: 'Bar cabinet',
+
+
+            }
+
     });
 
 AppNavigator.navigationOptions = {
@@ -140,7 +121,7 @@ AppNavigator.navigationOptions = {
 CabinetNavigator.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
     tabBarIcon: ({tintColor = 'black'}) => (
-        <Icon name='home' size={25} color={'#696D3F'} />
+        <Icon name='wine-bottle' size={25} color={'#696D3F'} />
 
     )
 };
@@ -234,6 +215,5 @@ const styles = StyleSheet.create({
 export default createAppContainer(createBottomTabNavigator({
     AppNavigator,
     CabinetNavigator,
-    // Navigator,
 
 }));

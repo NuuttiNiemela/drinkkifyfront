@@ -65,7 +65,8 @@ class Cabinet extends Component {
                 </TouchableOpacity>
             </View>
             </View>
-        )}
+        )
+    }
 
     render() {
 

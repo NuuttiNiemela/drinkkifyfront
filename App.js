@@ -9,11 +9,11 @@ import {
 import AppNavigator from "./components/AppNavigator";
 import {createAppContainer} from "react-navigation";
 import firebase from "react-native-firebase";
-import HakuModalExample from "./components/HakuModalExample";
+
 // import Header2 from "./components/Header/Header2";
 // import {SearchBar} from "react-native-elements";
 // import MySearchBar from "./components/MySearchBar";
-import Cabinet from "./components/Cabinet";
+
 
 
 const AppContainer = createAppContainer(AppNavigator);
