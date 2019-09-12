@@ -18,7 +18,6 @@ class CabinetIngredient extends Component {
                         size={20}
                         color="#698D3F"
                         onPress={this.del}
-                        style="reverse"
                     />
             </View>
                 <View style = {styles.lineStyle} />
