@@ -131,6 +131,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
             </View>
@@ -148,6 +151,9 @@ class AddDrink extends Component {
                     placeholder="Ingredient"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
                 <TextInput
@@ -164,6 +170,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
             </View>
@@ -181,6 +190,9 @@ class AddDrink extends Component {
                     placeholder="Ingredient"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
                 <TextInput
@@ -196,6 +208,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
             </View>
         )
@@ -212,6 +227,9 @@ class AddDrink extends Component {
                     placeholder="Ingredient"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
                 <TextInput
@@ -227,6 +245,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
             </View>
         )
@@ -243,6 +264,9 @@ class AddDrink extends Component {
                     placeholder="Ingredient"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
                 <TextInput
@@ -258,6 +282,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
             </View>
         )
@@ -274,6 +301,9 @@ class AddDrink extends Component {
                     placeholder="Ingredient"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
                 <TextInput
@@ -289,6 +319,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
             </View>
         )
@@ -305,6 +338,9 @@ class AddDrink extends Component {
                     placeholder="Ingredient"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
 
                 <TextInput
@@ -320,6 +356,9 @@ class AddDrink extends Component {
                     placeholder="Unit"
                     resetValue={false}
                     underlineColorAndroid='transparent'
+                    itemStyle={styles.itemStyle}
+                    itemTextStyle={styles.itemTextStyle}
+                    itemContainerStyle={styles.itemsContainerStyle}
                 />
             </View>
         )
