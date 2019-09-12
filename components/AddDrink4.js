@@ -20,24 +20,31 @@ class AddDrink extends Component {
     state = {
         name: '',
         instructions: '',
+        ingredientSearch: '',
         ingredient: '',
         ingredientAmount: '',
         ingredientUnit: '',
+        ingredientSearch1: '',
         ingredient1: '',
         ingredientAmount1: '',
         ingredientUnit1: '',
+        ingredientSearch2: '',
         ingredient2: '',
         ingredientAmount2: '',
         ingredientUnit2: '',
+        ingredientSearch3: '',
         ingredient3: '',
         ingredientAmount3: '',
         ingredientUnit3: '',
+        ingredientSearch4: '',
         ingredient4: '',
         ingredientAmount4: '',
         ingredientUnit4: '',
+        ingredientSearch5: '',
         ingredient5: '',
         ingredientAmount5: '',
         ingredientUnit5: '',
+        ingredientSearch6: '',
         ingredient6: '',
         ingredientAmount6: '',
         ingredientUnit6: '',
@@ -56,24 +63,31 @@ class AddDrink extends Component {
         this.setState({
             name: '',
             instructions: '',
+            ingredientSearch: '',
             ingredient: '',
             ingredientAmount: '',
             ingredientUnit: '',
+            ingredientSearch1: '',
             ingredient1: '',
             ingredientAmount1: '',
             ingredientUnit1: '',
+            ingredientSearch2: '',
             ingredient2: '',
             ingredientAmount2: '',
             ingredientUnit2: '',
+            ingredientSearch3: '',
             ingredient3: '',
             ingredientAmount3: '',
             ingredientUnit3: '',
+            ingredientSearch4: '',
             ingredient4: '',
             ingredientAmount4: '',
             ingredientUnit4: '',
+            ingredientSearch5: '',
             ingredient5: '',
             ingredientAmount5: '',
             ingredientUnit5: '',
+            ingredientSearch6: '',
             ingredient6: '',
             ingredientAmount6: '',
             ingredientUnit6: '',
@@ -93,7 +107,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch: text})}
                     onItemSelect={(item) => this.setState({ingredient: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"
@@ -128,7 +142,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch1: text})}
                     onItemSelect={(item) => this.setState({ingredient1: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"
@@ -161,7 +175,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch2: text})}
                     onItemSelect={(item) => this.setState({ingredient2: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"
@@ -192,7 +206,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch3: text})}
                     onItemSelect={(item) => this.setState({ingredient3: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"
@@ -223,7 +237,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch4: text})}
                     onItemSelect={(item) => this.setState({ingredient4: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"
@@ -254,7 +268,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch5: text})}
                     onItemSelect={(item) => this.setState({ingredient5: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"
@@ -285,7 +299,7 @@ class AddDrink extends Component {
             <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
-                    onTextChange={text => console.log(text)}
+                    onTextChange={text => this.setState({ingredientSearch6: text})}
                     onItemSelect={(item) => this.setState({ingredient6: item.ingredient_name})}
                     items={this.state.allIngredients}
                     placeholder="Ingredient"

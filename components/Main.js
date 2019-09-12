@@ -89,10 +89,6 @@ class Main extends Component {
                         onPress={this.search}
                     />
 
-                    {/*<TouchableOpacity*/}
-                    {/*    onPress={this.search}>*/}
-                    {/*    <Text style={styles.buttonStyle}>Search drinks</Text>*/}
-                    {/*</TouchableOpacity>*/}
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
