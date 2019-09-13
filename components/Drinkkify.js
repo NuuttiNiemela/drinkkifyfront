@@ -3,6 +3,7 @@ import {View, Text, ActivityIndicator, FlatList, StyleSheet} from "react-native"
 import firebase from "react-native-firebase";
 import {drinkkify, getSomething} from "../Serviceclient";
 import DrinkDetails from "./DrinkDetails";
+import {Image} from "react-native-elements";
 
 class Drinkkify extends Component {
 
@@ -24,10 +25,10 @@ class Drinkkify extends Component {
                 style={{
                     height: 2,
                     width: "86%",
-                    backgroundColor: "#698D3F",
+                    backgroundColor: "#F6C213",
                     marginLeft: "5%",
                     marginTop: "2%",
-                    color: '#698D3F'
+                    color: '#F6C213'
                 }}
             />
         );
@@ -43,7 +44,7 @@ class Drinkkify extends Component {
         }
         return (
             <View
-                style={{flex: 1, padding: 20}}>
+                style={{flex: 1, padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black'}}>
                 <FlatList
                     marginTop={50}
                     // style={styles.listStyle}
@@ -52,6 +53,7 @@ class Drinkkify extends Component {
                     containerStyle={{borderBottomWidth: 0}}
                     ItemSeparatorComponent={this.renderSeparator}
                     keyExtractor={({id}) => id.toString()}
+                    color={"#F6C213"}
                 />
             </View>
         );

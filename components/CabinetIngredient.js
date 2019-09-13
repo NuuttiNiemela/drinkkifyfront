@@ -18,6 +18,7 @@ class CabinetIngredient extends Component {
                         size={20}
                         color="#698D3F"
                         onPress={this.del}
+                        style={{ marginTop:'4%'}}
                     />
             </View>
                 <View style = {styles.lineStyle} />
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     lineStyle: {
         borderWidth: 0.8,
         borderColor: '#B2C8D4',
-        margin: 10,
+        margin: 2,
     },
     viinaStyle: {
         fontFamily: 'Roboto-Black',
