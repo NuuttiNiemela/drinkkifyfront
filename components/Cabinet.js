@@ -45,27 +45,27 @@ class Cabinet extends Component {
     }
 
     renderComponent = () => {
-        // return(
-    //     <View style={{backgroundColor: 'white'}}>
-    //         <View>
-    //             <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
-    //             <Text>{"\n"}</Text>
-    //         </View>
-    //         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
-    //             <TouchableOpacity
-    //                 onPress={() => this.props.navigation.navigate('Search')}>
-    //                 <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity
-    //                 onPress={() => this.props.navigation.navigate('Drinkkify')}>
-    //                 <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity onPress={this.signOutUser}>
-    //                 <Text style={styles.buttonStyle}>{"\n"}Sign{"\n"}out</Text>
-    //             </TouchableOpacity>
-    //         </View>
-    //         </View>
-    //     )
+        return(
+        <View style={{backgroundColor: 'white'}}>
+            <View>
+                <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
+                <Text>{"\n"}</Text>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Drinkkify')}>
+                    <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.signOutUser}>
+                    <Text style={styles.buttonStyle}>{"\n"}Sign{"\n"}out</Text>
+                </TouchableOpacity>
+            </View>
+            </View>
+        )
     }
 
     render() {
