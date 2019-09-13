@@ -55,6 +55,7 @@ class Cabinet extends Component {
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('Search')}>
                     <Text style={styles.buttonAdd}>{"\n"}Add {"\n"}Ingredient</Text>
+
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
@@ -62,6 +63,8 @@ class Cabinet extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.signOutUser}>
                     <Text style={styles.buttonSignOut}>{"\n"}Sign{"\n"}out</Text>
+
+
                 </TouchableOpacity>
             </View>
             </View>

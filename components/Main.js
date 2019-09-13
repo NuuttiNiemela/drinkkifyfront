@@ -13,6 +13,17 @@ class Main extends Component {
 
     state = {drinks: [], ingredients: [], isLoading: true, searchedDrinks: [], query: ""};
 
+    componentDidMount = () => {
+        const {navigation} = this.props;
+        this.focusListener = navigation.addListener('didFocus', () => {
+            this.onLoad()
+        })
+    }
+
+    onLoad = () => {
+        this.getDrinks();
+        this.getIngredients();
+    }
 
     getDrinks = () => {
         getAll()
@@ -50,11 +61,6 @@ class Main extends Component {
             .catch((error) => console.log('Error:' + error.message))
     }, 250);
 
-    componentDidMount = () => {
-        this.getDrinks();
-        this.getIngredients();
-    }
-
     search = (ev) => {
         ev.preventDefault()
         console.log(this.state)
@@ -62,6 +68,9 @@ class Main extends Component {
         Keyboard.dismiss();
     }
 
+    componentWillUnmount() {
+        this.focusListener.remove();
+    }
 
     render() {
         if(this.state.isLoading) {
@@ -89,10 +98,6 @@ class Main extends Component {
                         onPress={this.search}
                     />
 
-                    {/*<TouchableOpacity*/}
-                    {/*    onPress={this.search}>*/}
-                    {/*    <Text style={styles.buttonStyle}>Search drinks</Text>*/}
-                    {/*</TouchableOpacity>*/}
                 </View>
                 <Drinks drinks={this.state.drinks}/>
 
