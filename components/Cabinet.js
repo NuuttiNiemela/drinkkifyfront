@@ -87,7 +87,7 @@ class Cabinet extends Component {
                 style={styles.scrollView}>
                 {this.renderComponent()}
 
-            <View style={{flex: 1, paddingTop: 20}} >
+            <View style={{flex: 1, paddingTop: 5, marginLeft:"9%", marginRight:"8%"}} >
                 <Text>{"\n"}</Text>
                 {ingredientrows}
             </View>
