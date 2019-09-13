@@ -42,8 +42,8 @@ class Login extends Component {
                 <Text>{"\n"}</Text>
                 <View>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'20%', marginRight:'30%',}}>
-                <TouchableOpacity style={styles.button1Style} onPress={this.handleLogin}>
-                    <Text style={styles.buttonStyle}>{"\n"}Log In</Text>
+                <TouchableOpacity onPress={this.handleLogin}>
+                    <Text style={styles.button1Style}>{"\n"}Log In</Text>
                 </TouchableOpacity>
 
                 <Text>{"\n"}</Text>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    buttonStyle: {
+    button1Style: {
         justifyContent: 'center',
         backgroundColor: '#B2C8D4',
         // borderWidth: 3,
@@ -102,10 +102,10 @@ const styles = StyleSheet.create({
     },
     lineStyle: {
         borderWidth: 0.5,
-        borderColor: '#696D3F',
+        borderColor: '#698D3F',
         marginRight: '20%',
         marginLeft: '12%',
-        color: '#696D3F',
+        color: '#698D3F',
     },
 
 

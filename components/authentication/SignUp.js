@@ -23,13 +23,14 @@ class SignUp extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{flex: 1, paddingTop:20,}}>
                 {/*<Text>Sign Up</Text>*/}
                 {this.state.errorMessage &&
                 <Text style={{ color: 'red' }}>
                     {this.state.errorMessage}
                 </Text>}
                 <TextInput
+                    style={{marginLeft: '12%', color:'#696D3F', fontFamily: 'Roboto-Black'}}
                     placeholder="Email"
                     autoCapitalize="none"
                     onChangeText={email => this.setState({ email })}
@@ -38,6 +39,7 @@ class SignUp extends Component {
                 <View style = {styles.lineStyle} />
                 <TextInput
                     secureTextEntry
+                    style={{marginLeft: '12%', color:'#696D3F', fontFamily: 'Roboto-Black'}}
                     placeholder="Password"
                     autoCapitalize="none"
                     onChangeText={password => this.setState({ password })}
@@ -46,6 +48,7 @@ class SignUp extends Component {
                 <View style = {styles.lineStyle} />
                 <TextInput
                     secureTextEntry
+                    style={{marginLeft: '12%', color:'#696D3F', fontFamily: 'Roboto-Black'}}
                     placeholder="Verify Password"
                     autoCapitalize="none"
                     onChangeText={verify => this.setState({ verify })}
@@ -55,13 +58,13 @@ class SignUp extends Component {
                 <Text>{"\n"}</Text>
                 <View>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'20%', marginRight:'30%',}}>
-                    <TouchableOpacity  style={styles.button1Style} onPress={this.handleSignUp}>
-                        <Text style={styles.textStyle}>Sign Up</Text>
+                    <TouchableOpacity  onPress={this.handleSignUp}>
+                        <Text style={styles.button1Style}>{"\n"}Sign Up</Text>
                     </TouchableOpacity>
 
                 <Text>{"\n"}</Text>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('Login')}>
-                    <Text style={styles.button2Style}>Already have an account? Log In!</Text>
+                    <Text style={styles.button2Style}>{"\n"}Log In</Text>
                 </TouchableHighlight>
             </View>
                 </View>
@@ -77,38 +80,48 @@ const styles = StyleSheet.create({
         fontSize: 23,
         textAlign: 'center',
     },
-
     button1Style: {
-        backgroundColor: '#E6C2BF',
-        borderWidth: 2,
-        borderRadius: 12,
-        borderColor: '#E6C2BF',
-        color: '#F8EFE4',
+        justifyContent: 'center',
+        backgroundColor: '#B2C8D4',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: 'white',
         fontFamily: 'Roboto-Black',
-        fontSize: 23,
-        padding: 10,
-        textAlign: 'center',
-        width: '100%',
-        height: 50,
+        fontSize: 16,
+        padding: 5,
+        textAlign:'center',
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
+
     },
     button2Style: {
-        backgroundColor: '#F8EFE4',
-        borderWidth: 2,
-        borderRadius: 12,
-        borderColor: '#E6C2BF',
-        color: '#E6C2BF',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: '#B2C8D4',
         fontFamily: 'Roboto-Black',
-        fontSize: 18,
-        padding: 10,
+        fontSize: 16,
+        padding: 5,
         textAlign:'center',
-        width: '100%',
-        height: 50,
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
     },
     lineStyle: {
         borderWidth: 0.5,
-        borderColor: '#E6C2BF',
-        margin: 10,
-        color: '#E6C2BF',
+        borderColor: '#B2C8D4',
+        marginRight: '20%',
+        marginLeft: '12%',
+        color: '#B2C8D4',
+
     },
 });
 export default SignUp;
