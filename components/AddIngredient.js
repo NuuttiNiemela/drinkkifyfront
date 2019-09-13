@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {Button, Keyboard, ScrollView, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Button, Keyboard, ScrollView, Text, TextInput, TouchableOpacity, View, Frag, StyleSheet} from "react-native";
 import {getAllIngredients, getSomeIngredients, getSomething} from "../Serviceclient";
 import _ from "lodash";
 import AddableIngredient from "./AddableIngredient";
 import firebase from "react-native-firebase";
 import NewIngredient from "./NewIngredient";
 import AppNavigator from "./AppNavigator";
+import {Icon} from "react-native-elements";
 
 class AddIngredient extends Component {
     state = {currentUser: null, ingredients: [] ,query: ""}
@@ -65,28 +66,54 @@ class AddIngredient extends Component {
 
         return (
             <View style={{flex: 1, paddingTop: 20}} >
+                    <View style={styles.searchSection}>
                 <TextInput
-                    placeholder="Search ingredients"
+                    style={styles.input}
+                    placeholder="Type here to search ingredients"
                     onChangeText={(query) => this.setState({query})}
                     value={this.state.query}
                 />
-                <TouchableOpacity
-                    onPress={this.search}>
-                    <Text >Search ingredients</Text>
-                </TouchableOpacity>
+                        <Text>{"\n"}</Text>
+                <Icon
+                    // style={styles.searchIcon}
+                    name="search"
+                    size={30}
+                    color="#698D3F"
+                    onPress={this.search}
+                    marginRight={100}
+                />
+                    </View>
+                {/*<TouchableOpacity*/}
+                {/*    onPress={this.search}>*/}
+                {/*    <Text >Search ingredients</Text>*/}
+                {/*</TouchableOpacity>*/}
                 <ScrollView
                     contentInsetAdjustmentBehavior="automatic" >
                     <NewIngredient user={this.state.currentUser} />
                     {ingredientrows}
                 </ScrollView>
-                <Button
-                    style={{flex: 1, paddingTop: 20}}
-                    title="Home"
-                    onPress={() => this.props.navigation.navigate('Cabinet')} />
 
             </View>
         );
     }
 }
+const styles = StyleSheet.create({
+        searchSection: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        width: '100%',
+
+            // marginRight: '10%',
+    },
+    input: {
+        padding: 1,
+        backgroundColor: 'white',
+        color: '#424242',
+        width: '70%',
+        fontFamily: 'Roboto-Black',
+        marginLeft: '12%',
+    },
+});
 
 export default AddIngredient;

@@ -53,7 +53,8 @@ class SignUp extends Component {
                 />
                 <View style = {styles.lineStyle} />
                 <Text>{"\n"}</Text>
-
+                <View>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'20%', marginRight:'30%',}}>
                     <TouchableOpacity  style={styles.button1Style} onPress={this.handleSignUp}>
                         <Text style={styles.textStyle}>Sign Up</Text>
                     </TouchableOpacity>
@@ -62,6 +63,8 @@ class SignUp extends Component {
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('Login')}>
                     <Text style={styles.button2Style}>Already have an account? Log In!</Text>
                 </TouchableHighlight>
+            </View>
+                </View>
             </View>
         );
     }
