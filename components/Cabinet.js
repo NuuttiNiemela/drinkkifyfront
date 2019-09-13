@@ -53,7 +53,7 @@ class Cabinet extends Component {
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
                 <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('Search')}>
+                    onPress={() => this.props.navigation.navigate('AddIngredient')}>
                     <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
                 </TouchableOpacity>
                 <TouchableOpacity

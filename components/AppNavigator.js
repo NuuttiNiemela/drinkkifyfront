@@ -53,12 +53,12 @@ const AppNavigator = createStackNavigator({
 //             screen: Home
 //         },
 //
-//         // ProfilePage: {
-//         //     screen: ProfilePage,
-//         //     navigationOptions: {
-//         //         drawerLabel: 'Profile'
-//         //     }
-//         // },
+//         ProfilePage: {
+//             screen: ProfilePage,
+//             navigationOptions: {
+//                 drawerLabel: 'Profile'
+//             }
+//         },
 //         AddIngredientPage: {
 //             screen: AddIngredient,
 //             navigationOptions: {
@@ -80,15 +80,15 @@ const AppNavigator = createStackNavigator({
 //         drawerToggleRoute: 'DrawerToggle',
 //         drawerWidth: (width / 3) * 2
 //     });
-
-
-function navigate(hamppariTesti) {
-
-}
+//
+//
+// function navigate(hamppariTesti) {
+//
+// }
 
 const CabinetNavigator = createStackNavigator({
     Cabinet: Cabinet,
-    Search: AddIngredient,
+    AddIngredient: AddIngredient,
         Login: Login,
     Loading: Loading,
     SignUp: SignUp,

@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {addToList, addToList2} from "../Serviceclient";
 import SearchableDropDown from "react-native-searchable-dropdown";
-import {Dropdown} from 'react-native-material-dropdown';
+import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
 
 class AddDrink extends Component {
 
@@ -474,6 +474,7 @@ const styles = StyleSheet.create({
     itemsContainerStyle: {
         maxHeight: 140
     },
+
 });
 
 
