@@ -39,8 +39,8 @@ class Loading extends Component {
                 <ActivityIndicator size="large" />
                 <Text style={{color: '#698D3F', fontFamily: 'Roboto-Black', fontSize: 20}}> Welcome to </Text>
                 <View>
-                <Image source={require('./Drinkify6.png')}
-                       style={{width: 237, height: 138,}}/>
+                <Image source={require('./Drinkkify.png')}
+                       style={{width: 167, height: 58,}}/>
                 </View>
             </View>
         );

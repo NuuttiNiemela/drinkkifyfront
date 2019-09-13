@@ -45,27 +45,27 @@ class Cabinet extends Component {
     }
 
     renderComponent = () => {
-        // return(
-    //     <View style={{backgroundColor: 'white'}}>
-    //         <View>
-    //             <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
-    //             <Text>{"\n"}</Text>
-    //         </View>
-    //         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
-    //             <TouchableOpacity
-    //                 onPress={() => this.props.navigation.navigate('Search')}>
-    //                 <Text style={styles.buttonStyle}>{"\n"}Add {"\n"}Ingredient</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity
-    //                 onPress={() => this.props.navigation.navigate('Drinkkify')}>
-    //                 <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity onPress={this.signOutUser}>
-    //                 <Text style={styles.buttonStyle}>{"\n"}Sign{"\n"}out</Text>
-    //             </TouchableOpacity>
-    //         </View>
-    //         </View>
-    //     )
+        return(
+        <View style={{backgroundColor: 'white'}}>
+            <View>
+                <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
+                <Text>{"\n"}</Text>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Search')}>
+                    <Text style={styles.buttonAdd}>{"\n"}Add {"\n"}Ingredient</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Drinkkify')}>
+                    <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.signOutUser}>
+                    <Text style={styles.buttonSignOut}>{"\n"}Sign{"\n"}out</Text>
+                </TouchableOpacity>
+            </View>
+            </View>
+        )
     }
 
     render() {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 
     textStyle: {
         padding: 2,
-        marginLeft:20,
+        marginLeft:46,
         fontSize: 15,
         textAlign: 'left',
         color: '#698D3F',
@@ -114,13 +114,30 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         margin: 12,
     },
-    buttonStyle: {
+    buttonSignOut: {
         justifyContent: 'center',
-        backgroundColor: '#B2C8D4',
+        backgroundColor: '#EBEEF3',
         // borderWidth: 3,
         borderRadius: 80/ 2,
         // borderColor: '#E6C2BF',
-        color: 'white',
+        color: '#698D3F',
+        fontFamily: 'Roboto-Black',
+        fontSize: 14,
+        padding: 5,
+        textAlign:'center',
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
+    },
+    buttonAdd: {
+        justifyContent: 'center',
+        backgroundColor: '#F6E2AD',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: '#698D3F',
         fontFamily: 'Roboto-Black',
         fontSize: 14,
         padding: 5,
@@ -135,16 +152,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#F8DA74',
         // borderWidth: 4,
-        borderRadius: 100/ 2,
+        borderRadius: 120/ 2,
         // borderColor: '#F6C213',
         color: 'white',
         fontFamily: 'Roboto-Black',
-        fontSize: 20,
+        fontSize: 25,
         padding: 5,
         textAlign:'center',
         // fontWeight: 'bold',
-        width: 100,
-        height: 100,
+        width: 120,
+        height: 120,
         elevation: 5,
         position: 'relative',
     },
