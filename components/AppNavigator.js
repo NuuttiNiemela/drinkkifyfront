@@ -100,10 +100,16 @@ const CabinetNavigator = createStackNavigator({
         initialRouteName: "Loading",
         defaultNavigationOptions: {
             headerStyle: {
-                backgroundColor: '#EBEEF3',
+                backgroundColor: 'white',
             },
                 headerTintColor: '#696D3F',
-                title: 'Bar cabinet',
+                title: '',
+            headerBackground:
+
+                <Image
+                    source={require('./Drinkkify.png')}
+                    style={{width:'40%', height:36, marginTop:'2%', marginLeft: '6%',}}
+                />
 
 
             }

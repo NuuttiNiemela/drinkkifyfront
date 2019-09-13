@@ -413,21 +413,26 @@ class AddDrink extends Component {
 
                     {newArray}
 
-
+<View>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
                     <TouchableOpacity onPress={this.send}>
-                        <Text style={styles.buttonStyle}> LISÄÄ DRINKSU </Text>
+                        <Text style={styles.buttonStyle}>{"\n"} Add Drink</Text>
                     </TouchableOpacity>
                     <TouchableHighlight
                         onPress={() => {
                             this.setModalVisible(!this.state.visible);
                         }}>
-                        <Text style={styles.footer}>Sulje Drinksu</Text>
+                        <Text style={styles.buttonStyle}>{"\n"}Close Drink</Text>
                     </TouchableHighlight>
-                    <Button
-                        title={'Add Ingredient'}
-                        onPress={this.addMore}/>
+                    <TouchableHighlight
+                        onPress={this.addMore}>
+                       <Text style={styles.buttonStyle}>{"\n"}Add Ingredient</Text>
+                    </TouchableHighlight>
+                    </View>
+</View>
                     </Fragment>
                 </Modal>
+
                 <TouchableHighlight
                     onPress={() => {
                         this.setModalVisible(true);
@@ -442,17 +447,21 @@ class AddDrink extends Component {
 const styles = StyleSheet.create({
 
     buttonStyle: {
-        backgroundColor: 'white',
-        borderWidth: 1,
-        borderRadius: 12,
-        borderColor: 'gold',
-        color: 'gold',
-        fontFamily: 'RobotoSlab-Thin',
-        fontSize: 30,
-        fontWeight: 'bold',
-        overflow: 'hidden',
-        padding: 12,
+        justifyContent: 'center',
+        backgroundColor: '#B2C8D4',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: 'white',
+        fontFamily: 'Roboto-Black',
+        fontSize: 14,
+        padding: 5,
         textAlign:'center',
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
     },
     // inputStyle: {
     //     padding: 12,

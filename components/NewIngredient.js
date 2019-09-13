@@ -13,6 +13,7 @@ import {
     View
 } from "react-native";
 import {addIngredient, addToCabinet} from "../Serviceclient";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class NewIngredient extends Component {
     state = {
@@ -49,37 +50,60 @@ class NewIngredient extends Component {
                     onRequestClose={() => {
                         this.setModalVisible(!this.state.modalVisible);
                     }}>
-                    <View style={{Color:'black'}}>
-                        <Text>Add new Ingredient</Text>
-
+                    <View style={{Color:'#698D3F'}}>
+                        <Text style={{color:"#698D3F", marginTop: "10%", marginLeft: "6%", fontFamily: 'Roboto-Black', fontSize: 20}}>Add new Ingredient</Text>
+                        <Text>{"\n"}</Text>
+<View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: "5%"}}>
                         <TextInput
-                            placeholder="Name"
+                            placeholder="Type ingredient's name and submit to your cart"
                             onChangeText={(name) => this.setState({name})}
                             value={this.state.name}
                         />
-                        <TouchableOpacity
+                        <Icon
+                            style={{marginRight: "7%"}}
+                            name="cart-plus"
+                            size={30}
+                            color="#698D3F"
                             onPress={this.add}>
-                            <Text >Submit</Text>
-                        </TouchableOpacity>
+                            {/*<Text >Submit</Text>*/}
+                        </Icon>
 
-
+</View>
+                    </View>
+                    <Text>{"\n"}</Text>
                         <Text>{"\n"}</Text>
-                        <TouchableHighlight
+                        <Icon
+                            name="times-circle"
+                            size={50}
+                            color="#698D3F"
+                            style={{marginLeft:"45%"}}
                             onPress={() => {
                                 this.setModalVisible(!this.state.modalVisible);
                             }}>
-                            <Text style={styles.buttonStyle}>Close</Text>
-                        </TouchableHighlight>
+                            {/*<Text style={styles.buttonStyle}>{"\n"}</Text>*/}
+                        </Icon>
                         <Text>{"\n"}</Text>
-                    </View>
+
+
                 </Modal>
 
-                <TouchableHighlight
+                <Text> {"\n"}</Text>
+                <View style={{flex: 2}} >
+                <View style={{flexDirection: 'row'}}>
+                <Text style={styles.sectionDescription}>Add new ingredient</Text>
+                    <Text> {"\n"}</Text>
+                    <Icon
+                    name="plus-circle"
+                    size={30}
+                    color="#698D3F"
+                    justifyContent= 'flex-end'
+                    // marginRight="20%"
                     onPress={() => {
                         this.setModalVisible(true);
-                    }}>
-                    <Text style={styles.sectionDescription}>New Ingredient</Text>
-                </TouchableHighlight>
+                    }}/>
+                </View>
+                </View>
+                <Text> {"\n"}</Text>
             </View>
         );
     }
@@ -135,28 +159,38 @@ const styles = StyleSheet.create({
         color: 'black',
         textAlign: 'center',
         fontFamily: 'Roboto-Black',
+
     },
     sectionDescription: {
-        marginTop: 18,
-        fontSize: 20,
+        // marginTop: 5,
+        fontSize: 15,
         fontWeight: '400',
-        marginLeft: 20,
-        color: 'black',
+        marginLeft: '12%',
+        marginRight: '20%',
+        color: '#698D3F',
         fontFamily: 'Roboto-Black',
+        width: '44%',
+
     },
     highlight: {
         fontWeight: '700',
     },
     buttonStyle: {
-        color: 'black',
-        borderColor: '#282120',
-        borderRadius: 15,
-        borderWidth: 2,
+        justifyContent: 'center',
+        backgroundColor: '#B2C8D4',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: '#698D3F',
+        fontFamily: 'Roboto-Black',
         fontSize: 16,
-        fontWeight: '600',
-        padding: 8,
-        textAlign: 'center',
-        backgroundColor: '#F8EFE4'
+        padding: 5,
+        textAlign:'center',
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
     },
 });
 

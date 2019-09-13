@@ -25,6 +25,7 @@ class Login extends Component {
                     {this.state.errorMessage}
                 </Text>}
                 <TextInput
+                    style={{marginLeft: '12%', color:'#696D3F', fontFamily: 'Roboto-Black'}}
                     placeholder="Email"
                     onChangeText={email => this.setState({email})}
                     value={this.state.email}
@@ -32,21 +33,25 @@ class Login extends Component {
                 <View style = {styles.lineStyle} />
                 <TextInput
                     secureTextEntry
+                    style={{marginLeft: '12%', color:'#696D3F', fontFamily: 'Roboto-Black'}}
                     placeholder="Password"
                     onChangeText={password => this.setState({password})}
                     value={this.state.password}
                 />
                 <View style = {styles.lineStyle} />
                 <Text>{"\n"}</Text>
-
+                <View>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'20%', marginRight:'30%',}}>
                 <TouchableOpacity style={styles.button1Style} onPress={this.handleLogin}>
-                    <Text style={styles.textStyle}>Log In</Text>
+                    <Text style={styles.buttonStyle}>{"\n"}Log In</Text>
                 </TouchableOpacity>
 
                 <Text>{"\n"}</Text>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('SignUp')}>
-                    <Text style={styles.button2Style}>Don't have an account? Create a new account here!</Text>
+                    <Text style={styles.button2Style}>{"\n"}Sign Up</Text>
                 </TouchableHighlight>
+            </View>
+                </View>
             </View>
         );
     }
@@ -60,37 +65,47 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    button1Style: {
-        backgroundColor: '#E6C2BF',
-        borderWidth: 2,
-        borderRadius: 12,
-        borderColor: '#E6C2BF',
-        color: '#F8EFE4',
+    buttonStyle: {
+        justifyContent: 'center',
+        backgroundColor: '#B2C8D4',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: 'white',
         fontFamily: 'Roboto-Black',
-        fontSize: 23,
-        padding: 10,
-        textAlign: 'center',
-        width: '100%',
-        height: 50,
+        fontSize: 16,
+        padding: 5,
+        textAlign:'center',
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
+
     },
     button2Style: {
-        backgroundColor: '#F8EFE4',
-        borderWidth: 2,
-        borderRadius: 12,
-        borderColor: '#E6C2BF',
-        color: '#E6C2BF',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        // borderWidth: 3,
+        borderRadius: 80/ 2,
+        // borderColor: '#E6C2BF',
+        color: '#B2C8D4',
         fontFamily: 'Roboto-Black',
-        fontSize: 18,
-        padding: 10,
+        fontSize: 16,
+        padding: 5,
         textAlign:'center',
-        width: '100%',
-        height: 50,
+        fontWeight: 'bold',
+        width: 80,
+        height: 80,
+        elevation: 5,
+        position: 'relative',
     },
     lineStyle: {
         borderWidth: 0.5,
-        borderColor: '#E6C2BF',
-        margin: 10,
-        color: '#E6C2BF',
+        borderColor: '#696D3F',
+        marginRight: '20%',
+        marginLeft: '12%',
+        color: '#696D3F',
     },
 
 
