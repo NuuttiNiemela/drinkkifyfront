@@ -89,7 +89,7 @@ class AddIngredient extends Component {
                 {/*</TouchableOpacity>*/}
                 <ScrollView
                     contentInsetAdjustmentBehavior="automatic" >
-                    <NewIngredient user={this.state.currentUser} />
+                    <NewIngredient user={this.state.currentUser} getAll={this.getIngredients} />
                     {ingredientrows}
                 </ScrollView>
 

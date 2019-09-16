@@ -98,7 +98,7 @@ class AddDrink extends Component {
 
 
     setModalVisible(visible) {
-        this.setState({visible: visible, value: 0, valueArray: [] ,allIngredients: this.props.all, units: []
+        this.setState({visible: visible, value: 0, valueArray: [] ,allIngredients: this.props.all, units: [{name: 'cl'}, {name: 'dl'}, {name: 'for garnish'}, {name: 'top with'}, {name: 'stick'}, {name: 'piece'}, {name: 'serving'}, {name: 'dashes'}, {name: 'optional'}, {name: 'tbsp for the rim'}, {name: 'spoonfuls'}, {name: 'grated'}, {name: 'to taste'}, {name: 'pieces'}, {name: 'to top with'}, {name: 'leaves'}, {name: 'pinch'}, {name: 'serving'}, {name: 'according to your taste'}, {name: 'dl, or according to taste.'}, {name: 'small bunch'}, {name: 'splash'}, {name: 'shaving'}, {name: 'shavings'}, {name: 'dash'}]
         });
     }
 
