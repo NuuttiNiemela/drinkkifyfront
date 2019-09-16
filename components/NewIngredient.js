@@ -25,13 +25,17 @@ class NewIngredient extends Component {
         ev.preventDefault();
         await this.addNew(this.state.name)
         Keyboard.dismiss();
+        this.setState({name: ''})
         this.setModalVisible(!this.state.modalVisible);
+        this.props.getAll()
     }
 
     addNew = async (ingredient) => {
         await addIngredient(ingredient, this.props.user.email)
-            .then(response => addToCabinet(this.props.user.email, response.id))
-            .then(alert(ingredient + ' added to ingredients'))
+            .then(response => {
+                addToCabinet(this.props.user.email, response.id)
+                    .then(alert(ingredient + ' added to ingredients'))
+            })
             .catch(() =>alert("Adding didn't work"))
     }
 
@@ -55,6 +59,7 @@ class NewIngredient extends Component {
                         <Text>{"\n"}</Text>
 <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: "5%"}}>
                         <TextInput
+                            autoCapitalize="sentences"
                             placeholder="Type ingredient's name and submit to your cart"
                             onChangeText={(name) => this.setState({name})}
                             value={this.state.name}

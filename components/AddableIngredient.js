@@ -11,11 +11,11 @@ class AddableIngredient extends Component {
         this.setState({currentUser})
     }
 
-    add = () => {
+    add = async () => {
         console.log('ADDIN i on: ' + this.props.ingredient.id)
-        addToCabinet(this.state.currentUser.email, this.props.ingredient.id)
+        await addToCabinet(this.state.currentUser.email, this.props.ingredient.id)
             .then(() => alert(this.props.ingredient.ingredient_name + ' added to your bar cabinet'))
-            .catch(() => alert("Adding didn't work"))
+            .catch((error) => alert("Adding didn't work \n" + error.message))
     }
 
     render() {
