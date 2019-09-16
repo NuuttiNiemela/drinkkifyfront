@@ -398,19 +398,23 @@ class AddDrink extends Component {
                        }}
                 >
                     <Fragment>
-                    <TextInput
+                        <View style={{marginTop: 10, fontSize: 25, color: "#698D3F", fontFamily:'Roboto-Black', marginLeft: '10%'}}>
+                        <Text>Add Drink</Text>
+                        <TextInput
                         // style={styles.textInput}
+                        Style={styles.input}
                         autoCapitalize="none"
-                        placeholder="Drink name"
+                        placeholder="miten tätä muokataan??????"
                         onChangeText={name => this.setState({ name })}
                         value={this.state.name}/>
                     <TextInput
+                        Style={styles.input}
                         autoCapitalize="none"
                         placeholder="Instructions"
                         onChangeText={instructions => this.setState({ instructions })}
                         value={this.state.instructions}
                     />
-
+                    </View>
                     {newArray}
 
 <View>
@@ -445,7 +449,14 @@ class AddDrink extends Component {
 }
 
 const styles = StyleSheet.create({
-
+    input: {
+        padding: 1,
+        backgroundColor: 'white',
+        color: '#424242',
+        width: '70%',
+        fontFamily: 'Roboto-Black',
+        marginLeft: '20%',
+    },
     buttonStyle: {
         justifyContent: 'center',
         backgroundColor: '#B2C8D4',
@@ -463,23 +474,17 @@ const styles = StyleSheet.create({
         elevation: 5,
         position: 'relative',
     },
-    // inputStyle: {
-    //     padding: 12,
+    // itemStyle: {
+    //     padding: 10,
+    //     marginTop: 2,
+    //     backgroundColor: '#ddd',
+    //     borderColor: '#bbb',
     //     borderWidth: 1,
-    //     borderColor: '#ccc',
-    //     borderRadius: 5
+    //     borderRadius:5
     // },
-    itemStyle: {
-        padding: 10,
-        marginTop: 2,
-        backgroundColor: '#ddd',
-        borderColor: '#bbb',
-        borderWidth: 1,
-        borderRadius:5
-    },
-    itemTextStyle: {
-        color: '#222'
-    },
+    // itemTextStyle: {
+    //     color: '#222'
+    // },
     itemsContainerStyle: {
         maxHeight: 140
     },
