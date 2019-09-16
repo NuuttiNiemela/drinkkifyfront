@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import {addToList, addToList2} from "../Serviceclient";
 import SearchableDropDown from "react-native-searchable-dropdown";
-import {Dropdown} from 'react-native-material-dropdown';
+import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
+import DropdownMenu from "./DropdownMenu";
 
 class AddDrink extends Component {
 
@@ -97,7 +98,7 @@ class AddDrink extends Component {
 
 
     setModalVisible(visible) {
-        this.setState({visible: visible, value: 0, valueArray: [] ,allIngredients: this.props.all, units: [  {name: 'cl'}, {name: 'dl'}, {name: 'for garnish'}, {name: 'top with'}, {name: 'stick'}, {name: 'piece'}, {name: 'serving'}, {name: 'pieces'}, {name: 'cut to pretty shapes.'}, {name: 'dashes'}, {name: 'optional'}, {name: 'for garnish'}, {name: 'tbsp for the rim'}, {name: 'spoonfuls'}, {name: 'piece'}, {name: 'grated'}, {name: 'to garnish'}, {name: 'to taste'}, {name: 'pieces'}, {name: 'to garnish'}, {name: 'to top with'}, {name: 'leaves'}, {name: 'pinch'}, {name: 'dash of'}, {name: 'according to taste'}, {name: 'serving'}, {name: 'according to your taste'}, {name: 'dl, or according to taste.'}, {name: 'shavings'}, {name: 'small bunch'}, {name: 'splash'}, {name: 'shaving'}, {name: 'dash'}]
+        this.setState({visible: visible, value: 0, valueArray: [] ,allIngredients: this.props.all, units: [{name: 'cl'}, {name: 'dl'}, {name: 'for garnish'}, {name: 'top with'}, {name: 'stick'}, {name: 'piece'}, {name: 'serving'}, {name: 'dashes'}, {name: 'optional'}, {name: 'tbsp for the rim'}, {name: 'spoonfuls'}, {name: 'grated'}, {name: 'to taste'}, {name: 'pieces'}, {name: 'to top with'}, {name: 'leaves'}, {name: 'pinch'}, {name: 'serving'}, {name: 'according to your taste'}, {name: 'dl, or according to taste.'}, {name: 'small bunch'}, {name: 'splash'}, {name: 'shaving'}, {name: 'shavings'}, {name: 'dash'}]
         });
     }
 
@@ -123,6 +124,8 @@ class AddDrink extends Component {
                     placeholder="Amount"
                     onChangeText={ingredientAmount => this.setState({ ingredientAmount })}
                     value={this.state.ingredientAmount} />
+
+                    {/*<DropdownMenu style={{}} items={this.state.units} />*/}
 
                 <SearchableDropDown
                     onTextChange={text => console.log(text)}
@@ -419,19 +422,22 @@ class AddDrink extends Component {
 
 <View>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
-                    <TouchableOpacity onPress={this.send}>
-                        <Text style={styles.buttonStyle}>{"\n"} Add Drink</Text>
-                    </TouchableOpacity>
-                    <TouchableHighlight
-                        onPress={() => {
-                            this.setModalVisible(!this.state.visible);
-                        }}>
-                        <Text style={styles.buttonStyle}>{"\n"}Close Drink</Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight
-                        onPress={this.addMore}>
-                       <Text style={styles.buttonStyle}>{"\n"}Add Ingredient</Text>
-                    </TouchableHighlight>
+                        <TouchableHighlight
+                            onPress={this.addMore}>
+                            <Text style={styles.buttonStyle}>{"\n"}Add Ingredient</Text>
+                        </TouchableHighlight>
+
+                        <TouchableOpacity onPress={this.send}>
+                            <Text style={styles.buttonStyle}>{"\n"} Add Drink</Text>
+                        </TouchableOpacity>
+
+                        <TouchableHighlight
+                            onPress={() => {
+                                this.setModalVisible(!this.state.visible);
+                            }}>
+                            <Text style={styles.buttonStyle}>{"\n"}Close Drink</Text>
+                        </TouchableHighlight>
+
                     </View>
 </View>
                     </Fragment>
@@ -488,6 +494,7 @@ const styles = StyleSheet.create({
     itemsContainerStyle: {
         maxHeight: 140
     },
+
 });
 
 
