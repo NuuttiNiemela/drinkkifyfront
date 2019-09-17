@@ -6,7 +6,7 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import AppNavigator from "./components/AppNavigator";
+import AppNavigator from "./components/Navigation/AppNavigator";
 import {createAppContainer} from "react-navigation";
 import firebase from "react-native-firebase";
 

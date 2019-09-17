@@ -11,10 +11,10 @@ import {
     TouchableHighlight,
     ScrollView,
 } from 'react-native';
-import {addToList, addToList2} from "../Serviceclient";
+import {addToList, addToList2} from "../../Serviceclient";
 import SearchableDropDown from "react-native-searchable-dropdown";
 import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
-import DropdownMenu from "./DropdownMenu";
+import DropdownMenu from "../DropdownMenu";
 
 class AddDrink extends Component {
 

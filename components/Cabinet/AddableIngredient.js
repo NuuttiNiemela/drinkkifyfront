@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from "react-native";
 import firebase from "react-native-firebase";
-import {addToCabinet} from "../Serviceclient";
+import {addToCabinet} from "../../Serviceclient";
 
 class AddableIngredient extends Component {
     state = {currentUser: null}

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, ActivityIndicator, FlatList, StyleSheet} from "react-native";
 import firebase from "react-native-firebase";
-import {drinkkify, getSomething} from "../Serviceclient";
-import DrinkDetails from "./DrinkDetails";
+import {drinkkify, getSomething} from "../../Serviceclient";
+import DrinkDetails from "../DrinkDetails";
 import {Image} from "react-native-elements";
 
 class Drinkkify extends Component {
