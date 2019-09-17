@@ -13,7 +13,7 @@ import firebase from "react-native-firebase";
 import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
 import {Icon} from "react-native-elements";
-import MenuButton from "../Navigation/MenuButton";
+import MenuButton from "../navigation/MenuButton";
 
 
 class Cabinet extends Component {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, ActivityIndicator, StyleSheet, Button, Header} from 'react-native'
 import firebase from 'react-native-firebase'
-import Cabinet from "../Cabinet/Cabinet";
+import Cabinet from "../cabinet/Cabinet";
 import Login from "./Login";
 import axios from 'react-native-axios'
 import {Image} from "react-native-elements";
