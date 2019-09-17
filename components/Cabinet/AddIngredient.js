@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Button, Keyboard, ScrollView, Text, TextInput, TouchableOpacity, View, Frag, StyleSheet} from "react-native";
-import {getAllIngredients, getSomeIngredients, getSomething} from "../Serviceclient";
+import {getAllIngredients, getSomeIngredients, getSomething} from "../../Serviceclient";
 import _ from "lodash";
 import AddableIngredient from "./AddableIngredient";
 import firebase from "react-native-firebase";
 import NewIngredient from "./NewIngredient";
-import AppNavigator from "./AppNavigator";
+import AppNavigator from "../Navigation/AppNavigator";
 import {Icon} from "react-native-elements";
+import MenuButton from "../Navigation/MenuButton";
 
 class AddIngredient extends Component {
     state = {currentUser: null, ingredients: [] ,query: ""}

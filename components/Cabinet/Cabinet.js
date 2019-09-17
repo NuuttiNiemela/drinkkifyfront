@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView, Flex, TouchableHighlight} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+    FlatList,
+    ScrollView,
+    Flex,
+    TouchableHighlight,
+} from 'react-native';
 import firebase from "react-native-firebase";
-import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../Serviceclient";
+import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
+import {Icon} from "react-native-elements";
+import MenuButton from "../Navigation/MenuButton";
 
 
 class Cabinet extends Component {
@@ -79,7 +90,6 @@ class Cabinet extends Component {
 
         return (
             <View>
-
             <ScrollView
                 stickyHeaderIndices={[0]}
                 contentInsetAdjustmentBehavior="automatic"

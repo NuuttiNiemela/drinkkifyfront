@@ -4,19 +4,22 @@ import {
     createBottomTabNavigator,
     createDrawerNavigator, NavigationScreenProp as navigation,
 } from 'react-navigation';
-import Main from "./Main";
-import Cabinet from "./Cabinet";
-import Login from "./authentication/Login";
-import SearchRecipe from "./SearchRecipe";
-import AddIngredient from "./AddIngredient";
+import Main from "../Main";
+import Cabinet from "../Cabinet/Cabinet";
+import Login from "../authentication/Login";
+import SearchRecipe from "../SearchRecipe";
+import AddIngredient from "../Cabinet/AddIngredient";
 import React from "react";
 import {Modal, ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from 'react-native';
-import Loading from "./authentication/Loading";
-import SignUp from "./authentication/SignUp";
+import Loading from "../authentication/Loading";
+import SignUp from "../authentication/SignUp";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Drinkkify from "./Drinkkify";
+import Drinkkify from "../Cabinet/Drinkkify";
 import {Image} from "react-native-elements"
-import HamppariTesti from "./HamppariTesti";
+import HamppariTesti from "../HamppariTesti";
+import AddDrink4 from "../Cabinet/AddDrink4";
+import DrawerJee from "./DrawerMenu";
+import MenuButton from "./MenuButton";
 
 
 
@@ -35,7 +38,7 @@ const AppNavigator = createStackNavigator({
       headerBackground:
 
                 <Image
-                    source={require('./Drinkkify.png')}
+                    source={require('../Drinkkify.png')}
                     style={{width:'50%', height:46, marginTop:'2%', marginLeft: '2%',}}
                 />
         }
@@ -46,19 +49,19 @@ const AppNavigator = createStackNavigator({
 // Pitkä matka tästä toimivaksi, en ole vielä hahmottanut, mitä kaikkea pitäisi laittaa minnekin, että tuon lopulta saa toimimaan.
 
 // const Drawer = createDrawerNavigator({
-//         Home: {
-//             navigationOptions: {
-//                 drawerLabel: "Home"
-//             },
-//             screen: Home
-//         },
-//
-//         ProfilePage: {
-//             screen: ProfilePage,
-//             navigationOptions: {
-//                 drawerLabel: 'Profile'
-//             }
-//         },
+//         // Home: {
+//         //     navigationOptions: {
+//         //         drawerLabel: "Home"
+//         //     },
+//         //     screen: Home
+//         // },
+//         //
+//         // ProfilePage: {
+//         //     screen: ProfilePage,
+//         //     navigationOptions: {
+//         //         drawerLabel: 'Profile'
+//         //     }
+//         // },
 //         AddIngredientPage: {
 //             screen: AddIngredient,
 //             navigationOptions: {
@@ -66,7 +69,7 @@ const AppNavigator = createStackNavigator({
 //             }
 //         },
 //         AddRecipePage: {
-//             screen: AddDrink,
+//             screen: AddDrink4,
 //             navigationOptions: {
 //                 drawerLabel: 'Add Recipe-sivu'
 //             }
@@ -78,27 +81,31 @@ const AppNavigator = createStackNavigator({
 //         drawerOpenRoute: 'DrawerOpen',
 //         drawerCloseRoute: 'DrawerClose',
 //         drawerToggleRoute: 'DrawerToggle',
-//         drawerWidth: (width / 3) * 2
+//         drawerWidth: 50,
+//         // drawerWidth: (width / 3) * 2
 //     });
 //
-//
+// const CustomDrawerNavigation = props => {
+//     <View> <Text>moi</Text> </View>
+// }
+
+
 // function navigate(hamppariTesti) {
 //
 // }
 
 const CabinetNavigator = createStackNavigator({
-    Cabinet: Cabinet,
+    Cabinet: DrawerJee,
     AddIngredient: AddIngredient,
         Login: Login,
     Loading: Loading,
     SignUp: SignUp,
     Drinkkify: Drinkkify,
-    HamppariTesti: HamppariTesti,
-    // Cabinet: DrawerNavigator,
+    // HamppariTesti: HamppariTesti,
 },
     {
         initialRouteName: "Loading",
-        defaultNavigationOptions: {
+        defaultNavigationOptions: ({navigation}) => ({
             headerStyle: {
                 backgroundColor: 'white',
             },
@@ -107,12 +114,13 @@ const CabinetNavigator = createStackNavigator({
             headerBackground:
 
                 <Image
-                    source={require('./Drinkkify.png')}
+                    source={require('../Drinkkify.png')}
                     style={{width:'40%', height:36, marginTop:'2%', marginLeft: '6%',}}
-                />
+                />,
+            headerRight: <MenuButton />
 
 
-            }
+            })
 
     });
 

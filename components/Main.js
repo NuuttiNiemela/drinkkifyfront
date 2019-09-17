@@ -1,12 +1,12 @@
 import React, {Component, Fragment, useRef} from 'react';
 import {getAll, getSomething, getAllIngredients} from "../Serviceclient";
 import {Text, TouchableOpacity, ActivityIndicator, View, Button, TextInput, Keyboard, StyleSheet} from 'react-native';
-import {Icon} from 'react-native-elements';
+import {Icon, Image} from 'react-native-elements';
 import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
 import AddDrink2 from "./AddDrink2";
-import AddDrink4 from "./AddDrink4";
+import AddDrink4 from "./Cabinet/AddDrink4";
 import DropdownMenu from "./DropdownMenu";
 
 class Main extends Component {
@@ -98,8 +98,8 @@ class Main extends Component {
                         color="#698D3F"
                         onPress={this.search}
                     />
-
                 </View>
+
                 <Drinks drinks={this.state.drinks}/>
 
                 {/*<AddDrink2 update={this.getDrinks} />*/}
