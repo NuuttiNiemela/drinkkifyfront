@@ -6,7 +6,7 @@ import Drinks from "./Drinks";
 import _ from 'lodash';
 import AddDrink from "./AddDrink";
 import AddDrink2 from "./AddDrink2";
-import AddDrink4 from "./cabinet/AddDrink4";
+import AddDrink4 from "./Cabinet/AddDrink4";
 import DropdownMenu from "./DropdownMenu";
 
 class Main extends Component {

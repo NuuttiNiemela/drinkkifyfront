@@ -105,7 +105,7 @@ class AddDrink extends Component {
 
     renderIngredient = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginRight: 10}}>
+            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch: text})}
@@ -401,23 +401,19 @@ class AddDrink extends Component {
                        }}
                 >
                     <Fragment>
-                        <View style={{marginTop: 10, fontSize: 25, color: "#698D3F", fontFamily:'Roboto-Black', marginLeft: '10%'}}>
-                        <Text>Add Drink</Text>
-                        <TextInput
+                    <TextInput
                         // style={styles.textInput}
-                        Style={styles.input}
                         autoCapitalize="none"
-                        placeholder="miten tätä muokataan??????"
+                        placeholder="Drink name"
                         onChangeText={name => this.setState({ name })}
                         value={this.state.name}/>
                     <TextInput
-                        Style={styles.input}
                         autoCapitalize="none"
                         placeholder="Instructions"
                         onChangeText={instructions => this.setState({ instructions })}
                         value={this.state.instructions}
                     />
-                    </View>
+
                     {newArray}
 
 <View>
@@ -455,14 +451,7 @@ class AddDrink extends Component {
 }
 
 const styles = StyleSheet.create({
-    input: {
-        padding: 1,
-        backgroundColor: 'white',
-        color: '#424242',
-        width: '70%',
-        fontFamily: 'Roboto-Black',
-        marginLeft: '20%',
-    },
+
     buttonStyle: {
         justifyContent: 'center',
         backgroundColor: '#B2C8D4',
@@ -480,6 +469,12 @@ const styles = StyleSheet.create({
         elevation: 5,
         position: 'relative',
     },
+    // inputStyle: {
+    //     padding: 12,
+    //     borderWidth: 1,
+    //     borderColor: '#ccc',
+    //     borderRadius: 5
+    // },
     itemStyle: {
         padding: 10,
         marginTop: 2,

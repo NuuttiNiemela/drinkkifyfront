@@ -18,7 +18,7 @@ import {Icon, Image} from "react-native-elements";
 import {createStackNavigator} from "react-navigation";
 import Main from "./Main";
 import SearchRecipe from "./SearchRecipe";
-import AppNavigator from "./navigation/AppNavigator";
+import AppNavigator from "./Navigation/AppNavigator";
 import AddDrink from "./AddDrink";
 
 
