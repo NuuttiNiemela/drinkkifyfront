@@ -27,6 +27,8 @@ class Cabinet extends Component {
         this.focusListener = navigation.addListener('didFocus', () => {
             if(this.state.currentUser != null) this.getYourCabinet()
                 .then(r => console.log('mitä ' + r))
+
+
         })
     }
 
@@ -37,6 +39,7 @@ class Cabinet extends Component {
                     this.setState({cabinetIngredients: response})
                 } else {
                     this.setState({cabinetIngredients: []})
+                    this.props.navigation.navigate('Loading')
                 }
             })
     }
@@ -72,7 +75,7 @@ class Cabinet extends Component {
                     <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.signOutUser}>
-                    <Text style={styles.buttonSignOut}>{"\n"}Sign{"\n"}out</Text>
+                    <Text style={styles.buttonSignOut}>{"\n"}Log{"\n"}out</Text>
 
 
                 </TouchableOpacity>

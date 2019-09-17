@@ -2,7 +2,7 @@ import {
     createStackNavigator,
     createAppContainer,
     createBottomTabNavigator,
-    createDrawerNavigator, NavigationScreenProp as navigation,
+    createSwitchNavigator,
 } from 'react-navigation';
 import Main from "../Main";
 import Cabinet from "../Cabinet/Cabinet";
@@ -44,55 +44,15 @@ const AppNavigator = createStackNavigator({
         }
 });
 
-// Hampurilaisnavigaatio-harjoitus by Laura. Apuja mm. täältä:
-// https://www.igismap.com/drawer-react-navigation-3-x-react-native/
-// Pitkä matka tästä toimivaksi, en ole vielä hahmottanut, mitä kaikkea pitäisi laittaa minnekin, että tuon lopulta saa toimimaan.
-
-// const Drawer = createDrawerNavigator({
-//         // Home: {
-//         //     navigationOptions: {
-//         //         drawerLabel: "Home"
-//         //     },
-//         //     screen: Home
-//         // },
-//         //
-//         // ProfilePage: {
-//         //     screen: ProfilePage,
-//         //     navigationOptions: {
-//         //         drawerLabel: 'Profile'
-//         //     }
-//         // },
-//         AddIngredientPage: {
-//             screen: AddIngredient,
-//             navigationOptions: {
-//                 drawerLabel: 'Add Ingredient-sivu'
-//             }
-//         },
-//         AddRecipePage: {
-//             screen: AddDrink4,
-//             navigationOptions: {
-//                 drawerLabel: 'Add Recipe-sivu'
-//             }
-//         }
-//     },
-//     {
-//         drawerPosition: 'right',
-//         contentComponent: CustomDrawerNavigation,
-//         drawerOpenRoute: 'DrawerOpen',
-//         drawerCloseRoute: 'DrawerClose',
-//         drawerToggleRoute: 'DrawerToggle',
-//         drawerWidth: 50,
-//         // drawerWidth: (width / 3) * 2
-//     });
-//
-// const CustomDrawerNavigation = props => {
-//     <View> <Text>moi</Text> </View>
-// }
-
-
-// function navigate(hamppariTesti) {
-//
-// }
+const AuthStack = createSwitchNavigator({
+    Loading: Loading,
+    Cabinet: DrawerJee,
+    Login: Login,
+    SignUp: SignUp,
+    },
+    {
+        initialRouteName: 'Loading'
+    })
 
 const CabinetNavigator = createStackNavigator({
     Cabinet: DrawerJee,
@@ -101,7 +61,6 @@ const CabinetNavigator = createStackNavigator({
     Loading: Loading,
     SignUp: SignUp,
     Drinkkify: Drinkkify,
-    // HamppariTesti: HamppariTesti,
 },
     {
         initialRouteName: "Loading",
@@ -229,5 +188,6 @@ const styles = StyleSheet.create({
 export default createAppContainer(createBottomTabNavigator({
     AppNavigator,
     CabinetNavigator,
+    // AuthStack
 
 }));

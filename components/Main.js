@@ -101,9 +101,8 @@ class Main extends Component {
                 </View>
 
                 <Drinks drinks={this.state.drinks}/>
-
-                {/*<AddDrink2 update={this.getDrinks} />*/}
-                <AddDrink4 all={this.state.ingredients.map((ingredient) => {ingredient.name=ingredient.ingredient_name; return ingredient} )} update={this.getDrinks}/>
+                
+                {/*<AddDrink4 all={this.state.ingredients.map((ingredient) => {ingredient.name=ingredient.ingredient_name; return ingredient} )} update={this.getDrinks}/>*/}
 
             </Fragment>
         );
