@@ -20,6 +20,9 @@ import HamppariTesti from "../HamppariTesti";
 import AddDrink4 from "../Cabinet/AddDrink4";
 import DrawerJee from "./DrawerMenu";
 import MenuButton from "./MenuButton";
+import CabinetStack from "./CabinetStack";
+import LoadingSwitch from "../authentication/LoadingSwitch";
+import AuthenticationStack from "./AuthenticationStack";
 
 
 
@@ -45,13 +48,12 @@ const AppNavigator = createStackNavigator({
 });
 
 const AuthStack = createSwitchNavigator({
-    Loading: Loading,
-    Cabinet: DrawerJee,
-    Login: Login,
-    SignUp: SignUp,
+    Auth: AuthenticationStack,
+    Cabinet: CabinetStack,
+
     },
     {
-        initialRouteName: 'Loading'
+        initialRouteName: 'Auth',
     })
 
 const CabinetNavigator = createStackNavigator({
@@ -64,7 +66,7 @@ const CabinetNavigator = createStackNavigator({
 },
     {
         initialRouteName: "Loading",
-        defaultNavigationOptions: ({navigation}) => ({
+        defaultNavigationOptions: ({
             headerStyle: {
                 backgroundColor: 'white',
             },
@@ -92,6 +94,14 @@ AppNavigator.navigationOptions = {
 };
 
 CabinetNavigator.navigationOptions = {
+    tabBarLabel: 'Bar cabinet',
+    tabBarIcon: ({tintColor = 'black'}) => (
+        <Icon name='wine-bottle' size={25} color={'#696D3F'} />
+
+    )
+};
+
+AuthStack.navigationOptions = {
     tabBarLabel: 'Bar cabinet',
     tabBarIcon: ({tintColor = 'black'}) => (
         <Icon name='wine-bottle' size={25} color={'#696D3F'} />
@@ -187,7 +197,7 @@ const styles = StyleSheet.create({
 
 export default createAppContainer(createBottomTabNavigator({
     AppNavigator,
-    CabinetNavigator,
-    // AuthStack
+    // CabinetNavigator,
+    AuthStack
 
 }));
