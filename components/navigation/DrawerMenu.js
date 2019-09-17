@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Platform, Dimensions, View, Button} from 'react-native';
 import {createDrawerNavigator, createAppContainer, DrawerItems} from "react-navigation";
-import AddIngredient from "../Cabinet/AddIngredient";
-import Cabinet from "../Cabinet/Cabinet";
-import Drinkkify from "../Cabinet/Drinkkify";
-import AddDrink3 from "../Cabinet/AddDrink3";
+import AddIngredient from "../cabinet/AddIngredient";
+import Cabinet from "../cabinet/Cabinet";
+import Drinkkify from "../cabinet/Drinkkify";
+import AddDrink3 from "../cabinet/AddDrink3";
 import Settings from "../authentication/Settings";
 import firebase from "react-native-firebase";
 

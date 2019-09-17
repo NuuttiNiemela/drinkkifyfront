@@ -5,9 +5,9 @@ import _ from "lodash";
 import AddableIngredient from "./AddableIngredient";
 import firebase from "react-native-firebase";
 import NewIngredient from "./NewIngredient";
-import AppNavigator from "../Navigation/AppNavigator";
+import AppNavigator from "../navigation/AppNavigator";
 import {Icon} from "react-native-elements";
-import MenuButton from "../Navigation/MenuButton";
+import MenuButton from "../navigation/MenuButton";
 
 class AddIngredient extends Component {
     state = {currentUser: null, ingredients: [] ,query: ""}

@@ -5,19 +5,19 @@ import {
     createSwitchNavigator,
 } from 'react-navigation';
 import Main from "../Main";
-import Cabinet from "../Cabinet/Cabinet";
+import Cabinet from "../cabinet/Cabinet";
 import Login from "../authentication/Login";
 import SearchRecipe from "../SearchRecipe";
-import AddIngredient from "../Cabinet/AddIngredient";
+import AddIngredient from "../cabinet/AddIngredient";
 import React from "react";
 import {Modal, ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from 'react-native';
 import Loading from "../authentication/Loading";
 import SignUp from "../authentication/SignUp";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Drinkkify from "../Cabinet/Drinkkify";
+import Drinkkify from "../cabinet/Drinkkify";
 import {Image} from "react-native-elements"
 import HamppariTesti from "../HamppariTesti";
-import AddDrink4 from "../Cabinet/AddDrink4";
+import AddDrink4 from "../cabinet/AddDrink4";
 import DrawerJee from "./DrawerMenu";
 import MenuButton from "./MenuButton";
 import CabinetStack from "./CabinetStack";
