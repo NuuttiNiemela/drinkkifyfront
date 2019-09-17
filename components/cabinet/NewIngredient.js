@@ -60,7 +60,7 @@ class NewIngredient extends Component {
                     >
 
                     <Image
-                        source={require('./VectorCocktails.jpg')}
+                        source={require('../VectorCocktails.jpg')}
                         style={{width: '10%', height: '10%'}}
                     />
 

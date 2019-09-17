@@ -1,23 +1,21 @@
 import {createStackNavigator, createAppContainer} from "react-navigation";
 import DrawerJee from "./DrawerMenu";
-import AddIngredient from "../Cabinet/AddIngredient";
+import AddIngredient from "../cabinet/AddIngredient";
 import Login from "../authentication/Login";
 import Loading from "../authentication/Loading";
 import SignUp from "../authentication/SignUp";
-import Drinkkify from "../Cabinet/Drinkkify";
+import Drinkkify from "../cabinet/Drinkkify";
 import {Image} from "react-native-elements";
 import MenuButton from "./MenuButton";
 import React from "react";
-import LoadingSwitch from "../authentication/LoadingSwitch";
-import CabinetStack from "./CabinetStack";
 
-const AuthenticationStack = createStackNavigator({
-        Loadings: LoadingSwitch,
-        Login: Login,
-        SignUp: SignUp,
+const CabinetStack = createStackNavigator({
+        Cabinet: DrawerJee,
+        AddIngredient: AddIngredient,
+        Drinkkify: Drinkkify,
     },
     {
-        initialRouteName: 'Loadings',
+        initialRouteName: "Cabinet",
         defaultNavigationOptions: ({
             headerStyle: {
                 backgroundColor: 'white',
@@ -30,11 +28,11 @@ const AuthenticationStack = createStackNavigator({
                     source={require('../Drinkkify.png')}
                     style={{width:'50%', height:46, marginTop:'2%', marginLeft: '2%',}}
                 />,
-            headerLeft: null,
+            headerRight: <MenuButton />
 
 
         })
 
     });
 
-export default createAppContainer(AuthenticationStack)
+export default createAppContainer(CabinetStack)
