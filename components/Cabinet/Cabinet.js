@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView, Flex, TouchableHighlight} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+    FlatList,
+    ScrollView,
+    Flex,
+    TouchableHighlight,
+} from 'react-native';
 import firebase from "react-native-firebase";
-import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../Serviceclient";
+import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
+import {Icon} from "react-native-elements";
+import MenuButton from "../Navigation/MenuButton";
 
 
 class Cabinet extends Component {
@@ -16,6 +27,8 @@ class Cabinet extends Component {
         this.focusListener = navigation.addListener('didFocus', () => {
             if(this.state.currentUser != null) this.getYourCabinet()
                 .then(r => console.log('mitä ' + r))
+
+
         })
     }
 
@@ -26,6 +39,7 @@ class Cabinet extends Component {
                     this.setState({cabinetIngredients: response})
                 } else {
                     this.setState({cabinetIngredients: []})
+                    this.props.navigation.navigate('Loading')
                 }
             })
     }
@@ -61,7 +75,7 @@ class Cabinet extends Component {
                     <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.signOutUser}>
-                    <Text style={styles.buttonSignOut}>{"\n"}Sign{"\n"}out</Text>
+                    <Text style={styles.buttonSignOut}>{"\n"}Log{"\n"}out</Text>
 
 
                 </TouchableOpacity>
@@ -79,7 +93,6 @@ class Cabinet extends Component {
 
         return (
             <View>
-
             <ScrollView
                 stickyHeaderIndices={[0]}
                 contentInsetAdjustmentBehavior="automatic"

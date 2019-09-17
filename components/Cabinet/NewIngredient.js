@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Ingredient from "./Ingredient";
+import Ingredient from "../Ingredient";
 import {
     Button,
     Keyboard,
@@ -13,7 +13,7 @@ import {
     View,
     Image
 } from "react-native";
-import {addIngredient, addToCabinet} from "../Serviceclient";
+import {addIngredient, addToCabinet} from "../../Serviceclient";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
@@ -27,7 +27,6 @@ class NewIngredient extends Component {
     add = async (ev) => {
         ev.preventDefault();
         await this.addNew(this.state.name)
-        Keyboard.dismiss();
         this.setState({name: ''})
         this.setModalVisible(!this.state.modalVisible);
         this.props.getAll()
@@ -38,6 +37,7 @@ class NewIngredient extends Component {
             .then(response => {
                 addToCabinet(this.props.user.email, response.id)
                     .then(alert(ingredient + ' added to ingredients'))
+                    .then(() => Keyboard.dismiss())
             })
             .catch(() =>alert("Adding didn't work"))
     }
