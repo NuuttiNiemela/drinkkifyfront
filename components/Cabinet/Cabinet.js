@@ -39,7 +39,6 @@ class Cabinet extends Component {
                     this.setState({cabinetIngredients: response})
                 } else {
                     this.setState({cabinetIngredients: []})
-                    this.props.navigation.navigate('Loading')
                 }
             })
     }
