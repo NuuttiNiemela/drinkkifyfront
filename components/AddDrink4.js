@@ -105,7 +105,7 @@ class AddDrink extends Component {
 
     renderIngredient = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginRight: 10}}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch: text})}
@@ -480,17 +480,17 @@ const styles = StyleSheet.create({
         elevation: 5,
         position: 'relative',
     },
-    // itemStyle: {
-    //     padding: 10,
-    //     marginTop: 2,
-    //     backgroundColor: '#ddd',
-    //     borderColor: '#bbb',
-    //     borderWidth: 1,
-    //     borderRadius:5
-    // },
-    // itemTextStyle: {
-    //     color: '#222'
-    // },
+    itemStyle: {
+        padding: 10,
+        marginTop: 2,
+        backgroundColor: '#ddd',
+        borderColor: '#bbb',
+        borderWidth: 1,
+        borderRadius:5
+    },
+    itemTextStyle: {
+        color: '#222'
+    },
     itemsContainerStyle: {
         maxHeight: 140
     },

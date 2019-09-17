@@ -10,10 +10,13 @@ import {
     TextInput,
     TouchableHighlight,
     TouchableOpacity,
-    View
+    View,
+    Image
 } from "react-native";
 import {addIngredient, addToCabinet} from "../Serviceclient";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
+
 
 class NewIngredient extends Component {
     state = {
@@ -47,13 +50,21 @@ class NewIngredient extends Component {
     render() {
         return (
             <View>
-                <Modal
+            <Modal
                     animationType="slide"
                     transparent={false}
                     visible={this.state.modalVisible}
                     onRequestClose={() => {
                         this.setModalVisible(!this.state.modalVisible);
-                    }}>
+                    }}
+                    >
+
+                    <Image
+                        source={require('./VectorCocktails.jpg')}
+                        style={{width: '10%', height: '10%'}}
+                    />
+
+
                     <View style={{Color:'#698D3F'}}>
                         <Text style={{color:"#698D3F", marginTop: "10%", marginLeft: "6%", fontFamily: 'Roboto-Black', fontSize: 20}}>Add new Ingredient</Text>
                         <Text>{"\n"}</Text>
@@ -110,6 +121,7 @@ class NewIngredient extends Component {
                 </View>
                 <Text> {"\n"}</Text>
             </View>
+
         );
     }
 }
