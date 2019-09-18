@@ -10,7 +10,6 @@ class LoadingSwitch extends Component {
 
     componentDidMount() {
 
-
         const {navigation} = this.props;
         this.focusListener = navigation.addListener('didFocus', () => {
             firebase.auth().onAuthStateChanged(user => {
