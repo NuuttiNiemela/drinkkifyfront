@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, Dimensions, View, Button} from 'react-native';
-import {createDrawerNavigator, createAppContainer, DrawerItems} from "react-navigation";
+import {createAppContainer} from "react-navigation";
+import { createDrawerNavigator, DrawerNavigatorItems } from "react-navigation-drawer";
 import AddIngredient from "../cabinet/AddIngredient";
 import Cabinet from "../cabinet/Cabinet";
 import Drinkkify from "../cabinet/Drinkkify";
@@ -21,7 +22,7 @@ const DrawerMenu = createDrawerNavigator({
     {
         contentComponent: (props) => (
             <View>
-                <DrawerItems {...props} />
+                <DrawerNavigatorItems {...props} />
                 <Button
                     title="Logout"
                     onPress={async () => {
