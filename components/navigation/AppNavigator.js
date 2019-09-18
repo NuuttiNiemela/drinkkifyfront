@@ -1,9 +1,9 @@
 import {
-    createStackNavigator,
     createAppContainer,
-    createBottomTabNavigator,
     createSwitchNavigator,
 } from 'react-navigation';
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 import Main from "../Main";
 import Cabinet from "../cabinet/Cabinet";
 import Login from "../authentication/Login";
