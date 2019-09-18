@@ -56,6 +56,7 @@ class ChangePassword extends Component {
                         <ScrollView
                             contentInsetAdjustmentBehavior="automatic"
                             >
+                            <Text>Change your password</Text>
                             <View>
 
                                 <TextInput
@@ -80,11 +81,11 @@ class ChangePassword extends Component {
                                 />
 
                                 <TouchableHighlight
-                                    onPress={() => {
-                                        this.changePassword()
-                                    }}>
+                                    onPress={this.changePassword}>
                                     <Text>Submit</Text>
                                 </TouchableHighlight>
+
+                                <Text> </Text>
 
                                 <TouchableHighlight
                                     onPress={() => {

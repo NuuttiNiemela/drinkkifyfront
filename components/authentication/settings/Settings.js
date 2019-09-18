@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text } from "react-native";
 import ChangePassword from "./ChangePassword";
 import firebase from 'react-native-firebase';
+import ChangeEmail from "./ChangeEmail";
 
 class Settings extends Component {
     state = {currentUser: ''}
@@ -21,6 +22,8 @@ class Settings extends Component {
             <View>
                 <Text>Settings page</Text>
                 <View style={{padding: 10}}>
+                    <ChangeEmail user={this.state.currentUser} />
+                    <Text> </Text>
                 <ChangePassword user={this.state.currentUser} />
                 </View>
 
