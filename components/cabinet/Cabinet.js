@@ -64,20 +64,13 @@ class Cabinet extends Component {
                 <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
                 <Text>{"\n"}</Text>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('AddIngredient')}>
-                    <Text style={styles.buttonAdd}>{"\n"}Add {"\n"}Ingredient</Text>
-                </TouchableOpacity>
+            <View style={{flexDirection: 'row', justifyContent: 'center', marginLeft:'10%', marginRight:'10%',}}>
+
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
                     <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.signOutUser}>
-                    <Text style={styles.buttonSignOut}>{"\n"}Log{"\n"}out</Text>
 
-
-                </TouchableOpacity>
             </View>
             </View>
         )
