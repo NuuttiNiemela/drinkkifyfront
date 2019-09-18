@@ -1,4 +1,5 @@
-import {createStackNavigator, createAppContainer} from "react-navigation";
+import {createAppContainer} from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import DrawerJee from "./DrawerMenu";
 import AddIngredient from "../cabinet/AddIngredient";
 import Login from "../authentication/Login";
