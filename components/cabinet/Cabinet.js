@@ -62,7 +62,6 @@ class Cabinet extends Component {
             <View>
                 <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
                 <Text>{"\n"}</Text>
-                <TouchableOpacity onPress={() => alert(this.state.cabinetIngredients)}><Text>testi</Text></TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', marginLeft:'10%', marginRight:'10%',}}>
 
