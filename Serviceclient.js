@@ -26,6 +26,21 @@ export function getSomeIngredients(i) {
         .catch((e) => console.log("Error: " + e.message))
 }
 
+export function getUsersIngredients(u) {
+    return axios.get('http://' + ip + ':3000/api/ingredients/user?email=' + u)
+        .then((response) => response.data)
+        .catch((e) => console.log("Error " + e.message))
+}
+
+export function editUsersIngredient(e, i) {
+    return axios('http://' + ip + ':3000/api/ingredients/user?email=' + e, {
+        method: 'PUT',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        data: JSON.stringify({id: i.id, ingredient_name: i.ingredient_name})
+    })
+        .catch((e) => console.log("Error: " + e.message))
+}
+
 export function addToList(drink) {
     return axios('http://' + ip + ':3000/api/drinks/', {
         method: 'POST',
