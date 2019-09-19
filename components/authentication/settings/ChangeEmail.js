@@ -7,7 +7,7 @@ class ChangeEmail extends Component {
     state = {
         user: null,
         modalVisible: false,
-        oldPassword: '',
+        password: '',
         newEmail: '',
         newEmailAgain: '',
     };
@@ -19,7 +19,7 @@ class ChangeEmail extends Component {
     changeEmail = () => {
         const credential = firebase.auth.EmailAuthProvider.credential(
             this.state.user.email,
-            this.state.oldPassword
+            this.state.password
         );
         this.state.user.reauthenticateWithCredential(credential)
             .then(() => {
@@ -28,6 +28,7 @@ class ChangeEmail extends Component {
                     this.state.user.updateEmail(this.state.newEmail)
                         .then(() => editUser(this.state.user.email,this.state.newEmail))
                         .then(() => alert('Email changed!'))
+                        .then(() => this.setState({password: '', newEmail: '', newEmailAgain: ''}))
                         .catch((error) => {console.log(error.message);
                             alert('Something went wrong!')})
 
@@ -62,8 +63,8 @@ class ChangeEmail extends Component {
                                 <TextInput
                                     secureTextEntry
                                     placeholder="Your Password"
-                                    onChangeText={(oldPassword) => this.setState({oldPassword})}
-                                    value={this.state.oldPassword}
+                                    onChangeText={(password) => this.setState({password})}
+                                    value={this.state.password}
                                 />
 
                                 <TextInput

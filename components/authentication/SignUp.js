@@ -12,10 +12,10 @@ class SignUp extends Component {
             await firebase
                 .auth()
                 .createUserWithEmailAndPassword(email, password)
+                .then(() => addUser(this.state.email))
                 .then(() => alert("Account creation successful"))
                 .then(() => this.props.navigation.navigate('Loading'))
                 .catch(error => this.setState({errorMessage: error.message}))
-            addUser(this.state.email)
         } else {
             alert("Your passwords doesn't match")
         }

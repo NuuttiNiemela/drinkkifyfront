@@ -19,15 +19,14 @@ import MenuButton from "../navigation/MenuButton";
 class Cabinet extends Component {
     state = { currentUser: null, ingredients: [], cabinetIngredients: []}
 
-    componentDidMount() {
-        const {currentUser} = firebase.auth()
+    async componentDidMount() {
+        const {currentUser} = await firebase.auth()
         this.setState({currentUser},
             this.getYourCabinet)
         const {navigation} = this.props;
         this.focusListener = navigation.addListener('didFocus', () => {
-            if(this.state.currentUser != null) this.getYourCabinet()
+            this.getYourCabinet()
                 .then(r => console.log('mitä ' + r))
-
 
         })
     }
@@ -63,6 +62,7 @@ class Cabinet extends Component {
             <View>
                 <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
                 <Text>{"\n"}</Text>
+                <TouchableOpacity onPress={() => alert(this.state.cabinetIngredients)}><Text>testi</Text></TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', marginLeft:'10%', marginRight:'10%',}}>
 
@@ -95,6 +95,12 @@ class Cabinet extends Component {
                 <Text>{"\n"}</Text>
                 {ingredientrows}
             </View>
+
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Add Ingredient')}>
+                    <Text style={{textAlign: 'center'}} >Add Ingredient</Text>
+                </TouchableOpacity>
+
             </ScrollView>
             </View>
         );
