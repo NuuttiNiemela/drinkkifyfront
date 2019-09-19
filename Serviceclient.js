@@ -98,6 +98,15 @@ export function addUser(email) {
         .catch((e) => console.log("Error: " + e.message))
 }
 
+export function editUser(oldEmail, email) {
+    return axios('http://' + ip + ':3000/api/user?email=' + oldEmail, {
+        method: 'PUT',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        data: JSON.stringify({user_email: email})
+    })
+        .catch((e) => console.log("Error: " + e.message))
+}
+
 export function addToCabinet(email, ingredient) {
     return axios('http://' + ip + ':3000/api/cabinetverify/' + email,{
         method: 'POST',
