@@ -6,7 +6,7 @@ import AddIngredient from "../cabinet/AddIngredient";
 import Cabinet from "../cabinet/Cabinet";
 import Drinkkify from "../cabinet/Drinkkify";
 import AddDrink3 from "../cabinet/AddDrink3";
-import Settings from "../authentication/Settings";
+import Settings from "../authentication/settings/Settings";
 import firebase from "react-native-firebase";
 
 const WIDTH = Dimensions.get('window').width;
