@@ -28,7 +28,7 @@ class ChangeEmail extends Component {
                     this.state.user.updateEmail(this.state.newEmail)
                         .then(() => editUser(this.state.user.email,this.state.newEmail))
                         .then(() => alert('Email changed!'))
-                        .then(() => this.setState({password: '', newEmail: '', newEmailAgain: ''}))
+                        .then(() => this.setState({password: '', newEmail: '', newEmailAgain: '', modalVisible: false}))
                         .catch((error) => {console.log(error.message);
                             alert('Something went wrong!')})
 

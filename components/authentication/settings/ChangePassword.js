@@ -28,6 +28,7 @@ class ChangePassword extends Component {
 
                     this.state.user.updatePassword(this.state.newPassword)
                         .then(() => alert('New password set'))
+                        .then(() => {this.setState({oldPassword: '', newPassword: '', newPasswordAgain: '', modalVisible: false})})
                         .catch((error) => {console.log(error.message);
                             alert('Something went wrong!')})
 
