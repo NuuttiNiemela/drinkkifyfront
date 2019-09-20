@@ -1,24 +1,34 @@
 import React, {Component} from 'react';
-import {View, Text, ActivityIndicator, FlatList, StyleSheet} from "react-native";
+import {View, Text, ActivityIndicator, FlatList, TouchableOpacity, StyleSheet} from "react-native";
 import firebase from "react-native-firebase";
 import {drinkkify, getSomething} from "../../Serviceclient";
 import DrinkDetails from "../DrinkDetails";
 import {Image} from "react-native-elements";
+import _ from "lodash";
 
 class Drinkkify extends Component {
 
     state = { currentUser: null, drinks: [], isLoading: true}
 
-    componentDidMount() {
-        const {currentUser} = firebase.auth()
-        this.setState({currentUser})
-        drinkkify(currentUser.email)
+    async componentDidMount() {
+        const {currentUser} = await firebase.auth()
+        this.setState({currentUser},
+            this.getDrinkkify)
+        const {navigation} = this.props;
+        this.focusListener = navigation.addListener('didFocus', () => {
+            this.getDrinkkify()
+        })
+
+    }
+
+    getDrinkkify = () => {
+        drinkkify(this.state.currentUser.email)
             .then((response) => {
                 this.setState({drinks: response,
                     isLoading: false})
-                console.log(response)
             })
     }
+
     renderSeparator = () => {
         return (
             <View
@@ -34,6 +44,24 @@ class Drinkkify extends Component {
         );
     };
 
+    renderComponent = () => {
+        return (
+            <View style={{flex:1,justifyContent: "center",alignItems: "center"}}>
+                <Text>There are no drinks from your ingredients!</Text>
+                <Text>Disagree?{"\n"}</Text>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('Add Drink')}
+                >
+                    <Text>Add Drink!</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
+    componentWillUnmount() {
+        this.focusListener.remove();
+    }
+
     render() {
         if(this.state.isLoading) {
             return(
@@ -42,6 +70,12 @@ class Drinkkify extends Component {
                 </View>
             )
         }
+        if(!this.state.isLoading && this.state.drinks.length < 1) {
+            return(
+                this.renderComponent()
+            )
+        }
+
         return (
             <View
                 style={{flex: 1, padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black'}}>
