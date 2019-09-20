@@ -8,6 +8,7 @@ import Drinkkify from "../cabinet/Drinkkify";
 import AddDrink3 from "../cabinet/AddDrink3";
 import Settings from "../authentication/settings/Settings";
 import firebase from "react-native-firebase";
+import EditIngredient from "../cabinet/EditIngredient";
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -17,6 +18,7 @@ const DrawerMenu = createDrawerNavigator({
         'Add Ingredient': AddIngredient,
         'Add Drink': AddDrink3,
         Drinkkify: Drinkkify,
+        'Edit Ingredient': EditIngredient,
         Settings: Settings,
     },
     {
