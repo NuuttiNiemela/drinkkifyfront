@@ -33,6 +33,7 @@ class Login extends Component {
                 <View style = {styles.lineStyle} />
                 <TextInput
                     secureTextEntry
+                    autoCapitalize="none"
                     style={{marginLeft: '12%', color:'#696D3F', fontFamily: 'Roboto-Black'}}
                     placeholder="Password"
                     onChangeText={password => this.setState({password})}
