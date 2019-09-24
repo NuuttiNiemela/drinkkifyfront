@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {View, Text, ActivityIndicator, FlatList, TouchableOpacity, StyleSheet} from "react-native";
+import {View, Text, ActivityIndicator, FlatList, List, TouchableOpacity, StyleSheet, ImageBackground} from "react-native";
 import firebase from "react-native-firebase";
 import {drinkkify, getSomething} from "../../Serviceclient";
 import DrinkDetails from "../DrinkDetails";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from "react-native-elements";
 import _ from "lodash";
 
@@ -77,21 +78,52 @@ class Drinkkify extends Component {
         }
 
         return (
+            <ImageBackground
+                source={require('./cocktail.jpg')}
+                style={{height:'100%', flexDirection: 'column', justifyContent:'center', alignItems:'center', marginRight: '10%', marginLeft: '10%',}}
+            >
             <View
-                style={{flex: 1, padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black'}}>
+                style={{flex: 1, padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black', textAlign: 'center', width: '100%', height:'100%' }}>
                 <FlatList
                     marginTop={50}
-                    // style={styles.listStyle}
+                    style={{backgroundColor: 'rgba(255, 255, 255, 0.5)',}}
                     data={this.state.drinks}
-                    renderItem={({item}) => <DrinkDetails name={item.drink_name} instructions={item.drink_instructions} ingredients={item.ingredients}/>}
-                    containerStyle={{borderBottomWidth: 0}}
+                    renderItem={({item}) =>
+                        <DrinkDetails
+                            name={item.drink_name}
+                            instructions={item.drink_instructions}
+                            ingredients={item.ingredients}
+                        /> }
+
+                    // containerStyle={{borderBottomWidth: 0, }}
                     ItemSeparatorComponent={this.renderSeparator}
                     keyExtractor={({id}) => id.toString()}
                     color={"#F6C213"}
+
                 />
             </View>
+            </ImageBackground>
+
         );
     }
 }
+
+const styles = StyleSheet.create({
+    imageContainer: {
+        flex: 1,
+        width: null,
+        height: null,
+    },
+    container: {
+        flex: 1,
+        width: null,
+        height: null,
+    },
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(69,85,117,0.7)',
+
+    }
+})
 
 export default Drinkkify;

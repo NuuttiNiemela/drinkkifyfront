@@ -29,7 +29,7 @@ const AuthenticationStack = createStackNavigator({
 
                 <Image
                     source={require('../Drinkkify.png')}
-                    style={{width:'50%', height:46, marginTop:'2%', marginLeft: '2%',}}
+                    style={{width:'50%', height:46, marginTop:'2%', marginLeft: '20%',}}
                 />,
             headerLeft: null,
 

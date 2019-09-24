@@ -37,6 +37,7 @@ const DrawerMenu = createDrawerNavigator({
         drawerWidth: WIDTH*0.6,
         drawerPosition: "right",
 
+
     })
 
 
