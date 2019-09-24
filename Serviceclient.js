@@ -32,11 +32,11 @@ export function getUsersIngredients(u) {
         .catch((e) => console.log("Error " + e.message))
 }
 
-export function editUsersIngredient(e, i) {
+export function editUsersIngredient(e, i, n) {
     return axios('http://' + ip + ':3000/api/ingredients/user?email=' + e, {
         method: 'PUT',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        data: JSON.stringify({id: i.id, ingredient_name: i.ingredient_name})
+        data: JSON.stringify({id: i, ingredient_name: n})
     })
         .catch((e) => console.log("Error: " + e.message))
 }

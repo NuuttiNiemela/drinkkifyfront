@@ -28,6 +28,7 @@ class ChangePassword extends Component {
 
                     this.state.user.updatePassword(this.state.newPassword)
                         .then(() => alert('New password set'))
+                        .then(() => {this.setState({oldPassword: '', newPassword: '', newPasswordAgain: '', modalVisible: false})})
                         .catch((error) => {console.log(error.message);
                             alert('Something went wrong!')})
 
@@ -62,6 +63,7 @@ class ChangePassword extends Component {
                                 <TextInput
                                     secureTextEntry
                                     placeholder="Old Password"
+                                    autoCapitalize="none"
                                     onChangeText={(oldPassword) => this.setState({oldPassword})}
                                     value={this.state.oldPassword}
                                 />
@@ -69,6 +71,7 @@ class ChangePassword extends Component {
                                 <TextInput
                                     secureTextEntry
                                     placeholder="New Password"
+                                    autoCapitalize="none"
                                     onChangeText={(newPassword) => this.setState({newPassword})}
                                     value={this.state.newPassword}
                                 />
@@ -76,6 +79,7 @@ class ChangePassword extends Component {
                                 <TextInput
                                     secureTextEntry
                                     placeholder="New Password again"
+                                    autoCapitalize="none"
                                     onChangeText={(newPasswordAgain) => this.setState({newPasswordAgain})}
                                     value={this.state.newPasswordAgain}
                                 />

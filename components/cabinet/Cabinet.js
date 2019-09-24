@@ -25,10 +25,10 @@ class Cabinet extends Component {
         this.setState({currentUser},
             this.getYourCabinet)
         const {navigation} = this.props;
-        this.focusListener = navigation.addListener('didFocus', () => {
-            this.getYourCabinet()
-                .then(r => console.log('mitä ' + r))
-
+        this.focusListener = navigation.addListener('didFocus', async () => {
+            const {currentUser} = await firebase.auth()
+            this.setState({currentUser},
+                this.getYourCabinet)
         })
     }
 
