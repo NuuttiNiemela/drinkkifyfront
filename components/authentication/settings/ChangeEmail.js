@@ -63,6 +63,7 @@ class ChangeEmail extends Component {
                                 <TextInput
                                     secureTextEntry
                                     placeholder="Your Password"
+                                    autoCapitalize="none"
                                     onChangeText={(password) => this.setState({password})}
                                     value={this.state.password}
                                 />

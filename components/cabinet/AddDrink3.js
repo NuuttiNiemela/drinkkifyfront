@@ -10,6 +10,7 @@ import {
     Modal,
     TouchableHighlight,
     ScrollView,
+    FlatList,
 } from 'react-native';
 import {addToList, addToList2, getAllIngredients} from "../../Serviceclient";
 import SearchableDropDown from "react-native-searchable-dropdown";
@@ -53,7 +54,7 @@ class AddDrink3 extends Component {
         value: '',
         valueArray: [],
         allIngredients: [],
-        units:[]
+        units:[],
     }
 
     componentDidMount() {
@@ -127,8 +128,7 @@ class AddDrink3 extends Component {
 
     renderIngredient = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
-
+            <View key={number}  style={styles.addingIngredient} >
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch: text})}
                     onItemSelect={(item) => this.setState({ingredient: item.ingredient_name})}
@@ -139,6 +139,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -160,14 +165,13 @@ class AddDrink3 extends Component {
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
                 />
-
             </View>
         )
     }
 
     renderIngredient1 = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={styles.addingIngredient}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch1: text})}
@@ -179,6 +183,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -206,7 +215,7 @@ class AddDrink3 extends Component {
 
     renderIngredient2 = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={styles.addingIngredient}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch2: text})}
@@ -218,6 +227,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -243,7 +257,7 @@ class AddDrink3 extends Component {
 
     renderIngredient3 = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={styles.addingIngredient}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch3: text})}
@@ -255,6 +269,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -280,7 +299,7 @@ class AddDrink3 extends Component {
 
     renderIngredient4 = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={styles.addingIngredient}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch4: text})}
@@ -292,6 +311,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -317,7 +341,7 @@ class AddDrink3 extends Component {
 
     renderIngredient5 = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={styles.addingIngredient}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch5: text})}
@@ -329,6 +353,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -354,7 +383,7 @@ class AddDrink3 extends Component {
 
     renderIngredient6 = (number) => {
         return(
-            <View key={number} style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 10}}>
+            <View key={number} style={styles.addingIngredient}>
 
                 <SearchableDropDown
                     onTextChange={text => this.setState({ingredientSearch6: text})}
@@ -366,6 +395,11 @@ class AddDrink3 extends Component {
                     itemStyle={styles.itemStyle}
                     itemTextStyle={styles.itemTextStyle}
                     itemContainerStyle={styles.itemsContainerStyle}
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
                 />
 
                 <TextInput
@@ -416,8 +450,9 @@ class AddDrink3 extends Component {
             })
 
         return (
-            <View>
-                    <Fragment>
+
+                  <Fragment>
+                      {/*<ScrollView style={{flex: 1}} nestedScrollEnabled={true} scrollEnabled={false} keyboardShouldPersistTaps="handled" >*/}
                         <TextInput
                             // style={styles.textInput}
                             autoCapitalize="none"
@@ -433,7 +468,7 @@ class AddDrink3 extends Component {
 
                         {newArray}
 
-                        <View>
+                        <View style={{flex: 1}}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
                                 <TouchableHighlight
                                     onPress={this.addMore}>
@@ -453,8 +488,8 @@ class AddDrink3 extends Component {
 
                             </View>
                         </View>
-                    </Fragment>
-            </View>
+                  {/*</ScrollView>*/}
+                  </Fragment>
         );
     }
 }
@@ -496,7 +531,13 @@ const styles = StyleSheet.create({
         color: '#222'
     },
     itemsContainerStyle: {
-        maxHeight: 140
+        maxHeight: 140,
+        // flex: 1,
+    },
+    addingIngredient: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginRight: 10,
     },
 
 });
