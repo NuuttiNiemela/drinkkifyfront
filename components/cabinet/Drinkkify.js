@@ -78,15 +78,17 @@ class Drinkkify extends Component {
         }
 
         return (
-            <ImageBackground
-                source={require('./cocktail.jpg')}
-                style={{height:'100%', flexDirection: 'column', justifyContent:'center', alignItems:'center', marginRight: '10%', marginLeft: '10%',}}
-            >
             <View
-                style={{flex: 1, padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black', textAlign: 'center', width: '100%', height:'100%' }}>
+                // style={{flexDirection: 'row', justifyContent: 'space-between',}}>
+                style={{flexDirection: 'column', justifyContent: 'space-between', padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black', textAlign: 'center', width: '100%', height:'100%' }}>
+<View>
+    <Image source={require('./cocktailrow.jpg')}
+           style={{width: 350, height: 85}}/>
+</View>
                 <FlatList
+                    // marginLeft={80}
                     marginTop={50}
-                    style={{backgroundColor: 'rgba(255, 255, 255, 0.5)',}}
+                    // style={{backgroundColor: 'rgba(225, 225, 225, 0.5)',}}
                     data={this.state.drinks}
                     renderItem={({item}) =>
                         <DrinkDetails
@@ -99,10 +101,16 @@ class Drinkkify extends Component {
                     ItemSeparatorComponent={this.renderSeparator}
                     keyExtractor={({id}) => id.toString()}
                     color={"#F6C213"}
-
                 />
+                {/*<View>*/}
+                {/*    <Image source={require('./cocktailrow.jpg')}*/}
+                {/*           style={{width: 350, height: 85}}/>*/}
+                {/*    <Image*/}
+                {/*        source={require('./cocktailcolumn.jpg')}*/}
+                {/*        style={{width: 50, height: 500, flex: 1, paddingLeft: '5%',}}*/}
+                {/*    />*/}
+                {/*</View>*/}
             </View>
-            </ImageBackground>
 
         );
     }

@@ -13,7 +13,7 @@ import {
 import firebase from "react-native-firebase";
 import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
-import {Icon} from "react-native-elements";
+import {Icon, Image} from "react-native-elements";
 import MenuButton from "../navigation/MenuButton";
 
 
@@ -59,12 +59,13 @@ class Cabinet extends Component {
 
     renderComponent = () => {
         return(
-            <ImageBackground
-                source={require('./Cocktail-List.jpg')}
-                style={{width:'80%', height: '10%', flexDirection: 'column', alignContent:'center', marginLeft: '10%', marginRight:'10%'}}
-            >
-
-            <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center', marginLeft:'10%', marginRight:'10%',}}>
+            <View style={{flexDirection: 'column', justifyContent: 'space-between', marginLeft:'5%', marginTop: '10%' }}>
+            <View>
+            <Image
+                source={require('./cocktailrow.jpg')}
+                style={{width:360, height: 85, marginRight: 40}}
+            />
+            </View>
 
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
@@ -72,7 +73,7 @@ class Cabinet extends Component {
                 </TouchableOpacity>
 
             </View>
-            </ImageBackground>
+
 
 
         )
@@ -152,8 +153,8 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     buttonDrinkkify: {
-        // justifyContent: 'center',
-        // alignSelf: 'flex-end',
+        justifyContent: 'center',
+        alignSelf: 'center',
         backgroundColor: 'white',
         borderWidth: 4,
         borderRadius: 110/ 2,
@@ -168,7 +169,9 @@ const styles = StyleSheet.create({
         height: 110,
         elevation: 5,
         position: 'relative',
-        marginTop: 140,
+        marginRight: 30,
+        marginTop: 20,
+        // marginLeft: 10
     },
     buttonSignOut: {
         justifyContent: 'center',
