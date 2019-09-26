@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView} from 'react-native';
+import {Modal, StyleSheet, Text, TouchableHighlight, View, Alert, ScrollView,} from 'react-native';
 /*import {Colors} from "react-native/Libraries/NewAppScreen";
 import * as Animatable from 'react-native-animatable';*/
 import { material } from 'react-native-typography'
 import Ingredient from "./Ingredient";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 
@@ -62,7 +63,10 @@ export class DrinkDetails extends Component {
                     onPress={() => {
                         this.setModalVisible(true);
                     }}>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: '5%',}}>
                     <Text style={styles.sectionDescription}>{this.props.name}</Text>
+                    <Icon name='angle-right' size={25} color='grey' style={{marginTop: '6%', marginRight: '5%',}}/>
+                    </View>
                 </TouchableHighlight>
             </View>
         );

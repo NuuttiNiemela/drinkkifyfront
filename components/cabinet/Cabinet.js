@@ -8,11 +8,12 @@ import {
     ScrollView,
     Flex,
     TouchableHighlight,
+    ImageBackground
 } from 'react-native';
 import firebase from "react-native-firebase";
 import {getCabinet, getAllIngredients, addToCabinet, removeFromCabinet} from "../../Serviceclient";
 import CabinetIngredient from "./CabinetIngredient";
-import {Icon} from "react-native-elements";
+import {Icon, Image} from "react-native-elements";
 import MenuButton from "../navigation/MenuButton";
 
 
@@ -58,12 +59,13 @@ class Cabinet extends Component {
 
     renderComponent = () => {
         return(
-        <View style={{backgroundColor: 'white'}}>
+            <View style={{flexDirection: 'column', justifyContent: 'space-between', marginLeft:'5%', marginTop: '10%' }}>
             <View>
-                <Text style={styles.textStyle}>Welcome to Drinkkify {this.state.currentUser && this.state.currentUser.email}!</Text>
-                <Text>{"\n"}</Text>
+            <Image
+                source={require('./cocktailrow.jpg')}
+                style={{width:360, height: 85, marginRight: 40}}
+            />
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center', marginLeft:'10%', marginRight:'10%',}}>
 
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
@@ -71,11 +73,14 @@ class Cabinet extends Component {
                 </TouchableOpacity>
 
             </View>
-            </View>
+
+
+
         )
     }
 
     render() {
+
 
             const ingredientrows = this.state.cabinetIngredients
                 .map((ingredient) => {
@@ -83,6 +88,7 @@ class Cabinet extends Component {
                 });
 
         return (
+
             <View>
             <ScrollView
                 stickyHeaderIndices={[0]}
@@ -96,12 +102,15 @@ class Cabinet extends Component {
             </View>
 
                 <TouchableOpacity
+                    style={{flexDirection: 'row', justifyContent: 'center', marginTop: '5%', marginBottom: '10%'}}
                     onPress={() => this.props.navigation.navigate('Add Ingredient')}>
-                    <Text style={{textAlign: 'center'}} >Add Ingredient</Text>
+                    <Text style={styles.buttonAdd}>{"\n"}Add Ingredient</Text>
                 </TouchableOpacity>
 
             </ScrollView>
+
             </View>
+
         );
     }
 }
@@ -115,6 +124,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         color: '#698D3F',
         fontFamily: 'Roboto-Black',
+        // backgroundColor: 'white'
     },
     scrollView: {
         backgroundColor: 'white',
@@ -126,54 +136,57 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         margin: 12,
     },
-    buttonSignOut: {
-        justifyContent: 'center',
-        backgroundColor: '#EBEEF3',
-        // borderWidth: 3,
-        borderRadius: 80/ 2,
-        // borderColor: '#E6C2BF',
-        color: '#698D3F',
-        fontFamily: 'Roboto-Black',
-        fontSize: 14,
-        padding: 5,
-        textAlign:'center',
-        fontWeight: 'bold',
-        width: 80,
-        height: 80,
-        elevation: 5,
-        position: 'relative',
-    },
     buttonAdd: {
-        justifyContent: 'center',
-        backgroundColor: '#F6E2AD',
-        // borderWidth: 3,
-        borderRadius: 80/ 2,
-        // borderColor: '#E6C2BF',
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderRadius: 90/ 2,
+        borderColor: '#F6C213',
         color: '#698D3F',
         fontFamily: 'Roboto-Black',
         fontSize: 14,
-        padding: 5,
+        padding: 6,
         textAlign:'center',
         fontWeight: 'bold',
-        width: 80,
-        height: 80,
+        width: 90,
+        height: 90,
         elevation: 5,
         position: 'relative',
     },
     buttonDrinkkify: {
         justifyContent: 'center',
-        backgroundColor: '#F8DA74',
-        // borderWidth: 4,
-        borderRadius: 120/ 2,
-        // borderColor: '#F6C213',
-        color: 'white',
+        alignSelf: 'center',
+        backgroundColor: 'white',
+        borderWidth: 4,
+        borderRadius: 110/ 2,
+        borderColor: '#698D3F',
+        color: '#F6C213',
         fontFamily: 'Roboto-Black',
-        fontSize: 25,
+        fontSize: 23,
         padding: 5,
         textAlign:'center',
-        // fontWeight: 'bold',
-        width: 120,
-        height: 120,
+        fontWeight: 'bold',
+        width: 110,
+        height: 110,
+        elevation: 5,
+        position: 'relative',
+        marginRight: 30,
+        marginTop: 20,
+        // marginLeft: 10
+    },
+    buttonSignOut: {
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        borderRadius: 60/ 2,
+        borderColor: '#698D3F',
+        color: '#698D3F',
+        fontFamily: 'Roboto-Black',
+        fontSize: 14,
+        padding: 5,
+        textAlign:'center',
+        fontWeight: 'bold',
+        width: 60,
+        height: 60,
         elevation: 5,
         position: 'relative',
     },

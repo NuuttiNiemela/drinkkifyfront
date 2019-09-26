@@ -10,6 +10,7 @@ import {Image} from "react-native-elements";
 import MenuButton from "./MenuButton";
 import React from "react";
 
+
 const CabinetStack = createStackNavigator({
         Cabinet: DrawerJee,
     },
@@ -22,10 +23,9 @@ const CabinetStack = createStackNavigator({
             headerTintColor: '#696D3F',
             title: '',
             headerBackground:
-
                 <Image
                     source={require('../Drinkkify.png')}
-                    style={{width:'50%', height:46, marginTop:'2%', marginLeft: '2%',}}
+                    style={{width:'50%', height: 46, marginTop:'2%', marginLeft: '2%',}}
                 />,
             headerRight: <MenuButton />
 
