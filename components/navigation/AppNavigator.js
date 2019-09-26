@@ -42,7 +42,7 @@ const AppNavigator = createStackNavigator({
 
                 <Image
                     source={require('../Drinkkify.png')}
-                    style={{width:'50%', height:'85%', marginTop:'2%', marginLeft: '30%'}}
+                    style={{width:'50%', height:46, marginTop:'2%', marginLeft: '2%'}}
                 />
         }
 });
@@ -76,7 +76,7 @@ const CabinetNavigator = createStackNavigator({
 
                 <Image
                     source={require('../Drinkkify.png')}
-                    style={{width:'40%', height:36, marginTop:'2%', marginLeft: '60%',}}
+                    style={{width:'40%', height:36, marginTop:'2%', marginLeft: '6%',}}
                 />,
             headerRight: <MenuButton/>
 
