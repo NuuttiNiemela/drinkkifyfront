@@ -24,7 +24,8 @@ const DrawerMenu = createDrawerNavigator({
     {
         contentComponent: (props) => (
             <View>
-                <DrawerNavigatorItems {...props} />
+                <DrawerNavigatorItems
+                    {...props} />
                 <Button
                     title="Logout"
                     onPress={async () => {
@@ -34,6 +35,14 @@ const DrawerMenu = createDrawerNavigator({
                 />
             </View>
         ),
+        contentOptions: {
+           activeTintColor: '#698D3F',
+            inactiveTintColor: 'black',
+            labelStyle: {
+               fontFamily: 'roboto-black',
+                fontSize: 18,
+            },
+        },
         drawerWidth: WIDTH*0.6,
         drawerPosition: "right",
 

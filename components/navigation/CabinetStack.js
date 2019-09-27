@@ -27,7 +27,8 @@ const CabinetStack = createStackNavigator({
                     source={require('../Drinkkify.png')}
                     style={{width:'50%', height: 46, marginTop:'2%', marginLeft: '2%',}}
                 />,
-            headerRight: <MenuButton />
+            headerRight:
+                <MenuButton />
 
 
         })

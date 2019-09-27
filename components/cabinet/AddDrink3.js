@@ -452,31 +452,33 @@ class AddDrink3 extends Component {
         return (
 
                   <Fragment>
-                      {/*<ScrollView style={{flex: 1}} nestedScrollEnabled={true} scrollEnabled={false} keyboardShouldPersistTaps="handled" >*/}
+                      <ScrollView style={{flex: 1}} nestedScrollEnabled={true} scrollEnabled={true} keyboardShouldPersistTaps="handled" >
                         <TextInput
                             // style={styles.textInput}
+                            style={{fontSize: 16, marginLeft: '10%'}}
                             autoCapitalize="none"
-                            placeholder="Drink name"
+                            placeholder="Type drink's name here"
                             onChangeText={name => this.setState({ name })}
                             value={this.state.name}/>
                         <TextInput
+                            style={{fontSize: 16, marginLeft: '10%'}}
                             autoCapitalize="none"
-                            placeholder="Instructions"
+                            placeholder="Type drink instructions here"
                             onChangeText={instructions => this.setState({ instructions })}
                             value={this.state.instructions}
                         />
-
+                          <Text>{"\n"}</Text>
                         {newArray}
 
                         <View style={{flex: 1}}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft:'10%', marginRight:'10%',}}>
                                 <TouchableHighlight
                                     onPress={this.addMore}>
-                                    <Text style={styles.buttonStyle}>{"\n"}Add Ingredient</Text>
+                                    <Text style={styles.buttonStyle}>{"\n"}Add{"\n"}Ingredient</Text>
                                 </TouchableHighlight>
 
                                 <TouchableOpacity onPress={this.send}>
-                                    <Text style={styles.buttonStyle}>{"\n"} Add Drink</Text>
+                                    <Text style={styles.buttonStyle}>{"\n"}Add {"\n"} Drink</Text>
                                 </TouchableOpacity>
 
                                 <TouchableHighlight
@@ -488,8 +490,8 @@ class AddDrink3 extends Component {
 
                             </View>
                         </View>
-                  {/*</ScrollView>*/}
-                  </Fragment>
+                  </ScrollView>
+                   </Fragment>
         );
     }
 }
@@ -498,27 +500,27 @@ const styles = StyleSheet.create({
 
     buttonStyle: {
         justifyContent: 'center',
-        backgroundColor: '#B2C8D4',
-        // borderWidth: 3,
-        borderRadius: 80/ 2,
-        // borderColor: '#E6C2BF',
-        color: 'white',
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderRadius: 90/ 2,
+        borderColor: '#B2C8D4',
+        color: '#B2C8D4',
         fontFamily: 'Roboto-Black',
-        fontSize: 14,
+        fontSize: 16,
         padding: 5,
         textAlign:'center',
         fontWeight: 'bold',
-        width: 80,
-        height: 80,
+        width: 90,
+        height: 90,
         elevation: 5,
         position: 'relative',
     },
-    // inputStyle: {
-    //     padding: 12,
-    //     borderWidth: 1,
-    //     borderColor: '#ccc',
-    //     borderRadius: 5
-    // },
+    inputStyle: {
+        padding: 12,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 5
+    },
     itemStyle: {
         padding: 10,
         marginTop: 2,

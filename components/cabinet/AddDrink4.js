@@ -402,14 +402,15 @@ class AddDrink extends Component {
                 >
                     <Fragment>
                     <TextInput
-                        // style={styles.textInput}
+                        style={styles.textInput}
+                        style={{fontSize: 18, marginLeft: '10%'}}
                         autoCapitalize="none"
-                        placeholder="Drink name"
+                        placeholder="Type drink's name here"
                         onChangeText={name => this.setState({ name })}
                         value={this.state.name}/>
                     <TextInput
                         autoCapitalize="none"
-                        placeholder="Instructions"
+                        placeholder="Type drink's instructions"
                         onChangeText={instructions => this.setState({ instructions })}
                         value={this.state.instructions}
                     />
@@ -454,11 +455,11 @@ const styles = StyleSheet.create({
 
     buttonStyle: {
         justifyContent: 'center',
-        backgroundColor: '#B2C8D4',
-        // borderWidth: 3,
+        backgroundColor: 'white',
+        borderWidth: 3,
         borderRadius: 80/ 2,
-        // borderColor: '#E6C2BF',
-        color: 'white',
+        borderColor: '#B2C8D4',
+        color: '#B2C8D4',
         fontFamily: 'Roboto-Black',
         fontSize: 14,
         padding: 5,
@@ -469,12 +470,12 @@ const styles = StyleSheet.create({
         elevation: 5,
         position: 'relative',
     },
-    // inputStyle: {
-    //     padding: 12,
-    //     borderWidth: 1,
-    //     borderColor: '#ccc',
-    //     borderRadius: 5
-    // },
+    inputStyle: {
+        padding: 12,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 5
+    },
     itemStyle: {
         padding: 10,
         marginTop: 2,

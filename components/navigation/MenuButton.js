@@ -7,6 +7,7 @@ class MenuButton extends Component {
     render() {
         return (
             <Icon
+                
                 name="menu"
                 onPress={() =>{this.props.navigation.toggleDrawer()}}
             />

@@ -32,21 +32,20 @@ class AddableIngredient extends Component {
 }
 const styles = StyleSheet.create({
 
-    ingredientStyle: {
-        fontSize: 18,
-        color: 'black',
-        margin: 10,
-    },
     lineStyle: {
-        borderWidth: 0.5,
-        borderColor: 'black',
+        borderWidth: 0.6,
+        borderColor: '#698D3F',
         margin: 10,
+        marginLeft: '10%',
+        marginRight: '10%'
     },
     viinaStyle: {
         fontFamily: 'Roboto-Black',
         fontSize: 20,
         textAlign: 'left',
         margin: 12,
+        paddingLeft: '10%',
+        // paddingRight: '8%'
     },
 });
 export default AddableIngredient;
