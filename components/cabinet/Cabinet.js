@@ -68,6 +68,7 @@ class Cabinet extends Component {
             </View>
 
                 <TouchableOpacity
+                    style={{backgroundColor: 'white'}}
                     onPress={() => this.props.navigation.navigate('Drinkkify')}>
                     <Text style={styles.buttonDrinkkify}>{"\n"}Drinkkify</Text>
                 </TouchableOpacity>

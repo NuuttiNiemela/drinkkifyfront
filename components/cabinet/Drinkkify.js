@@ -3,7 +3,7 @@ import {View, Text, ActivityIndicator, FlatList, List, TouchableOpacity, StyleSh
 import firebase from "react-native-firebase";
 import {drinkkify, getSomething} from "../../Serviceclient";
 import DrinkDetails from "../DrinkDetails";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+// import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from "react-native-elements";
 import _ from "lodash";
 
@@ -80,11 +80,19 @@ class Drinkkify extends Component {
         return (
             <View
                 // style={{flexDirection: 'row', justifyContent: 'space-between',}}>
-                style={{flexDirection: 'column', justifyContent: 'space-between', padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black', textAlign: 'center', width: '100%', height:'100%' }}>
-<View>
-    <Image source={require('./cocktailrow.jpg')}
-           style={{width: 350, height: 85}}/>
-</View>
+                style={{flexDirection: 'row', justifyContent: 'space-between', padding: 30, color: '#F6C213', fontFamily: 'Roboto-Black', textAlign: 'center', width: '100%', height:'100%' }}>
+{/*<View>*/}
+{/*    <Image source={require('./cocktailrow.jpg')}*/}
+{/*           style={{width: 350, height: 85}}/>*/}
+{/*</View>*/}
+                <View>
+                    {/*<Image source={require('./cocktailrow.jpg')}*/}
+                    {/*       style={{width: 350, height: 85}}/>*/}
+                    <Image
+                        source={require('./cocktailcolumn.jpg')}
+                        style={{width: 50, height: 500, flex: 1, paddingLeft: '5%',}}
+                    />
+                </View>
                 <FlatList
                     // marginLeft={80}
                     marginTop={50}
@@ -102,14 +110,7 @@ class Drinkkify extends Component {
                     keyExtractor={({id}) => id.toString()}
                     color={"#F6C213"}
                 />
-                {/*<View>*/}
-                {/*    <Image source={require('./cocktailrow.jpg')}*/}
-                {/*           style={{width: 350, height: 85}}/>*/}
-                {/*    <Image*/}
-                {/*        source={require('./cocktailcolumn.jpg')}*/}
-                {/*        style={{width: 50, height: 500, flex: 1, paddingLeft: '5%',}}*/}
-                {/*    />*/}
-                {/*</View>*/}
+
             </View>
 
         );
